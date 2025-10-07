@@ -384,6 +384,11 @@
                     <div class="text-sm uppercase font-semibold text-[#2A4E38]">Google Pixel (Private Beta)</div>
                     <h1 class="text-4xl md:text-5xl font-bold mt-2">Guided Step</h1>
                 </div>
+
+                <div class="bg-gray-100 border-l-4 border-gray-400 p-4 rounded-r-lg mb-12">
+                    <p class="text-sm italic text-gray-700"><strong class="font-semibold">Please Note:</strong> This case study details a private research beta that is not a publicly available product. The findings have been approved for public sharing by Google and were also submitted in a formal paper for presentation at the CHI 2026 conference.</p>
+                </div>
+
                 <!-- Hero Image -->
                 <div class="mb-12 flex justify-center">
                     <div class="phone-mockup" style="max-width: 320px;">
@@ -415,11 +420,27 @@
                     
                     <h2 class="mt-12 font-bold text-2xl">Key Learnings: The Three Pillars</h2>
                     <p>The extensive co-design process revealed three foundational pillars for designing this kind of assistive technology:</p>
-                    <ol>
-                        <li><strong>Comprehensive Onboarding:</strong> For a tool that could be harmful if misused, building trust and proficiency from the very first second was non-negotiable.</li>
-                        <li><strong>Minimalist UI:</strong> To optimize for screen readers, we eliminated submenus and focused on a simple, easily scanned interface.</li>
-                        <li><strong>Full Customization:</strong> Every user had a different preference for the type and intensity of audio feedback. A highly customizable experience was essential.</li>
-                    </ol>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 my-8">
+                        <!-- Pillar 1: Onboarding -->
+                        <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+                            <svg class="w-12 h-12 mx-auto text-[#2A4E38] mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h4 class="font-bold text-lg mb-2">Comprehensive Onboarding</h4>
+                            <p class="text-gray-600 text-sm">For a tool that could be harmful if misused, building trust and proficiency from the first second was non-negotiable.</p>
+                        </div>
+                        <!-- Pillar 2: Minimalist UI -->
+                        <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+                            <svg class="w-12 h-12 mx-auto text-[#2A4E38] mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+                            <h4 class="font-bold text-lg mb-2">Minimalist UI</h4>
+                            <p class="text-gray-600 text-sm">To optimize for screen readers, we eliminated submenus and focused on a simple, scannable interface.</p>
+                        </div>
+                        <!-- Pillar 3: Customization -->
+                        <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+                            <svg class="w-12 h-12 mx-auto text-[#2A4E38] mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <h4 class="font-bold text-lg mb-2">Full Customization</h4>
+                            <p class="text-gray-600 text-sm">Each user preferred a different intensity and type of audio feedback, making a highly customizable experience essential.</p>
+                        </div>
+                    </div>
                     
                     <h2 class="mt-12 font-bold text-2xl">The Impact: Validated Learnings</h2>
                     <p>While Guided Step did not move into production, its impact was validated in an experimental study with 20 BLV participants. The study, submitted for presentation at the CHI 2026 conference, demonstrated that the app significantly improved navigation safety and confidence.</p>
