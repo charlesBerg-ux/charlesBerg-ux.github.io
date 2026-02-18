@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Home Lights System Case Study - Charles Berg</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2215%22 fill=%22%232A4E38%22/><text y=%2255%25%22 x=%2250%25%22 font-size=%2250%22 fill=%22%23F2EADF%22 text-anchor=%22middle%22 dominant-baseline=%22central%22 font-family=%22sans-serif%22 font-weight=%22bold%22>CB</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Funnel Sans', sans-serif; }
+    </style>
+</head>
+<body class="text-gray-900" style="background-color: #F2EADF;">
+
+    <!-- Navigation -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
+        <nav class="container mx-auto px-6 py-6 flex justify-between items-center">
+            <a href="portfolio.html" class="text-2xl font-bold text-gray-900 tracking-tight">Charles Berg</a>
+            <ul class="flex items-center space-x-8">
+                <li><a href="portfolio.html#work" class="text-gray-600 hover:text-gray-900 font-medium text-lg">Work</a></li>
+                <li><a href="portfolio.html#about" class="text-gray-600 hover:text-gray-900 font-medium text-lg">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-16 md:py-24">
+        <a href="portfolio.html" class="mb-8 inline-block text-[#2A4E38] font-semibold">&larr; Back to all projects</a>
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="text-sm uppercase font-bold text-[#2A4E38] tracking-widest mb-2">Google Home</div>
+                <h1 class="text-5xl md:text-6xl font-bold mt-2 text-gray-900">Google Home Lights System</h1>
+            </div>
+
+            <div class="mb-16 flex justify-center">
+                <!-- Visual: The 4-Dot LED Language -->
+                <div class="w-full max-w-2xl aspect-video bg-gray-300 rounded-2xl flex items-center justify-center overflow-hidden shadow-xl" style="background-color: #847F79;">
+                    <span class="text-white text-xl font-bold tracking-wide">Visual: The 4-Dot LED Language</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 border-y border-gray-200 py-8">
+                <div><h3 class="font-bold text-lg text-[#2A4E38] mb-1">Role</h3><p class="text-lg">Senior UX Designer</p></div>
+                <div><h3 class="font-bold text-lg text-[#2A4E38] mb-1">Skill</h3><p class="text-lg">Systems Thinking</p></div>
+                <div><h3 class="font-bold text-lg text-[#2A4E38] mb-1">Impact</h3><p class="text-lg">25M+ Devices, Numerous Red Dot Awards</p></div>
+            </div>
+
+            <div class="prose prose-lg max-w-none text-gray-800">
+                <h2 class="font-bold text-3xl mb-6 text-gray-900">The Challenge</h2>
+                <p class="mb-6">How do you communicate complex device states—listening, thinking, responding, muted, errors—on screenless hardware? I pioneered the 4-dot LED lighting pattern that is now the global standard for the Google Home and Nest ecosystem.</p>
+                <p class="mb-8">The 4-dot system wasn't just an aesthetic choice; it was determined by strict bounds of cost and industrial design. We had to create a rich, expressive language within these tight hardware constraints.</p>
+
+                <h2 class="mt-16 font-bold text-3xl mb-6 text-gray-900">Fending Off Complexity</h2>
+                <p class="mb-6">We had a previous Google Home model that utilized 12 lights. While beautiful, experience taught us that 12 lights offered <em>too much</em> expressiveness, often confusing the user. For this system, we needed to focus on a few key states—essentially the moments <em>before</em> the speaker spoke—to confirm that the device heard the request and was processing it. While lights during speech completed the sequence, they were secondary to the spoken response.</p>
+                <p class="mb-8">Cognitive load was also a major factor. Research shows that humans are generally poor at decoding complex non-verbal signals (hence why icon labels remain standard for most interfaces). We deliberately limited the system to as few patterns as possible to ensure clarity and reduce mental effort.</p>
+
+                <h2 class="mt-16 font-bold text-3xl mb-6 text-gray-900">Non-Verbal Semantics</h2>
+                <p class="mb-8">To create a language that required zero user manual, we relied on high-contrast states. We avoided color almost entirely to maintain simplicity, reserving it only for extreme edge cases: Amber for "mic off" and Red for "manufacturer error" (on startup). Instead, we used motion and rhythm—like a "breathing" pulse for thinking—to create an instant, universal mental model that works across languages and ages.</p>
+
+                <div class="bg-[#F0F5F2] border-l-4 border-[#2A4E38] p-8 rounded-xl my-10">
+                    <p class="text-4xl font-bold text-[#172D1F] mb-1">25M+ Speakers</p>
+                    <p class="text-[#2A4E38] font-medium">Pioneered the standard non-verbal UI across all hardware generations.</p>
+                </div>
+
+                <blockquote class="border-l-4 border-gray-300 pl-6 italic my-8 text-xl text-gray-700">
+                    <p class="mb-4">"The 4-dot system is a masterclass in functional minimalism, communicating state through light as effectively as a screen."</p>
+                    <cite class="not-italic text-gray-500 text-sm font-semibold block">— Red Dot Design Award Commentary</cite>
+                </blockquote>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-20 md:mt-32">
+        <div class="container mx-auto px-6 py-12 text-center text-gray-500">
+             <p>&copy; 2025 Charles Berg. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
