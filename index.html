@@ -646,6 +646,16 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
+
+            /* Restore horizontal padding overridden by section padding shorthands */
+            .hero,
+            .more-projects,
+            .recognition,
+            .expertise,
+            .about {
+                padding-left: clamp(1.5rem, 4vw, 3rem);
+                padding-right: clamp(1.5rem, 4vw, 3rem);
+            }
         }
 
         /* ============================================
