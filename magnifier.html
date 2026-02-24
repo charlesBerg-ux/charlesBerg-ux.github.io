@@ -337,6 +337,30 @@
         }
         .footer-links a:hover { color: var(--color-text-primary); }
 
+        /* Inline prose links */
+        .prose a {
+            color: var(--color-accent-warm);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            transition: color var(--transition-default);
+        }
+        .prose a:hover { color: var(--color-accent-warm-hover); }
+
+        /* Intro overview */
+        .intro-section {
+            margin-bottom: var(--space-lg);
+        }
+        .intro-section h2 {
+            font-size: 0.8125rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--color-accent-green);
+            margin-bottom: 0.75rem;
+        }
+        .intro-section p {
+            font-size: 1.125rem; line-height: 1.75;
+            color: var(--color-text-secondary); font-weight: 500;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .meta-grid { grid-template-columns: 1fr 1fr; }
@@ -374,6 +398,11 @@
                     <div class="case-company">Google Pixel</div>
                     <h1 class="case-title">Pixel Magnifier</h1>
                 </header>
+
+                <!-- Overview / lead-in -->
+                <section class="intro-section">
+                    <p>Low vision users rely on their phone's camera to read the world — menus, medication labels, mail. Pixel had a magnifier app. It just wasn't good enough. We rebuilt it from the ground up around how low vision users actually hold and use their phones — and shipped the highest-rated accessibility app on Google Play.</p>
+                </section>
 
                 <!-- Outcome hook — Minto Pyramid -->
                 <div class="outcome-hook" role="region" aria-label="Project outcome">
@@ -426,6 +455,17 @@
                     <h2 class="section-heading">Design & Iteration</h2>
                     <p>The "close-up perspective" insight completely changed our design approach. We initially explored placing controls across the screen, similar to the main Camera app. Testing showed this was unusable for our target audience. We pivoted to a design that clustered all core functionality in a small, predictable area at the bottom of the screen. While it might look "unbalanced" to a normally-sighted person, it proved far more accessible for low-vision users.</p>
 
+                    <div class="figure">
+                        <div class="figure-phone">
+                            <div class="phone-mockup">
+                                <div class="screen">
+                                    <img src="assets2025/Magnifier/v1.png" alt="Original Magnifier app showing Reset Zoom as the primary action, with settings and gallery icons at opposite ends of the bottom bar">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="figure-caption">The original Magnifier gave prime real estate to "Reset zoom" — a low-frequency action — while scattering higher-value controls across the full width of the screen. For a user with system magnification at maximum, the settings icon and gallery icon were effectively on opposite ends of the world.</p>
+                    </div>
+
                     <div class="evolution-grid" role="region" aria-label="Design evolution">
                         <div class="evolution-card">
                             <div class="evolution-badge rejected">
@@ -465,7 +505,23 @@
                         </div>
                     </div>
 
-                    <p>This solved the UI layout problem, but it didn't solve the core challenge of scanning dense real-world text. We couldn't reformat a restaurant menu or reorganize a grocery aisle for the user. Our solution was a powerful live search feature. Instead of manually scanning edge-to-edge, users could type a word — like a dish on a menu or a specific spice — and have Magnifier instantly highlight it in the viewfinder.</p>
+                    <h2 class="section-heading">Designing Against Assumptions</h2>
+                    <p>The bottom-clustered layout was the right solution for our users. It was not an easy sell internally.</p>
+                    <p>Google has strong design system standards — expressive typography, visual curves, and a preference for the top app bar as the home for overflow controls. These conventions exist for good reasons and work well across most Android apps. Our research showed they didn't work for Magnifier's users.</p>
+                    <p>Low vision users hold the phone inches from their face, often with system-wide magnification already at maximum. At that distance, a button at the top of the screen isn't just inconvenient — it requires physically traversing the entire display, multiple swipes just to reach a control. Distributing UI elements across the screen the way a standard Android app might was effectively hiding features from the people who needed them most.</p>
+                    <p>The argument that moved leadership wasn't a design rationale. It was video. We brought session recordings that showed, concretely, how close users hold the phone — the physical reality of interacting with a screen at 2× system magnification. Seeing it made the abstract argument unnecessary. The bottom-clustered layout wasn't a deviation from good design. It was what good design looked like for this user.</p>
+
+                    <h2 class="section-heading">Live Search</h2>
+                    <p>Solving the layout got low vision users to the controls. It didn't solve what they were trying to do once they got there.</p>
+                    <p>The core task — scanning a dense real-world document like a restaurant menu or a prescription label — still required physically sweeping the phone across the page, line by line. We couldn't reformat the menu. We couldn't reorganize the grocery aisle. But we could eliminate the scanning problem entirely.</p>
+                    <p>Live Search lets users type any word — a dish name, a price, an ingredient — and Magnifier instantly highlights it in the camera view. The physical world stays exactly as it is; the app finds what you're looking for within it.</p>
+                    <p>The design challenge wasn't just the feature — it was the interaction pattern. Search behavior varies across Android apps, and we didn't want users to have to learn a new paradigm on top of everything else. We audited search across Google's own ecosystem and landed on YouTube's pattern as the closest model: familiar to a wide audience, optimized for quick repeated lookups, and adaptable to Magnifier's one-handed use context.</p>
+                    <p>The response from accessibility organizations — and from users — was immediate. One user expressed excitement about the live search:</p>
+
+                    <blockquote class="quote">
+                        <p>"Found it right away. And how easy could that be? That, I mean, that is awesome. That is convenient."</p>
+                        <cite>User Research Participant</cite>
+                    </blockquote>
 
                     <div class="figure">
                         <div class="figure-phone">
@@ -478,25 +534,22 @@
                         <p class="figure-caption">The final Live Search feature in action — users type any word and Magnifier highlights it instantly in the camera view, eliminating the need to manually scan.</p>
                     </div>
 
-                    <h2 class="section-heading">Design Considerations</h2>
-                    <p>A key challenge was convincing leadership that this unconventional, bottom-heavy layout was the right decision. We also had to standardize the "search" interaction, auditing various Google apps like YouTube to create a pattern that was both familiar and optimized for repeated use within Magnifier.</p>
-
                     <h2 class="section-heading">Solution & Impact</h2>
                     <p>The final app provides powerful magnification, filters, and a unique live search feature — all accessible from a simple, consolidated control panel. The launch was a milestone for Pixel's accessibility commitment.</p>
 
                     <div class="callout" role="region" aria-label="Key outcome">
                         <div class="callout-metric">4.8 Star Rating</div>
-                        <div class="callout-detail">The highest-rated app on the Google Play Store.</div>
+                        <div class="callout-detail">The highest-rated app on the Google Play Store — with 154,000 monthly active users.</div>
                     </div>
 
                     <blockquote class="quote">
                         <p>"This is (ahem) magnificent... I have it set up so two taps on the back of the phone open the magnifier, and I use it nearly every day."</p>
                         <cite>Ron Lusk — 5-star Play Store Review</cite>
                     </blockquote>
-                    <blockquote class="quote">
-                        <p>"One user expressed excitement that the live search 'found it right away. And how easy could that be? That, I mean, that is awesome. That is convenient.'"</p>
-                        <cite>Internal User Research Participant</cite>
-                    </blockquote>
+
+                    <h2 class="section-heading">What I'd Take Forward</h2>
+                    <p>Magnifier taught me that the most important accessibility research happens before you open Figma. The close-up perspective insight — watching how users physically hold the phone — changed the entire design direction. No amount of pattern library review would have surfaced it.</p>
+                    <p>That kind of grounded, user-led process is what I bring to consulting engagements. If you're building products for disabled users or older adults and want a collaborator who's done this work at scale, <a href="mailto:crberg@gmail.com">I'd like to hear about what you're working on</a>.</p>
 
                 </article>
             </div>
