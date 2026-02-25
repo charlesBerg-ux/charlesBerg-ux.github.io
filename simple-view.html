@@ -116,6 +116,9 @@
         .callout-metric { font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 800; color: var(--color-accent-green-dark); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 0.375rem; }
         .callout-detail { font-size: 1rem; color: var(--color-accent-green); font-weight: 500; }
 
+        .prose a { color: var(--color-accent-warm); text-decoration: underline; text-underline-offset: 3px; transition: color var(--transition-default); }
+        .prose a:hover { color: #A84D25; }
+
         .quote { border-left: 4px solid var(--color-border); padding-left: var(--space-md); margin: var(--space-lg) 0; }
         .quote p { font-size: 1.125rem; font-style: italic; color: var(--color-text-secondary); line-height: 1.65; margin-bottom: 0.75rem; }
         .quote cite { font-size: 0.875rem; font-style: normal; color: var(--color-text-tertiary); font-weight: 600; }
@@ -207,23 +210,28 @@
                 <article class="prose">
 
                     <h2 class="section-heading">The Challenge</h2>
-                    <p>While Pixel sales were strong in Japan, we were missing a large segment of the market: older adults. Research showed this demographic found parts of the standard smartphone experience complex and visually overwhelming. Our goal was to create an inviting and accessible "front door" to the Pixel to drive adoption — without making users feel singled out or stigmatized.</p>
+                    <p>Pixel was performing well in Japan, but we were missing a large and growing segment of the market: older adults. The assumption going in was that the problem was complexity — that the standard smartphone experience was simply too much. What research revealed was more interesting, and more actionable than that.</p>
 
                     <h2 class="section-heading">Discovery & Research</h2>
-                    <p>We conducted extensive research in Japan, interviewing older adults, consulting with academics on aging, and visiting a company dedicated to helping seniors with technology. A key insight emerged: older adults needed increased legibility but didn't think of themselves as "disabled," so they were reluctant to dig into Accessibility settings. They needed a simple, mainstream option — not a workaround.</p>
+                    <p>We conducted research across Japan — interviewing older adults, consulting with academics on aging, and visiting an organization dedicated to helping seniors navigate technology. What we found upended the premise of the project.</p>
+                    <p>These users weren't struggling with capability. They were struggling with confidence. At the senior technology center, most attendees were genuinely phone-literate — they used their phones regularly and well. What they wanted wasn't a simplified phone. They wanted reassurance. Sessions were full of "I did this — is that okay?" The answer was almost always yes. They just needed someone to confirm it.</p>
+                    <p>One woman's story captured it perfectly. She loved going to the theater. She'd use her phone to browse what was playing, choose a show, map the route, and make a restaurant reservation for after. But she wouldn't buy the tickets online. She'd walk to the local convenience store to complete that transaction in person. The phone wasn't the barrier. Trust in irreversible actions was. She didn't need a simpler phone — she needed a clearer, more legible one that didn't make her second-guess herself.</p>
+                    <p>This reframed the entire design brief. The goal wasn't to reduce what the phone could do. It was to make what the phone did feel legible, predictable, and safe — especially for first-time interactions. And critically: older adults in Japan didn't think of themselves as disabled or in need of special accommodations. They would never seek out a setting labeled "Accessibility." Whatever we built had to feel like a mainstream choice, not a workaround.</p>
 
                     <div class="figure">
                         <div class="figure-image">
                             <img src="assets2025/SimpleView/UserResearch.jpg" alt="Photo of a focus group session with older adults in Japan, seated around a table discussing smartphone use">
                         </div>
-                        <p class="figure-caption">Conducting a focus group with older adults in Japan. These direct conversations were essential for understanding their unique challenges and perspectives on smartphone technology.</p>
+                        <p class="figure-caption">Focus group research in Japan. The sessions consistently showed phone-literate users who wanted confidence and legibility, not a stripped-down experience.</p>
                     </div>
 
-                    <h2 class="section-heading">Design & Iteration</h2>
-                    <p>Our initial design placed "Simple View" within the Accessibility menu. Testing quickly revealed this was undiscoverable — users who needed it most never found it. This feedback led to a critical pivot: we moved the feature directly into the main phone setup wizard. This not only boosted visibility but allowed us to pre-select a helpful set of home screen icons, further reducing cognitive load for new users from the start.</p>
+                    <h2 class="section-heading">Designing Against Stigma</h2>
+                    <p>The first version of Simple View lived inside the Accessibility menu. It was the obvious home for it — and it was wrong. Users who needed it most never found it, because they never opened Accessibility settings. They didn't think of themselves as someone who needed accessibility features.</p>
+                    <p>The naming created friction internally too. "Why Simple?" was a common reaction from dogfooders — the implication being that calling something simple was condescending. That tension was real and worth taking seriously. But it also confirmed what the research had shown: any label that signaled "this is for people who struggle" was going to be avoided by the exact people we were designing for. The solution wasn't to rename it. It was to reposition it — to move Simple View out of the category of workaround and into the category of choice.</p>
+                    <p>The pivot was to move Simple View into the main phone setup wizard, presenting it as a standard option at the moment of first use — before any habits formed, before anyone felt lost, before the phone had established itself as something to navigate around. This also let us pre-select a helpful set of home screen icons, reducing the blank-slate overwhelm of a new device from the very first screen.</p>
 
                     <div class="figure">
-                        <p class="figure-caption" style="margin-bottom: 1rem; margin-top: 0;">The user flow for enabling Simple View moved from deep within Settings to a prominent option in the initial phone Setup Wizard — dramatically increasing discoverability.</p>
+                        <p class="figure-caption" style="margin-bottom: 1rem; margin-top: 0;">Simple View moved from a buried Accessibility setting to a prominent option in the initial setup wizard — presented as a standard choice, not a special accommodation.</p>
                         <div class="flow-grid" role="region" aria-label="Setup flow steps">
                             <div class="flow-step">
                                 <div class="flow-step-label">Step 1: Welcome</div>
@@ -253,17 +261,23 @@
                     </div>
 
                     <h2 class="section-heading">Solution & Impact</h2>
-                    <p>Simple View provides a clean home screen with large icons and text, 3-button navigation, and an enhanced keyboard. By making it a primary choice during setup, we made accessibility feel like a standard feature — not a hidden fix for people who "need help." The results with our Japanese carrier partners were exceptional.</p>
+                    <p>Simple View delivers a clean home screen with large icons and text, 3-button navigation, and an enhanced keyboard. The feature itself wasn't complicated. What made it work was where it lived — presented during setup as an equal option alongside the standard experience, with no stigma attached and no settings menu to excavate.</p>
+                    <p>At selected carrier retail locations outside Tokyo, conversion reached 80%. Store staff could hand a customer a phone in setup mode, let them choose Simple View themselves, and watch them immediately feel at home on a device they'd been hesitant about.</p>
 
                     <div class="callout" role="region" aria-label="Key outcome">
                         <div class="callout-metric">Up to 80% Conversion Rate</div>
-                        <div class="callout-detail">Achieved at selected Japanese carrier points of sale.</div>
+                        <div class="callout-detail">At selected Japanese carrier points of sale — by presenting Simple View as a mainstream choice during setup, not a hidden accessibility setting.</div>
                     </div>
 
                     <blockquote class="quote">
                         <p>"It made the phone look less cluttered and simpler to use."</p>
                         <cite>User Feedback</cite>
                     </blockquote>
+
+                    <h2 class="section-heading">What I'd Take Forward</h2>
+                    <p>The most important design decision on this project wasn't visual — it was placement. Where a feature lives shapes who feels permitted to use it. Putting Simple View in Accessibility sent a signal that only certain kinds of people should consider it. Putting it in setup made it a preference, not a concession.</p>
+                    <p>That principle applies well beyond this project. Any time you're designing for a group that doesn't identify with the label you've given them — older adults who don't consider themselves elderly, people with low vision who don't consider themselves disabled, non-native speakers who don't consider themselves limited — the solution is rarely about the feature itself. It's about removing the friction of self-identification that stands between the user and something that would genuinely help them.</p>
+                    <p>If you're working on products where that gap exists, <a href="mailto:crberg@gmail.com">I'd like to hear about it</a>.</p>
 
                 </article>
             </div>
