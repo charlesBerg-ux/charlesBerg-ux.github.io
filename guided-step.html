@@ -152,6 +152,9 @@
         .figure-image-grid img { border-radius: var(--radius-sm); width: 100%; height: 100%; object-fit: cover; }
         .figure-caption { font-size: 0.875rem; line-height: 1.6; color: var(--color-text-tertiary); font-style: italic; text-align: center; margin-top: var(--space-sm); padding: 0 var(--space-md); }
 
+        .prose a { color: var(--color-accent-warm); text-decoration: underline; text-underline-offset: 3px; transition: color var(--transition-default); }
+        .prose a:hover { color: #A84D25; }
+
         .quote { border-left: 4px solid var(--color-border); padding-left: var(--space-md); margin: var(--space-lg) 0; }
         .quote p { font-size: 1.125rem; font-style: italic; color: var(--color-text-secondary); line-height: 1.65; margin-bottom: 0.75rem; }
         .quote cite { font-size: 0.875rem; font-style: normal; color: var(--color-text-tertiary); font-weight: 600; }
@@ -248,18 +251,21 @@
                     <p>For individuals who are blind or have low vision (BLV), independent navigation presents significant challenges and risks. While guide canes are essential, they don't detect obstacles at trunk or head level. We hypothesized that a smartphone app using AI to detect people and obstacles in real-time could serve as a valuable supplement — increasing safety and confidence without replacing the cane or the user's own judgment.</p>
 
                     <h2 class="section-heading">The Process: A Global Co-Design</h2>
-                    <p>We conducted three rounds of iterative co-design and testing with 15 BLV participants around the world, including in Tokyo, Paris, and the US. We tested prototypes in extreme environments like Shibuya station — one of the world's busiest pedestrian areas — gathering feedback through direct observation, interviews, and user journals.</p>
+                    <p>We conducted three rounds of iterative co-design and testing with 15 blind and low-vision participants across three continents — each round in a more demanding environment than the last, and each one fundamentally changing the design.</p>
+                    <p>Round one took place in Tokyo, inside a busy shopping center and train station. Shibuya station — one of the world's most chaotic pedestrian environments — was a deliberate stress test. We watched participants navigate crowds, construction zones, and sudden obstacles in real time, with a team member walking alongside ready to intervene only if a collision was imminent. What we learned immediately: the early prototype generated too many notifications in dense spaces, participants were experiencing cognitive overload, and the sound system wasn't yet memorizable enough to process quickly while also managing a cane.</p>
+                    <p>Round two moved to outdoor corporate campuses in the US, with blind athletes from the US Association of Blind Athletes. This round focused on refining the interaction model, interface structure, and sound design — iterating on the sonic language that would communicate obstacle type, direction, and proximity without overwhelming the user.</p>
+                    <p>Round three brought us to Paris — sidewalks, pedestrian streets, plazas, and parks. By this point the core design was stable enough to test the full end-to-end experience, including onboarding a first-time user from zero. We were testing not just whether the app worked, but whether a blind user could learn it independently and trust it enough to walk with confidence.</p>
 
                     <div class="figure">
                         <div class="figure-image-grid">
                             <img src="assets2025/GuidedStep/UXRPic.jpg" alt="Research participant testing Guided Step prototype while navigating a busy urban environment">
                             <img src="assets2025/GuidedStep/UXRPic2.jpg" alt="Second research participant using Guided Step in a crowded public space">
                         </div>
-                        <p class="figure-caption">Research participants testing the Guided Step prototype in various environments. Real-world sessions in high-density spaces were essential for understanding the app's effectiveness under actual navigation conditions.</p>
+                        <p class="figure-caption">Co-design sessions in Tokyo, the US, and Paris. Real-world testing in high-density environments was non-negotiable — lab conditions couldn't replicate the cognitive demands of navigating a crowded train station.</p>
                     </div>
 
                     <h2 class="section-heading">Key Learnings: The Three Pillars</h2>
-                    <p>The extensive co-design process revealed three foundational principles for designing assistive navigation technology. These pillars now inform accessibility work across Google.</p>
+                    <p>Three rounds of co-design produced three design principles that now inform accessibility work across Google. Each one emerged from something that broke in testing.</p>
 
                     <div class="pillars-grid" role="region" aria-label="Three design pillars">
                         <div class="pillar-card">
@@ -271,7 +277,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="pillar-desc">For a tool that could be harmful if misused, building trust and proficiency from the first second was non-negotiable.</p>
+                            <p class="pillar-desc">A user who misunderstands the feedback system could make worse navigation decisions than if they had no app at all. Onboarding wasn't a feature — it was a safety requirement. The final flow walked users through every sound, every setting, and every modality before their first step. In the experimental study, 100% of participants rated the app easy or very easy to learn.</p>
                         </div>
                         <div class="pillar-card">
                             <h3 class="pillar-title">Minimalist UI</h3>
@@ -282,7 +288,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="pillar-desc">To optimize for screen readers, we eliminated submenus and built a simple, scannable interface with no hidden layers.</p>
+                            <p class="pillar-desc">Blind users navigating with a cane are already managing cane, environment, spatial audio, and voice feedback simultaneously. Any UI complexity that required screen reader navigation through submenus was a dangerous distraction. We reduced the interface to three tabs. One participant put it plainly: "Developers normally think about a simple interface, which often makes a product hard to use. I want a detailed and customizable interface." The answer was simplicity on the surface, depth underneath.</p>
                         </div>
                         <div class="pillar-card">
                             <h3 class="pillar-title">Full Customization</h3>
@@ -293,12 +299,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="pillar-desc">Each user preferred a different intensity and type of audio feedback. A highly customizable experience wasn't optional — it was essential.</p>
+                            <p class="pillar-desc">No two users wanted the same experience. Tokyo participants preferred sounds over voice but needed haptics as backup in loud environments. Paris athletes wanted to shrink the detection range in tree-lined parks where 5 meters generated constant noise. Some users wanted people and obstacles treated separately; others wanted to suppress people alerts entirely in crowds. Customization wasn't optional — it was the only way to serve the full range of how blind users actually move through the world.</p>
                         </div>
                     </div>
 
+                    <h2 class="section-heading">Focus and Ambient: Designing for Context</h2>
+                    <p>One of the most important design decisions to emerge from co-design was a two-modality system that let users shift the app's behavior based on where they were and what they needed.</p>
+                    <p><strong>Focus mode</strong> provided minimal, critical notifications only — obstacles and people directly ahead, sounds and haptics only, no voice. Users described it as the mode for moving fast: navigating a crowded airport to catch a flight, cutting through a familiar neighborhood, getting from A to B without distraction.</p>
+                    <p><strong>Ambient mode</strong> opened up the detection range and added voice descriptions — "car, right, 3 meters," "bench, center." Users described this as the mode for learning: arriving somewhere new, understanding the layout of a plaza, building a mental map before committing to a route. One athlete described the feeling as similar to walking with a guide dog — the ability to "cruise down the street" with awareness rather than anxiety.</p>
+                    <p>The distinction sounds simple. It wasn't. Getting the boundary between the two right — what information belonged in each mode, how quickly users could switch, how the sound design had to change between them — required multiple iterations across all three co-design rounds. The result was an app that could be a precision tool or a spatial awareness system depending on what the user needed in that moment.</p>
+
                     <h2 class="section-heading">The Impact: Validated Results</h2>
-                    <p>While Guided Step did not move into production, its impact was rigorously validated in an experimental study with 20 BLV participants — the findings of which were submitted to CHI 2026.</p>
+                    <p>Guided Step was validated in a formal experimental study with 20 blind and low-vision participants on an outdoor corporate campus. Each participant navigated the same course twice — once with their cane alone, once with Guided Step — in randomized order to eliminate learning effects.</p>
 
                     <div class="stats-grid" role="region" aria-label="Study results">
                         <div class="stat-card">
@@ -316,11 +328,16 @@
                     </div>
 
                     <blockquote class="quote">
-                        <p>"I am more confident that I will not crash or fall... It can detect things that's further out than the cane. It's good to know what's around you and have awareness of people and cars."</p>
+                        <p>"I am more confident that I will not crash or fall... It can detect things that's further out than the cane. It's good to know what's around you and have awareness of people and cars. With the cane you're always hesitating, second guessing every step."</p>
                         <cite>Study Participant</cite>
                     </blockquote>
 
-                    <p>The three pillars uncovered during this project — guided setup, minimalist UI, and full customization — provided a strategic framework for future accessibility projects at Google, demonstrating the critical need for deep user partnership when designing for specialized communities.</p>
+                    <p>100% of participants rated Guided Step easy or very easy to use. Half expressed enthusiasm for adopting it immediately. The findings were submitted as a formal research paper to CHI 2026 — one of the most selective venues in human-computer interaction — and approved by Google for public sharing.</p>
+
+                    <h2 class="section-heading">What This Project Contributed</h2>
+                    <p>Guided Step didn't move into production. It did something more durable: it produced a validated design framework for AI-powered assistive navigation, grounded in real-world co-design with blind users across three countries, and rigorous enough to be submitted to the field's premier research conference.</p>
+                    <p>The three pillars — guided setup, minimalist UI, and full customization — aren't specific to navigation apps. They apply to any product where the stakes of getting the interaction wrong are physical, not just inconvenient. That's the standard I bring to accessibility work.</p>
+                    <p>If you're building products for blind or low-vision users and want a collaborator who has done this work at depth, <a href="mailto:crberg@gmail.com">I'd like to hear about what you're working on</a>.</p>
 
                 </article>
             </div>
