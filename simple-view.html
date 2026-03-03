@@ -135,6 +135,13 @@
         .flow-phone { background: #111; border-radius: 16px; padding: 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
         .flow-phone img { border-radius: 10px; width: 100%; display: block; }
 
+        /* Before/after comparison grid */
+        .before-after-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+        .before-after-grid .flow-phone { max-width: 220px; margin: 0 auto; }
+        .before-after-label { font-size: 0.8125rem; font-weight: 700; color: var(--color-text-secondary); text-align: center; margin-bottom: var(--space-sm); }
+
+        @media (max-width: 480px) { .before-after-grid { grid-template-columns: 1fr; } }
+
         .footer { border-top: 1px solid var(--color-border); padding: var(--space-lg) 0; margin-top: var(--space-2xl); }
         .footer-inner { display: flex; justify-content: space-between; align-items: center; }
         .footer p { font-size: 0.875rem; color: var(--color-text-tertiary); }
@@ -231,6 +238,13 @@
                     <p>The pivot was to move Simple View into the main phone setup wizard, presenting it as a standard option at the moment of first use — before any habits formed, before anyone felt lost, before the phone had established itself as something to navigate around. This also let us pre-select a helpful set of home screen icons, reducing the blank-slate overwhelm of a new device from the very first screen.</p>
 
                     <div class="figure">
+                        <div class="figure-image">
+                            <img src="assets2025/SimpleView/simpleviewsettings.png" alt="Android Accessibility settings menu showing Simple View buried among many other options">
+                        </div>
+                        <p class="figure-caption">Simple View in its original home — buried inside the Accessibility menu, below options most older adults would never associate with themselves. Users who needed it most never found it.</p>
+                    </div>
+
+                    <div class="figure">
                         <p class="figure-caption" style="margin-bottom: 1rem; margin-top: 0;">Simple View moved from a buried Accessibility setting to a prominent option in the initial setup wizard — presented as a standard choice, not a special accommodation.</p>
                         <div class="flow-grid" role="region" aria-label="Setup flow steps">
                             <div class="flow-step">
@@ -263,6 +277,26 @@
                     <h2 class="section-heading">Solution & Impact</h2>
                     <p>Simple View delivers a clean home screen with large icons and text, 3-button navigation, and an enhanced keyboard. The feature itself wasn't complicated. What made it work was where it lived — presented during setup as an equal option alongside the standard experience, with no stigma attached and no settings menu to excavate.</p>
                     <p>At selected carrier retail locations outside Tokyo, conversion reached 80%. Store staff could hand a customer a phone in setup mode, let them choose Simple View themselves, and watch them immediately feel at home on a device they'd been hesitant about.</p>
+
+                    <div class="figure">
+                        <div class="figure-image" style="padding: clamp(1.5rem, 3vw, 2.5rem);">
+                            <div class="before-after-grid">
+                                <div>
+                                    <div class="before-after-label">Standard Pixel Home Screen</div>
+                                    <div class="flow-phone">
+                                        <img src="assets2025/SimpleView/before.jpg" alt="Standard Pixel home screen with dense widgets, two rows of icons, and search bar">
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="before-after-label">Simple View</div>
+                                    <div class="flow-phone">
+                                        <img src="assets2025/SimpleView/after.png" alt="Simple View home screen with large icons, contact widgets, and minimal layout">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="figure-caption">The same phone, two different experiences. Simple View isn't a stripped-down version — it's a legibility-first layout that gives users confidence from the first screen.</p>
+                    </div>
 
                     <div class="callout" role="region" aria-label="Key outcome">
                         <div class="callout-metric">Up to 80% Conversion Rate</div>
