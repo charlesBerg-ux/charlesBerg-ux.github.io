@@ -17,12 +17,12 @@
             --color-surface: #FFFFFF;
             --color-text-primary: #1A1A1A;
             --color-text-secondary: #4A4A4A;
-            --color-text-tertiary: #6B6B6B;
+            --color-text-tertiary: #656565;
             --color-accent-green: #2A4E38;
             --color-accent-green-dark: #1E3A28;
             --color-accent-green-light: #F0F5F2;
-            --color-accent-warm: #C05A2C;
-            --color-accent-warm-hover: #A84D25;
+            --color-accent-warm: #A8501F;
+            --color-accent-warm-hover: #924518;
             --color-border: #D6CFC5;
             --color-image-bg: #3A3632;
             --font-family: 'Funnel Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -79,6 +79,8 @@
             transition: top 0.2s;
         }
         .skip-link:focus { top: 1rem; }
+
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
         /* Navigation */
         .nav {
@@ -415,7 +417,7 @@
                 <div class="case-hero" aria-hidden="true">
                     <div class="phone-mockup">
                         <div class="screen">
-                            <img src="assets2025/Magnifier/!LSHappyPath.gif" alt="Animated demonstration of Magnifier's live search feature highlighting text in real time">
+                            <img src="assets2025/Magnifier/!LSHappyPath.gif" alt="">
                         </div>
                     </div>
                 </div>
@@ -560,10 +562,12 @@
         <div class="container">
             <div class="footer-inner">
                 <p>&copy; 2026 Charles Berg. All rights reserved.</p>
-                <ul class="footer-links">
-                    <li><a href="mailto:crberg@gmail.com">Email</a></li>
-                    <li><a href="https://www.linkedin.com/in/charlesberg" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                </ul>
+                <nav aria-label="Footer">
+                    <ul class="footer-links">
+                        <li><a href="mailto:crberg@gmail.com">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/charlesberg" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in new tab)</span></a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </footer>

@@ -14,11 +14,11 @@
             --color-surface: #FFFFFF;
             --color-text-primary: #1A1A1A;
             --color-text-secondary: #4A4A4A;
-            --color-text-tertiary: #6B6B6B;
+            --color-text-tertiary: #656565;
             --color-accent-green: #2A4E38;
             --color-accent-green-dark: #1E3A28;
             --color-accent-green-light: #F0F5F2;
-            --color-accent-warm: #C05A2C;
+            --color-accent-warm: #A8501F;
             --color-border: #D6CFC5;
             --color-image-bg: #3A3632;
             --font-family: 'Funnel Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -53,6 +53,8 @@
             font-weight: 700; text-decoration: none; border-radius: var(--radius-sm); z-index: 200; transition: top 0.2s;
         }
         .skip-link:focus { top: 1rem; }
+
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
         .nav {
             position: sticky; top: 0; z-index: 100;
@@ -153,7 +155,7 @@
         .figure-caption { font-size: 0.875rem; line-height: 1.6; color: var(--color-text-tertiary); font-style: italic; text-align: center; margin-top: var(--space-sm); padding: 0 var(--space-md); }
 
         .prose a { color: var(--color-accent-warm); text-decoration: underline; text-underline-offset: 3px; transition: color var(--transition-default); }
-        .prose a:hover { color: #A84D25; }
+        .prose a:hover { color: #924518; }
 
         .quote { border-left: 4px solid var(--color-border); padding-left: var(--space-md); margin: var(--space-lg) 0; }
         .quote p { font-size: 1.125rem; font-style: italic; color: var(--color-text-secondary); line-height: 1.65; margin-bottom: 0.75rem; }
@@ -225,7 +227,7 @@
                 <div class="case-hero" aria-hidden="true">
                     <div class="phone-mockup">
                         <div class="screen">
-                            <img src="assets2025/GuidedStep/!hero.png" alt="Guided Step navigation interface showing a minimalist audio-guided UI for blind users">
+                            <img src="assets2025/GuidedStep/!hero.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -313,15 +315,15 @@
                     <p>Guided Step was validated in a formal experimental study with 20 blind and low-vision participants on an outdoor corporate campus. Each participant navigated the same course twice — once with their cane alone, once with Guided Step — in randomized order to eliminate learning effects.</p>
 
                     <div class="stats-grid" role="region" aria-label="Study results">
-                        <div class="stat-card">
+                        <div class="stat-card" aria-label="-44% fewer unintentional obstacle hits">
                             <div class="stat-metric">-44%</div>
                             <div class="stat-detail">Fewer unintentional obstacle hits</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card" aria-label="-36% reduction in total obstacles hit">
                             <div class="stat-metric">-36%</div>
                             <div class="stat-detail">Reduction in total obstacles hit</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card" aria-label="-34% decrease in near-miss events">
                             <div class="stat-metric">-34%</div>
                             <div class="stat-detail">Decrease in near-miss events</div>
                         </div>
@@ -348,10 +350,12 @@
         <div class="container">
             <div class="footer-inner">
                 <p>&copy; 2026 Charles Berg. All rights reserved.</p>
-                <ul class="footer-links">
-                    <li><a href="mailto:crberg@gmail.com">Email</a></li>
-                    <li><a href="https://www.linkedin.com/in/charlesberg" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                </ul>
+                <nav aria-label="Footer">
+                    <ul class="footer-links">
+                        <li><a href="mailto:crberg@gmail.com">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/charlesberg" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in new tab)</span></a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </footer>
