@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Accessibility statement · Charles Berg Consulting</title>
+  <meta name="description" content="WCAG 2.1 AA conformance, testing approach, and how to report an accessibility issue on this site.">
+  <meta name="theme-color" content="#EDE3D4">
+
+  <meta property="og:title" content="Accessibility statement · Charles Berg Consulting">
+  <meta property="og:description" content="WCAG 2.1 AA conformance and how to report an issue.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://crb.is/accessibility.html">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2215%22 fill=%22%231F3A2A%22/><text y=%2258%25%22 x=%2250%25%22 font-size=%2248%22 fill=%22%23EDE3D4%22 text-anchor=%22middle%22 dominant-baseline=%22central%22 font-family=%22Georgia,serif%22 font-style=%22italic%22 font-weight=%22500%22>cb</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..600,30..100,0..1;1,9..144,400..600,30..100,0..1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    /* Tighter section spacing on this page only. An accessibility statement
+       reads like a reference document, not a long-scroll narrative. */
+    main > .section { padding-block: clamp(1.75rem, 3.5vw, 3rem); }
+    main > .section .section-head { margin-bottom: clamp(1rem, 2vw, 1.5rem); }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" role="banner">
+    <div class="shell">
+      <div class="nav-row">
+        <a href="index.html" class="brand" aria-label="Charles Berg Consulting, home">
+          <span class="brand-mark">Charles Berg Consulting</span>
+          <span class="brand-sub">Accessibility UX &amp; Co-Design</span>
+        </a>
+
+        <nav aria-label="Primary">
+          <ul class="nav-list">
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a class="nav-cta" href="#contact">Contact <svg class="arr-svg arr" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          </ul>
+          <button class="nav-toggle" data-nav-toggle aria-controls="nav-mobile" aria-expanded="false" aria-label="Open menu">
+            <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+          </button>
+        </nav>
+      </div>
+
+      <ul class="nav-list-mobile" id="nav-mobile" data-nav-mobile>
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- =================== HERO =================== -->
+    <section class="svc-hero shell" aria-labelledby="page-title">
+      <div class="svc-hero-grid grid-12">
+        <p class="svc-eyebrow eyebrow">Last reviewed 7 May 2026</p>
+        <h1 class="svc-title display-xl" id="page-title">Accessibility statement.</h1>
+        <div class="svc-lede">
+          <p class="lede">This site targets WCAG 2.1 Level AA conformance. If you find something that doesn't meet that bar, I want to know about it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== CONFORMANCE =================== -->
+    <section class="section shell" aria-labelledby="conformance-title">
+      <div class="section-head">
+        <p class="sh-eyebrow eyebrow">Conformance</p>
+        <h2 class="sh-title display-lg" id="conformance-title">Targeting WCAG 2.1 Level AA.</h2>
+      </div>
+      <div class="body-prose" style="max-width: 38rem;">
+        <p>This site is designed, built, and tested against WCAG 2.1 Level AA. Every public page has been evaluated against this standard at the time of publication.</p>
+        <p>Conformance covers static HTML, CSS, and the small JavaScript file used for navigation. The site contains no third-party embeds beyond a mailto link and a calendar booking link to an external service, which has its own accessibility statement.</p>
+      </div>
+    </section>
+
+    <!-- =================== REPORT AN ISSUE =================== -->
+    <section class="section shell" aria-labelledby="report-title">
+      <div class="section-head">
+        <p class="sh-eyebrow eyebrow">Report an issue</p>
+        <h2 class="sh-title display-lg" id="report-title">If something doesn't work, write me.</h2>
+      </div>
+      <div class="body-prose" style="max-width: 38rem;">
+        <p>The fastest way to report an accessibility issue is to <a href="mailto:charles@crb.is?subject=Accessibility%20issue">email me directly</a>. Helpful details:</p>
+        <ul>
+          <li>The URL of the page where the issue occurred</li>
+          <li>The browser and assistive technology you were using</li>
+          <li>What happened and what you expected to happen</li>
+        </ul>
+        <p>I read every message personally and reply within two business days.</p>
+      </div>
+    </section>
+
+    <!-- =================== TESTING APPROACH =================== -->
+    <section class="section shell" aria-labelledby="testing-title">
+      <div class="section-head">
+        <p class="sh-eyebrow eyebrow">Testing approach</p>
+        <h2 class="sh-title display-lg" id="testing-title">How the site is tested.</h2>
+      </div>
+      <div class="body-prose" style="max-width: 38rem;">
+        <p>Each page is tested with a combination of automated and manual checks:</p>
+        <ul>
+          <li><strong>axe DevTools</strong> for automated WCAG 2.1 AA evaluation</li>
+          <li><strong>Manual keyboard navigation</strong> across every interactive element, with focus order and visible focus verified</li>
+          <li><strong>Mobile viewport testing</strong> at 320, 375, 768, and 1280 pixels</li>
+          <li><strong>Color contrast</strong> verified at 4.5:1 for body text and 3:1 for large display text</li>
+          <li><strong>Screen reader spot-checks</strong> with VoiceOver on macOS and iOS</li>
+        </ul>
+        <p>Pages are re-tested when copy or layout changes meaningfully.</p>
+      </div>
+    </section>
+
+    <!-- =================== COMPATIBILITY =================== -->
+    <section class="section shell" aria-labelledby="compat-title">
+      <div class="section-head">
+        <p class="sh-eyebrow eyebrow">Compatibility</p>
+        <h2 class="sh-title display-lg" id="compat-title">Browsers and assistive technology.</h2>
+      </div>
+      <div class="body-prose" style="max-width: 38rem;">
+        <ul>
+          <li><strong>Browsers:</strong> Chrome, Safari, Firefox, Edge — current and previous major versions on macOS, Windows, iOS, and Android.</li>
+          <li><strong>Screen readers:</strong> VoiceOver on macOS and iOS, NVDA on Windows.</li>
+          <li><strong>Magnification:</strong> tested at up to 200% browser zoom and at maximum system magnification on iOS and Android.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =================== CONTACT BAND =================== -->
+  <section class="contact-band" id="contact" aria-labelledby="contact-title">
+    <div class="shell">
+      <p class="eyebrow">Get in touch</p>
+      <h2 id="contact-title">If you've read this far, <em>let's talk</em>.</h2>
+      <p>Tell me what you're working on. What the product is, who you're trying to serve, what's stuck. If we look like a fit, the next step is a 30-minute call where I ask a lot of questions and you decide whether I'm useful.</p>
+
+      <p class="what-to-expect">
+        I read every message personally. I usually reply within two business days. If we look like a fit, the next step is a 30-minute conversation.
+      </p>
+
+      <div class="actions">
+        <a class="btn" href="mailto:charles@crb.is">Tell me what you're working on <svg class="arr-svg arr" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-on-dark" href="https://meetabl.com/book/crb" target="_blank" rel="noopener noreferrer">Pick a time that works<span class="sr-only"> (opens in new tab)</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="shell">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="display-md">Charles Berg Consulting</p>
+          <p>Independent practice. Accessibility UX, co-design facilitation, strategic advisory. Engagements worldwide.</p>
+        </div>
+        <nav class="footer-col" aria-label="Site">
+          <h3>Site</h3>
+          <ul>
+            <li><a href="index.html#work">Work</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="Services">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="services.html#ux-design">UX Design</a></li>
+            <li><a href="services.html#co-design">Co-Design Facilitation</a></li>
+            <li><a href="services.html#advisory">Strategic Advisory</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="Elsewhere">
+          <h3>Elsewhere</h3>
+          <ul>
+            <li><a href="mailto:charles@crb.is">charles@crb.is</a></li>
+            <li><a href="https://www.linkedin.com/in/charlesberg" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in new tab)</span></a></li>
+            <li><a href="https://meetabl.com/book/crb" target="_blank" rel="noopener noreferrer">Book a call<span class="sr-only"> (opens in new tab)</span></a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-base">
+        <p>&copy; 2026 Charles Berg. WCAG 2.1 AA. Built static. Hosted on GitHub Pages.</p>
+        <p><a href="accessibility.html" aria-current="page">Accessibility statement</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js" defer></script>
+</body>
+</html>

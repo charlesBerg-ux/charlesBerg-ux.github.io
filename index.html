@@ -1,910 +1,297 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charles Berg - AgeTech & Accessibility UX Design Leader</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2215%22 fill=%22%232A4E38%22/><text y=%2255%25%22 x=%2250%25%22 font-size=%2250%22 fill=%22%23F2EADF%22 text-anchor=%22middle%22 dominant-baseline=%22central%22 font-family=%22sans-serif%22 font-weight=%22bold%22>CB</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <style>
-        /* ============================================
-           DESIGN TOKENS
-           ============================================ */
-        :root {
-            --color-bg: #F2EADF;
-            --color-surface: #FFFFFF;
-            --color-text-primary: #1A1A1A;
-            --color-text-secondary: #4A4A4A;
-            --color-text-tertiary: #656565;
-            --color-accent-green: #2A4E38;
-            --color-accent-green-dark: #1E3A28;
-            --color-accent-warm: #A8501F;
-            --color-accent-warm-hover: #924518;
-            --color-border: #D6CFC5;
-            --color-card-image-bg: #3A3632;
-            --color-recognition-bg: #2A4E38;
-            --color-recognition-text: #F2EADF;
-
-            --font-family: 'Funnel Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.5rem;
-            --space-lg: 2.5rem;
-            --space-xl: 4rem;
-            --space-2xl: 6rem;
-            --space-3xl: 8rem;
-
-            --radius-sm: 8px;
-            --radius-md: 16px;
-            --radius-lg: 24px;
-
-            --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
-            --shadow-card-hover: 0 4px 12px rgba(0,0,0,0.08), 0 12px 40px rgba(0,0,0,0.1);
-            --transition-default: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        /* ============================================
-           RESET & BASE
-           ============================================ */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            font-size: 16px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        body {
-            font-family: var(--font-family);
-            background-color: var(--color-bg);
-            color: var(--color-text-primary);
-            line-height: 1.6;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* ============================================
-           FOCUS STATES (Accessibility)
-           ============================================ */
-        a:focus-visible,
-        button:focus-visible {
-            outline: 3px solid var(--color-accent-warm);
-            outline-offset: 3px;
-            border-radius: 4px;
-        }
-
-        /* ============================================
-           LAYOUT
-           ============================================ */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 clamp(1.5rem, 4vw, 3rem);
-        }
-
-        /* ============================================
-           NAVIGATION
-           ============================================ */
-        .nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(242, 234, 223, 0.92);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .nav-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.25rem 0;
-        }
-
-        .nav-logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--color-text-primary);
-            text-decoration: none;
-            letter-spacing: -0.01em;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            transition: color var(--transition-default);
-        }
-
-        .nav-links a:hover {
-            color: var(--color-text-primary);
-        }
-
-        /* ============================================
-           HERO SECTION — 2-column with flagship image
-           ============================================ */
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: clamp(2rem, 4vw, 4rem);
-            align-items: center;
-            padding: clamp(3rem, 8vw, 6rem) 0 clamp(3rem, 6vw, 5rem);
-        }
-
-        .hero-text {
-            max-width: 560px;
-        }
-
-        .hero-label {
-            display: inline-block;
-            font-size: 0.8125rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--color-accent-warm);
-            margin-bottom: var(--space-md);
-        }
-
-        .hero h1 {
-            font-size: clamp(2.25rem, 4.5vw, 3.5rem);
-            font-weight: 800;
-            line-height: 1.08;
-            letter-spacing: -0.025em;
-            color: var(--color-text-primary);
-            margin-bottom: var(--space-lg);
-        }
-
-        .hero-manifesto {
-            font-size: clamp(1.0625rem, 1.8vw, 1.25rem);
-            line-height: 1.65;
-            color: var(--color-text-secondary);
-        }
-
-        .hero-rule {
-            width: 64px;
-            height: 3px;
-            background-color: var(--color-accent-warm);
-            border: none;
-            margin-top: var(--space-xl);
-            border-radius: 2px;
-        }
-
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--color-card-image-bg);
-            border-radius: var(--radius-lg);
-            padding: clamp(2rem, 4vw, 3.5rem);
-            min-height: 420px;
-        }
-
-        .hero-visual .phone-mockup {
-            max-width: 200px;
-        }
-
-        /* ============================================
-           SECTION HEADERS
-           ============================================ */
-        .section-label {
-            font-size: 0.8125rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--color-accent-green);
-            padding-bottom: var(--space-sm);
-            border-bottom: 1px solid var(--color-border);
-            margin-bottom: var(--space-xl);
-        }
-
-        /* ============================================
-           FEATURED PROJECTS
-           ============================================ */
-        .projects {
-            padding-bottom: var(--space-2xl);
-        }
-
-        .projects-list {
-            display: flex;
-            flex-direction: column;
-            gap: clamp(3rem, 6vw, 5rem);
-        }
-
-        .project-card {
-            background: var(--color-surface);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
-            transition: box-shadow var(--transition-default), transform var(--transition-default);
-        }
-
-        .project-card:hover {
-            box-shadow: var(--shadow-card-hover);
-            transform: translateY(-2px);
-        }
-
-        .project-card-inner {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 480px;
-        }
-
-        .project-card-inner.reversed {
-            direction: rtl;
-        }
-
-        .project-card-inner.reversed > * {
-            direction: ltr;
-        }
-
-        .project-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: clamp(2rem, 4vw, 3.5rem);
-        }
-
-        .project-metric {
-            font-size: clamp(1.125rem, 1.8vw, 1.375rem);
-            font-weight: 700;
-            color: var(--color-accent-warm);
-            line-height: 1.2;
-            letter-spacing: 0.01em;
-            margin-bottom: 0.25rem;
-        }
-
-        .project-metric-label {
-            font-size: 0.8125rem;
-            font-weight: 500;
-            letter-spacing: 0.03em;
-            color: var(--color-text-tertiary);
-            margin-bottom: var(--space-md);
-        }
-
-        .project-company {
-            font-size: 0.8125rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--color-accent-green);
-            margin-bottom: 0.5rem;
-        }
-
-        .project-title {
-            font-size: clamp(1.75rem, 3vw, 2.25rem);
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            color: var(--color-text-primary);
-            margin-bottom: var(--space-sm);
-        }
-
-        .project-desc {
-            font-size: 1.0625rem;
-            line-height: 1.65;
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-md);
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--color-accent-green);
-            text-decoration: none;
-            transition: color var(--transition-default), gap var(--transition-default);
-            padding: 0.25rem 0;
-        }
-
-        .project-link:hover {
-            color: var(--color-accent-warm);
-            gap: 0.75rem;
-        }
-
-        .project-link svg {
-            width: 18px;
-            height: 18px;
-            transition: transform var(--transition-default);
-        }
-
-        .project-link:hover svg {
-            transform: translateX(2px);
-        }
-
-        .project-image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--color-card-image-bg);
-            padding: clamp(2rem, 4vw, 3rem);
-            min-height: 360px;
-        }
-
-        /* Phone Mockup */
-        .phone-mockup {
-            width: 100%;
-            max-width: 220px;
-            aspect-ratio: 9 / 19.5;
-            background: #111;
-            border-radius: 28px;
-            padding: 8px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-        }
-
-        .phone-mockup .screen {
-            background: #fff;
-            width: 100%;
-            height: 100%;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .phone-mockup .screen img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* ============================================
-           MORE PROJECTS (Secondary)
-           ============================================ */
-        .more-projects {
-            padding: var(--space-2xl) 0;
-        }
-
-        .more-projects-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-md);
-        }
-
-        .more-project-card {
-            background: var(--color-surface);
-            border-radius: var(--radius-md);
-            padding: clamp(1.5rem, 3vw, 2.5rem);
-            box-shadow: var(--shadow-card);
-            transition: box-shadow var(--transition-default), transform var(--transition-default);
-        }
-
-        .more-project-card:hover {
-            box-shadow: var(--shadow-card-hover);
-            transform: translateY(-1px);
-        }
-
-        .more-project-company {
-            font-size: 0.8125rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--color-accent-green);
-            margin-bottom: 0.5rem;
-        }
-
-        .more-project-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-text-primary);
-            margin-bottom: 0.75rem;
-            line-height: 1.2;
-        }
-
-        .more-project-metric {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--color-accent-warm);
-            margin-bottom: 0.75rem;
-        }
-
-        .more-project-desc {
-            font-size: 0.9375rem;
-            line-height: 1.6;
-            color: var(--color-text-secondary);
-        }
-
-        /* ============================================
-           RECOGNITION SECTION
-           ============================================ */
-        .recognition {
-            padding: var(--space-2xl) 0;
-        }
-
-        .recognition-banner {
-            background-color: var(--color-recognition-bg);
-            color: var(--color-recognition-text);
-            border-radius: var(--radius-lg);
-            padding: clamp(2rem, 4vw, 3.5rem);
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: var(--space-lg);
-            align-items: start;
-        }
-
-        .recognition-item {
-            text-align: center;
-        }
-
-        .recognition-highlight {
-            font-size: clamp(1.25rem, 2vw, 1.5rem);
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 0.5rem;
-            color: #FFFFFF;
-        }
-
-        .recognition-detail {
-            font-size: 0.9375rem;
-            line-height: 1.5;
-            color: rgba(242, 234, 223, 0.8);
-        }
-
-        /* ============================================
-           EXPERTISE SECTION (moved after work)
-           ============================================ */
-        .expertise {
-            padding: var(--space-2xl) 0 var(--space-3xl);
-        }
-
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--space-lg);
-        }
-
-        .expertise-item h3 {
-            font-size: 1.375rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: var(--color-text-primary);
-        }
-
-        .expertise-item p {
-            font-size: 1rem;
-            line-height: 1.65;
-            color: var(--color-text-secondary);
-        }
-
-        .expertise-icon {
-            width: 40px;
-            height: 40px;
-            color: var(--color-accent-green);
-            margin-bottom: var(--space-md);
-        }
-
-        /* ============================================
-           ABOUT SECTION
-           ============================================ */
-        .about {
-            padding: var(--space-2xl) 0 var(--space-2xl);
-        }
-
-        .about-content {
-            max-width: 740px;
-        }
-
-        .about-text {
-            font-size: clamp(1.125rem, 2vw, 1.3125rem);
-            line-height: 1.7;
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-lg);
-        }
-
-        .about-text strong {
-            color: var(--color-text-primary);
-            font-weight: 600;
-        }
-
-        .about-actions {
-            display: flex;
-            align-items: center;
-            gap: var(--space-lg);
-            flex-wrap: wrap;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.75rem;
-            font-family: var(--font-family);
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--color-surface);
-            background-color: var(--color-accent-green);
-            border: none;
-            border-radius: var(--radius-sm);
-            text-decoration: none;
-            cursor: pointer;
-            transition: background-color var(--transition-default), transform var(--transition-default);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--color-accent-green-dark);
-            transform: translateY(-1px);
-        }
-
-        .link-secondary {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--color-accent-green);
-            text-decoration: none;
-            border-bottom: 2px solid transparent;
-            transition: border-color var(--transition-default), color var(--transition-default);
-            padding-bottom: 2px;
-        }
-
-        .link-secondary:hover {
-            border-color: var(--color-accent-green);
-        }
-
-        /* ============================================
-           FOOTER
-           ============================================ */
-        .footer {
-            border-top: 1px solid var(--color-border);
-            padding: var(--space-lg) 0;
-            margin-top: var(--space-xl);
-        }
-
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer p {
-            font-size: 0.875rem;
-            color: var(--color-text-tertiary);
-        }
-
-        .footer-links {
-            display: flex;
-            gap: var(--space-md);
-            list-style: none;
-        }
-
-        .footer-links a {
-            font-size: 0.875rem;
-            color: var(--color-text-tertiary);
-            text-decoration: none;
-            transition: color var(--transition-default);
-        }
-
-        .footer-links a:hover {
-            color: var(--color-text-primary);
-        }
-
-        /* ============================================
-           RESPONSIVE
-           ============================================ */
-        @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-visual {
-                order: -1;
-                min-height: 320px;
-            }
-
-            .expertise-grid {
-                grid-template-columns: 1fr;
-                gap: var(--space-lg);
-            }
-
-            .project-card-inner,
-            .project-card-inner.reversed {
-                grid-template-columns: 1fr;
-                direction: ltr;
-            }
-
-            .project-image {
-                order: -1;
-                min-height: 280px;
-            }
-
-            .more-projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .recognition-banner {
-                grid-template-columns: 1fr;
-                gap: var(--space-lg);
-            }
-
-            .recognition-item {
-                text-align: left;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                gap: var(--space-sm);
-                text-align: center;
-            }
-
-            .about-actions {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            /* Restore horizontal padding overridden by section padding shorthands */
-            .hero,
-            .more-projects,
-            .recognition,
-            .expertise,
-            .about {
-                padding-left: clamp(1.5rem, 4vw, 3rem);
-                padding-right: clamp(1.5rem, 4vw, 3rem);
-            }
-        }
-
-        /* ============================================
-           SKIP LINK (Accessibility)
-           ============================================ */
-        .skip-link {
-            position: absolute;
-            top: -100%;
-            left: 1rem;
-            padding: 0.75rem 1.5rem;
-            background: var(--color-accent-green);
-            color: var(--color-surface);
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: var(--radius-sm);
-            z-index: 200;
-            transition: top 0.2s;
-        }
-
-        .skip-link:focus {
-            top: 1rem;
-        }
-
-        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Charles Berg Consulting — Accessibility UX & Co-Design</title>
+  <meta name="description" content="Independent practice. Senior product design and co-design facilitation for teams building software with disabled users and older adults at the center. Charles Berg, ex-Google / Microsoft / Motorola.">
+  <meta name="theme-color" content="#EDE3D4">
+
+  <meta property="og:title" content="Charles Berg Consulting — Accessibility UX & Co-Design">
+  <meta property="og:description" content="Senior product design with disabled users and older adults at the center. Independent practice.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://crb.is/">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2215%22 fill=%22%231F3A2A%22/><text y=%2258%25%22 x=%2250%25%22 font-size=%2248%22 fill=%22%23EDE3D4%22 text-anchor=%22middle%22 dominant-baseline=%22central%22 font-family=%22Georgia,serif%22 font-style=%22italic%22 font-weight=%22500%22>cb</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..600,30..100,0..1;1,9..144,400..600,30..100,0..1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Skip to content link for keyboard/screen reader users -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main" class="skip-link">Skip to main content</a>
 
-    <!-- Navigation -->
-    <header class="nav" role="banner">
-        <div class="container">
-            <nav class="nav-inner" aria-label="Primary navigation">
-                <a href="index.html" class="nav-logo">Charles Berg</a>
-                <ul class="nav-links">
-                    <li><a href="#work">Work</a></li>
-                    <li><a href="#about">About</a></li>
-                </ul>
-            </nav>
+  <header class="site-header" role="banner">
+    <div class="shell">
+      <div class="nav-row">
+        <a href="index.html" class="brand" aria-label="Charles Berg Consulting, home">
+          <span class="brand-mark">Charles Berg Consulting</span>
+          <span class="brand-sub">Accessibility UX &amp; Co-Design</span>
+        </a>
+
+        <nav aria-label="Primary">
+          <ul class="nav-list">
+            <li><a href="#work" aria-current="page">Work</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a class="nav-cta" href="#contact">Contact <svg class="arr-svg arr" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
+          </ul>
+          <button class="nav-toggle" data-nav-toggle aria-controls="nav-mobile" aria-expanded="false" aria-label="Open menu">
+            <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+          </button>
+        </nav>
+      </div>
+
+      <ul class="nav-list-mobile" id="nav-mobile" data-nav-mobile>
+        <li><a href="#work">Work</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- =================== HERO =================== -->
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-grid grid-12">
+        <div class="hero-marker">
+          <span class="eyebrow">Independent practice &middot; Based in the U.S.</span>
         </div>
-    </header>
 
-    <!-- Main Content -->
-    <main id="main-content">
+        <h1 class="hero-title display-xxl" id="hero-title">
+          Accessibility design that <em>ships</em>.
+        </h1>
 
-        <!-- Hero — 2-column with flagship project image -->
-        <section class="hero container" aria-label="Introduction">
-            <div class="hero-text">
-                <span class="hero-label">AgeTech &times; Accessibility &times; Systems Thinking</span>
-                <h1>Designing for the humans tech forgot.</h1>
-                <p class="hero-manifesto">
-                    Staff UX designer with extensive experience at Google, Microsoft, and Motorola. I turn complex technology into clear, empowering experiences for older adults and people with disabilities &mdash; the world's fastest-growing and most underserved users.
-                </p>
-                <hr class="hero-rule" aria-hidden="true">
-            </div>
-            <div class="hero-visual">
-                <div class="phone-mockup">
-                    <div class="screen">
-                        <img src="assets2025/Magnifier/!Hero.png" alt="Pixel Magnifier app, a flagship accessibility tool designed by Charles Berg">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Featured Work — immediately after hero, no expertise barrier -->
-        <section id="work" class="projects container" aria-label="Featured projects">
-            <h2 class="section-label">Selected Work</h2>
-            <div class="projects-list">
-
-                <!-- Project 1: Magnifier -->
-                <article class="project-card">
-                    <div class="project-card-inner">
-                        <div class="project-content">
-                            <div class="project-metric">4.8-star rating</div>
-                            <div class="project-metric-label">Highest-rated app on Google Play</div>
-                            <div class="project-company">Google Pixel</div>
-                            <h3 class="project-title">Pixel Magnifier</h3>
-                            <p class="project-desc">Led the redesign of Magnifier, transforming it from a forgotten utility into the highest-rated app on Google Play &mdash; an accessible, empowering tool for users with low vision, earning praise from leading accessibility organizations.</p>
-                            <a href="magnifier.html" class="project-link" aria-label="View Pixel Magnifier case study">
-                                View case study
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                            </a>
-                        </div>
-                        <div class="project-image">
-                            <div class="phone-mockup">
-                                <div class="screen">
-                                    <img src="assets2025/Magnifier/!Hero.png" alt="Pixel Magnifier app showing an enlarged view of text with high contrast filter applied">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 2: Simple View -->
-                <article class="project-card">
-                    <div class="project-card-inner reversed">
-                        <div class="project-content">
-                            <div class="project-metric">80% conversion</div>
-                            <div class="project-metric-label">Point-of-sale adoption with carrier partners</div>
-                            <div class="project-company">Google Pixel</div>
-                            <h3 class="project-title">Simple View</h3>
-                            <p class="project-desc">Designed a simplified phone experience to help older adults in Japan adopt smartphones, achieving an 80% conversion rate at point-of-sale for carrier partners.</p>
-                            <a href="simple-view.html" class="project-link" aria-label="View Simple View case study">
-                                View case study
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                            </a>
-                        </div>
-                        <div class="project-image">
-                            <div class="phone-mockup">
-                                <div class="screen">
-                                    <img src="assets2025/SimpleView/screen0nb.png" alt="Simple View showing a streamlined home screen with large, clear icons for older adult users">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3: Guided Step -->
-                <article class="project-card">
-                    <div class="project-card-inner">
-                        <div class="project-content">
-                            <div class="project-metric">-44% obstacle hits</div>
-                            <div class="project-metric-label">Validated in a 20-participant experimental study</div>
-                            <div class="project-company">Google Pixel &middot; Private Beta</div>
-                            <h3 class="project-title">Guided Step</h3>
-                            <p class="project-desc">Led the design for Guided Step, an AI-powered navigation aid for blind users. The experimental study demonstrated a 44% reduction in obstacle hits, 36% fewer total obstacles, and 34% fewer near-misses. Findings submitted for CHI 2026.</p>
-                            <a href="guided-step.html" class="project-link" aria-label="View Guided Step case study">
-                                View case study
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                            </a>
-                        </div>
-                        <div class="project-image">
-                            <div class="phone-mockup">
-                                <div class="screen">
-                                    <img src="assets2025/GuidedStep/!hero.png" alt="Guided Step navigation interface providing audio-guided directions for blind users">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-        </section>
-
-        <!-- More Projects -->
-        <section class="more-projects container" aria-label="Additional experience">
-            <h2 class="section-label">Additional Experience</h2>
-            <div class="more-projects-grid">
-                <article class="more-project-card">
-                    <div class="more-project-company">Google Home</div>
-                    <h3 class="more-project-title">Google Home Lights System</h3>
-                    <div class="more-project-metric">25M+ devices &middot; Red Dot Award</div>
-                    <p class="more-project-desc">Pioneered the iconic 4-dot LED language for screenless smart speakers, creating a non-verbal system that communicates device status across 25 million units. Won multiple Red Dot Design Awards and established an industry standard.</p>
-                </article>
-                <article class="more-project-card">
-                    <div class="more-project-company">Google Assistant</div>
-                    <h3 class="more-project-title">Calling on Assistant</h3>
-                    <div class="more-project-metric">450K+ MAUs &middot; 1.5M calls/month</div>
-                    <p class="more-project-desc">Led a strategic pivot from command-based to person-to-person calling that matched real user mental models, driving 450K+ monthly active users and over 1.5 million calls per month.</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- Recognition & Credentials -->
-        <section class="recognition container" aria-label="Recognition and credentials">
-            <h2 class="section-label">Recognition</h2>
-            <div class="recognition-banner">
-                <div class="recognition-item">
-                    <div class="recognition-highlight">CHI 2026</div>
-                    <p class="recognition-detail">Research paper submitted for presentation at the ACM CHI Conference on Human Factors in Computing, based on the Guided Step experimental study.</p>
-                </div>
-                <div class="recognition-item">
-                    <div class="recognition-highlight">Red Dot Design Awards</div>
-                    <p class="recognition-detail">Multiple awards for the Google Home Lights System, recognizing excellence in product design for screenless interactions.</p>
-                </div>
-                <div class="recognition-item">
-                    <div class="recognition-highlight">20+ Years at Scale</div>
-                    <p class="recognition-detail">Shipped products to hundreds of millions of users at Google, Microsoft, and Motorola across mobile, hardware, and voice platforms.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Core Expertise — moved after work, reframed around AgeTech niche -->
-        <section class="expertise container" aria-label="Core expertise">
-            <h2 class="section-label">Core Expertise</h2>
-            <div class="expertise-grid">
-                <div class="expertise-item">
-                    <svg class="expertise-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                    <h3>Designing for Low Vision</h3>
-                    <p>Building tools that go beyond compliance &mdash; creating experiences that deliver dignity, independence, and empowerment for people with low vision and visual impairments.</p>
-                </div>
-                <div class="expertise-item">
-                    <svg class="expertise-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-                    <h3>Aging-in-Place Technology</h3>
-                    <p>Simplifying smartphones and digital interfaces so older adults can live independently, stay connected, and engage confidently with technology on their own terms.</p>
-                </div>
-                <div class="expertise-item">
-                    <svg class="expertise-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-                    <h3>Assistive Hardware UX</h3>
-                    <p>Translating complex hardware capabilities into simple, consistent non-verbal design languages &mdash; from smart speaker light systems to AI-powered navigation aids.</p>
-                </div>
-                <div class="expertise-item">
-                    <svg class="expertise-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="3"></circle><circle cx="17" cy="11" r="3"></circle><path d="M3 21v-2a5 5 0 0 1 7.54-4.3"></path><path d="M13 21v-1a5 5 0 0 1 8 0v1"></path></svg>
-                    <h3>Co-Design Facilitation</h3>
-                    <p>When you're designing for people who rely on assistive technology, co-design isn't a nice-to-have. Their insights collapse months of assumption-making into a single session.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- About -->
-        <section id="about" class="about container" aria-label="About Charles Berg">
-            <h2 class="section-label">About Me</h2>
-            <div class="about-content">
-                <p class="about-text">
-                    I've spent my career at places like Google, Microsoft, and Motorola learning one thing: <strong>the best technology disappears</strong>. It doesn't ask you to be smarter or faster. It just works.
-                </p>
-                <p class="about-text">
-                    Now I apply that belief where it matters most &mdash; designing for older adults and people with disabilities. Not as an afterthought or a compliance checkbox, but as the <strong>starting point</strong>. Because when you design for the people tech has historically left behind, you end up building something better for everyone.
-                </p>
-                <p class="about-text">
-                    I specialize in the intersection of <strong>AgeTech, accessibility, and systems thinking</strong> &mdash; turning complex platforms into experiences that feel obvious, respectful, and empowering.
-                </p>
-                <div class="about-actions">
-                    <a href="mailto:crberg@gmail.com" class="btn-primary">
-                        Get in touch
-                    </a>
-                    <a href="https://www.linkedin.com/in/charlesberg" target="_blank" rel="noopener noreferrer" class="link-secondary">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
-                    <a href="assets2025/Resumes/CharlesBergResume.pdf" download="CharlesBergResume.pdf" class="link-secondary" aria-label="Download resume, PDF file">Download resume</a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer-inner">
-                <p>&copy; 2026 Charles Berg. All rights reserved.</p>
-                <nav aria-label="Footer">
-                    <ul class="footer-links">
-                        <li><a href="mailto:crberg@gmail.com">Email</a></li>
-                        <li><a href="https://www.linkedin.com/in/charlesberg" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in new tab)</span></a></li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="hero-aside">
+          <p class="lede">
+            I'm Charles. For twenty years I designed at Google, Microsoft, and Motorola. Now I run an independent practice for teams who want senior product design with disabled users and older adults actually in the room &mdash; not standing in for a checkbox.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#contact">Tell me what you're working on <svg class="arr-svg arr" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="text-link" href="#work">See the work</a>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
 
+    <!-- =================== PROOF (Work — leads, per pushback 4.1) =================== -->
+    <section class="section shell" id="work" aria-labelledby="work-title">
+      <div class="section-head">
+        <p class="sh-eyebrow eyebrow">Selected work</p>
+        <h2 class="sh-title display-xl" id="work-title">Here's what that looks like in practice.</h2>
+        <p class="sh-aside">Most accessibility consultants come from compliance and audit. I come from product. These are products I shipped &mdash; built around what disabled users and older adults actually do, not what a heuristic predicted.</p>
+      </div>
+
+      <div class="proof-list">
+        <a class="proof-row with-thumb" href="magnifier.html" aria-label="Read the Pixel Magnifier case study">
+          <div class="p-num">01</div>
+          <div class="p-thumb" aria-hidden="true">
+            <img src="assets/magnifier-hero.png" alt="">
+          </div>
+          <div>
+            <div class="p-meta">Google Pixel &middot; Magnifier</div>
+            <h3 class="p-title">Pixel Magnifier &mdash; the highest-rated app on Google Play.</h3>
+            <p class="p-desc">Built around the way low-vision users actually hold the phone &mdash; inches from the face, system magnification at maximum.</p>
+          </div>
+          <div class="p-metric">
+            4.8&#8202;<span style="font-size:0.7em">stars</span>
+            <span class="p-metric-sub">154K MAU. Highest-rated app on Google Play.</span>
+          </div>
+          <div class="p-action">
+            <span class="text-link">Read case <svg class="arr-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+
+        <a class="proof-row with-thumb" href="simple-view.html" aria-label="Read the Simple View case study">
+          <div class="p-num">02</div>
+          <div class="p-thumb" aria-hidden="true">
+            <img src="assets/simpleview-hero.png" alt="">
+          </div>
+          <div>
+            <div class="p-meta">Google Pixel &middot; Simple View</div>
+            <h3 class="p-title">Simple View &mdash; older adults in Japan adopting smartphones.</h3>
+            <p class="p-desc">A design-system insight: pull accessibility out of buried settings and into the main onboarding flow.</p>
+          </div>
+          <div class="p-metric">
+            80&#8202;<span style="font-size:0.7em">%</span>
+            <span class="p-metric-sub">Point-of-sale conversion with carrier partners.</span>
+          </div>
+          <div class="p-action">
+            <span class="text-link">Read case <svg class="arr-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+
+        <a class="proof-row with-thumb" href="guided-step.html" aria-label="Read the Guided Step case study">
+          <div class="p-num">03</div>
+          <div class="p-thumb" aria-hidden="true">
+            <img src="assets/guidedstep-hero.png" alt="">
+          </div>
+          <div>
+            <div class="p-meta">Google Pixel &middot; Guided Step</div>
+            <h3 class="p-title">Guided Step &mdash; pedestrian navigation with blind users at the center.</h3>
+            <p class="p-desc">A 20-participant experimental study; built across global co-design sessions with BLV communities in multiple cities.</p>
+          </div>
+          <div class="p-metric">
+            &minus;44&#8202;<span style="font-size:0.7em">%</span>
+            <span class="p-metric-sub">Obstacle hits. Findings submitted to CHI 2026.</span>
+          </div>
+          <div class="p-action">
+            <span class="text-link">Read case <svg class="arr-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- =================== SERVICES (3 tiles, no AI tile per pushback 4.2) =================== -->
+    <section class="section shell" id="services" aria-labelledby="services-title">
+      <div class="section-head">
+        <p class="sh-eyebrow eyebrow">What I do</p>
+        <h2 class="sh-title display-xl" id="services-title">Three ways teams bring me in.</h2>
+        <p class="sh-aside">Every engagement starts with a conversation. These are the shapes the work usually takes &mdash; pick the one that sounds most like what you need, or write me and we'll figure it out together.</p>
+      </div>
+
+      <div class="tiles">
+        <article class="tile">
+          <div class="tile-num">01 &middot; UX Design</div>
+          <h3 class="tile-title">UX Design</h3>
+          <p class="tile-body">Senior IC product design for accessibility-first features and design-system work that makes accessibility the default. Staff-level means owning the direction across PM, engineering, and design &mdash; not just shipping the comps. Just on contract.</p>
+          <a href="services.html#ux-design" class="tile-link">How I work on UX <svg class="arr-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+        <article class="tile">
+          <div class="tile-num">02 &middot; Co-Design Facilitation</div>
+          <h3 class="tile-title">Co-Design Facilitation</h3>
+          <p class="tile-body">I bring the structure, the recruiter, the videographer, and a synthesis your product team can actually use on Monday. These workshops treat disabled users and older adults as design partners, not test subjects.</p>
+          <a href="services.html#co-design" class="tile-link">How co-design works <svg class="arr-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+
+        <article class="tile">
+          <div class="tile-num">03 &middot; Strategic Advisory</div>
+          <h3 class="tile-title">Strategic Advisory</h3>
+          <p class="tile-body">Lower time commitment, higher leverage. Program assessment, design-team coaching, roadmap and prioritization. For leaders who don't need another deliverable &mdash; they need a peer to think with.</p>
+          <a href="services.html#advisory" class="tile-link">How advisory works <svg class="arr-svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- =================== AUDIENCES (warm cream, no dark inversion) =================== -->
+    <section class="audiences" aria-labelledby="audiences-title">
+      <div class="shell">
+        <div class="section-head">
+          <p class="sh-eyebrow eyebrow">Who I work with</p>
+          <h2 class="sh-title display-xl" id="audiences-title">A short list, on purpose.</h2>
+          <p class="sh-aside">I keep my client roster small so the work stays good. If you're one of the kinds of teams below, we should talk.</p>
+        </div>
+
+        <div class="audience-grid">
+          <article class="audience-card">
+            <span class="a-eyebrow">A &middot; Direct enterprise</span>
+            <h3>Product, design, and engineering leaders.</h3>
+            <p>Tech companies, healthcare systems, and state or local government with an accessibility mandate and a budget. You're hiring a senior IC, not an auditor.</p>
+          </article>
+          <article class="audience-card">
+            <span class="a-eyebrow">B &middot; Accessibility consultancies</span>
+            <h3>Operators at specialty accessibility firms.</h3>
+            <p>Scoping senior subcontract capacity for co-design, product design, or design-system work on a client engagement. The conversation is peer-to-peer &mdash; we both know what good looks like.</p>
+          </article>
+          <article class="audience-card">
+            <span class="a-eyebrow">C &middot; Founders</span>
+            <h3>Building for older adults or disabled users.</h3>
+            <p>You want a senior designer to collaborate with for a few months, not a logo in a deck.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== ABOUT PREVIEW (with drop cap, per recipe) =================== -->
+    <section class="section shell" id="about" aria-labelledby="about-title">
+      <div class="about-grid">
+        <div class="about-eyebrow-col">
+          <p class="eyebrow">About</p>
+          <figure class="portrait-card">
+            <img src="assets/Headshot.jpg" alt="Portrait of Charles Berg" />
+          </figure>
+        </div>
+        <div class="about-content">
+          <h2 class="display-xl" id="about-title">Twenty years of shipping at scale, now applied where it counts.</h2>
+          <div class="body-prose dropcap">
+            <p>I spent two decades at Google, Microsoft, and Motorola at the Staff IC level &mdash; designing things like the Google Home light system, seen on 25 million devices and other popular features such as Family Wi-Fi on the Nest router line. Somewhere along the way I noticed that most of the products I worked on were great if you happened to be the median user, and quietly hostile if you weren't.</p>
+            <p>Now I've changed my focus to designing products that work for all types of people, like the Pixel Magnifier. <strong>Working through CPACC certification this year. Member of IAAP.</strong></p>
+            <!-- Hidden pre-launch; uncomment when about page exists or content is ready
+            <p style="margin-top:1.4em;"><a href="#contact">More about how I got here &rarr;</a></p>
+            -->
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =================== CONTACT BAND (D voice + promoted "what to expect") =================== -->
+  <section class="contact-band" id="contact" aria-labelledby="contact-title">
+    <div class="shell">
+      <p class="eyebrow">Get in touch</p>
+      <h2 id="contact-title">If you've read this far, <em>let's talk</em>.</h2>
+      <p>Tell me what you're working on &mdash; what the product is, who you're trying to serve, what's stuck. If we look like a fit, the next step is a 30-minute call where I ask a lot of questions and you decide whether I'm useful.</p>
+
+      <p class="what-to-expect">
+        I read every message personally. I usually reply within two business days. If we look like a fit, the next step is a 30-minute conversation.
+      </p>
+
+      <div class="actions">
+        <a class="btn" href="mailto:charles@crb.is">Tell me what you're working on <svg class="arr-svg arr" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-on-dark" href="https://meetabl.com/book/crb" target="_blank" rel="noopener noreferrer">Pick a time that works<span class="sr-only"> (opens in new tab)</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="shell">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="display-md">Charles Berg Consulting</p>
+          <p>Independent practice. Accessibility UX, co-design facilitation, strategic advisory. Engagements worldwide.</p>
+        </div>
+        <nav class="footer-col" aria-label="Site">
+          <h3>Site</h3>
+          <ul>
+            <li><a href="#work">Work</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="Services">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="services.html#ux-design">UX Design</a></li>
+            <li><a href="services.html#co-design">Co-Design Facilitation</a></li>
+            <li><a href="services.html#advisory">Strategic Advisory</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-label="Elsewhere">
+          <h3>Elsewhere</h3>
+          <ul>
+            <li><a href="mailto:charles@crb.is">charles@crb.is</a></li>
+            <li><a href="https://www.linkedin.com/in/charlesberg" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in new tab)</span></a></li>
+            <li><a href="https://meetabl.com/book/crb" target="_blank" rel="noopener noreferrer">Book a call<span class="sr-only"> (opens in new tab)</span></a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-base">
+        <p>&copy; 2026 Charles Berg. WCAG 2.1 AA. Built static. Hosted on GitHub Pages.</p>
+        <p><a href="accessibility.html">Accessibility statement</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js" defer></script>
 </body>
 </html>
