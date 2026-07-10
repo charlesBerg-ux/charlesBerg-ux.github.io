@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Accessibility — Charles Berg Consulting</title>
+<meta name="description" content="How this site is built and tested for accessibility: a first-person commitment to WCAG 2.1 AA, the manual and automated testing I run, and how to report a barrier.">
+<meta property="og:title" content="Accessibility — Charles Berg Consulting">
+<meta property="og:description" content="A first-person accessibility statement: commitment to WCAG 2.1 AA, how I test, and how to report a barrier.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://crb.is/accessibility.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='2' fill='%231A1D21'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='600' fill='%23fff' text-anchor='middle'%3ECB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="site-head">
+    <div class="head-inner">
+        <a class="wordmark" href="index.html">
+            <span class="mark" aria-hidden="true">CB</span>
+            <span class="wordmark-text">
+                <span class="wm-name">Charles Berg</span>
+                <span class="wm-sub">Accessibility UX &amp; Co-Design</span>
+            </span>
+        </a>
+        <nav class="nav-desktop" aria-label="Primary">
+            <a href="work.html">Work</a>
+            <a href="services.html">Services</a>
+            <a href="index.html#about">About</a>
+            <a class="btn btn-accent nav-contact" href="index.html#contact">Contact <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </nav>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-mobile" aria-label="Open menu">
+            <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+    </div>
+    <nav class="nav-mobile" id="nav-mobile" data-nav-mobile aria-label="Primary">
+        <ul>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a class="mobile-contact" href="index.html#contact">Contact &rarr;</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="main" tabindex="-1">
+
+    <!-- ==================================================== A11Y HERO -->
+    <section class="a11y-hero">
+        <div class="wrap">
+            <p class="index"><span class="num">AX</span><span>Accessibility statement</span><span class="rule" aria-hidden="true"></span><span>Last reviewed 2026</span></p>
+            <h1>The same bar I sell, held on my own site.</h1>
+            <p class="lede">Accessibility is the work I do, so it would be strange to cut corners here. This page is a plain account of what I build to, how I check it, and what to do if something still gets in your way.</p>
+        </div>
+    </section>
+
+    <!-- ==================================================== COMMITMENT -->
+    <section class="a11y-block">
+        <div class="wrap">
+            <h2>What I build to</h2>
+            <p>I build this site to meet <b>WCAG 2.1 Level AA</b>. In practice that means text keeps a contrast ratio of at least 4.5 to 1, every control is reachable and operable by keyboard, focus is always visible, structure is conveyed with real headings and landmarks, and nothing depends on color alone. The layout reflows without a horizontal scroll down to a 320-pixel viewport and at 200 percent zoom.</p>
+            <p>Motion is kept minimal, and anything that moves respects your <b>reduced-motion</b> setting. There is no tracking and there are no cookies, so nothing here works against a screen reader or a slow connection.</p>
+        </div>
+    </section>
+
+    <!-- ==================================================== TESTING -->
+    <section class="a11y-block">
+        <div class="wrap">
+            <h2>How I test it</h2>
+            <p>I do not trust a single tool to catch everything, so I use three passes that check different things.</p>
+            <ul class="a11y-list">
+                <li><span class="al-key">Keyboard</span><span class="al-val">A manual pass with the mouse put away. I <b>tab through every page</b> to confirm the order is logical, focus stays visible, the mobile menu closes on Escape and returns focus, and nothing traps.</span></li>
+                <li><span class="al-key">Screen reader</span><span class="al-val">A <b>manual screen-reader sweep</b> with VoiceOver and NVDA, listening for correct headings, labels, link text, image descriptions, and live-region announcements.</span></li>
+                <li><span class="al-key">Automated</span><span class="al-val">An <b>automated axe-core</b> run against every page, targeting zero critical or serious issues. It catches the mechanical failures so the manual passes can focus on judgment.</span></li>
+            </ul>
+            <p>Automated checks catch perhaps a third of what matters. The other two thirds come from actually using the page the way a disabled visitor would, which is the same conviction that runs through my client work.</p>
+        </div>
+    </section>
+
+    <!-- ==================================================== REPORT -->
+    <section class="a11y-block">
+        <div class="wrap">
+            <h2>Found a barrier? Tell me.</h2>
+            <p>If any part of this site got in your way, I want to know, and I will treat it as a real bug. Email me at <a href="mailto:charles@crb.is">charles@crb.is</a> with the page, what you were trying to do, and the assistive technology or browser you were using if you know it. I read every message personally and usually reply within two business days.</p>
+            <p class="svc-link" style="margin-top: var(--s5);"><a href="index.html#contact">Start a conversation &rarr;</a></p>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div>
+            <div class="foot-mark">
+                <span class="mark" aria-hidden="true">CB</span>
+                <b>Charles Berg Consulting</b>
+            </div>
+            <p>Senior product design for accessibility and older adults. Solo, senior IC practice.</p>
+            <p class="foot-email-line"><a class="foot-email" href="mailto:charles@crb.is">charles@crb.is</a></p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+            <ul>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="footer-inner foot-legal-row">
+        <p class="foot-legal">No tracking, no cookies. Privacy-respecting analytics (Plausible) intended, none loaded here. &copy; 2026 Charles Berg.</p>
+        <a class="foot-legal-link" href="accessibility.html">Accessibility statement</a>
+    </div>
+</footer>
+
+<script src="js/nav.js"></script>
+</body>
+</html>

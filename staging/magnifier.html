@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Pixel Magnifier — Charles Berg Consulting</title>
+<meta name="description" content="How the highest-rated Google-made app on Google Play was designed around how low-vision users actually hold the phone. 4.8 stars, 154K monthly users.">
+<meta property="og:title" content="Pixel Magnifier — a case study by Charles Berg">
+<meta property="og:description" content="Designed around how low-vision users actually hold the phone. 4.8 stars, 154K monthly users.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://crb.is/magnifier.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='2' fill='%231A1D21'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='600' fill='%23fff' text-anchor='middle'%3ECB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="site-head">
+    <div class="head-inner">
+        <a class="wordmark" href="index.html">
+            <span class="mark" aria-hidden="true">CB</span>
+            <span class="wordmark-text">
+                <span class="wm-name">Charles Berg</span>
+                <span class="wm-sub">Accessibility UX &amp; Co-Design</span>
+            </span>
+        </a>
+        <nav class="nav-desktop" aria-label="Primary">
+            <a href="work.html">Work</a>
+            <a href="services.html">Services</a>
+            <a href="index.html#about">About</a>
+            <a class="btn btn-accent nav-contact" href="index.html#contact">Contact <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </nav>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-mobile" aria-label="Open menu">
+            <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+    </div>
+    <nav class="nav-mobile" id="nav-mobile" data-nav-mobile aria-label="Primary">
+        <ul>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a class="mobile-contact" href="index.html#contact">Contact &rarr;</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="main" tabindex="-1">
+
+    <div class="cs-top wrap">
+        <p class="cs-back"><a href="index.html#work">&larr; Back to work</a></p>
+    </div>
+
+    <!-- ==================================================== CS HEADER -->
+    <article>
+    <header class="cs-header wrap">
+        <p class="cs-eyebrow">Google Pixel</p>
+        <h1>Pixel Magnifier</h1>
+
+        <div class="cs-meta spec">
+            <div class="spec-row"><div class="spec-key">Role</div><div class="spec-val">Lead UX Designer</div></div>
+            <div class="spec-row"><div class="spec-key">Goal</div><div class="spec-val">Ship a genuinely better magnifier for Pixel</div></div>
+            <div class="spec-row"><div class="spec-key">Team</div><div class="spec-val">PM, Engineering, UXR</div></div>
+        </div>
+
+        <p class="cs-hook"><b>4.8-star rating.</b> The highest-rated Google-made app on Google Play. 154,000 people use it every month, most at maximum system magnification, holding the phone three inches from their face.</p>
+    </header>
+
+    <div class="wrap">
+        <div class="cs-hero-img">
+            <img src="assets/mag-happypath.gif" alt="">
+        </div>
+    </div>
+
+    <!-- ==================================================== CS BODY -->
+    <div class="cs-body wrap">
+
+        <h2><span class="h-num">01 / Challenge</span>The Challenge</h2>
+        <p>Low-vision users read the world through their phone camera. Menus, mail, prescription labels. Pixel's magnifier was makeshift. iPhone had shipped a real one. My job was to ship a better one.</p>
+
+        <h2><span class="h-num">02 / Research</span>Discovery &amp; Research</h2>
+        <p>The insight that mattered came from sitting with users. Low-vision users hold the phone inches from their face, with system magnification at maximum. The screen isn't six inches. It's the size of a wall, and crossing it costs swipes.</p>
+        <figure class="fig-dark fig-col2">
+            <img src="assets/magnifier/extrememag.png" alt="Screenshot showing extreme screen magnification during a user research session, demonstrating how little of the screen is visible at once">
+            <figcaption><span class="fig-num">Fig. 01</span> — What the screen looks like to a low-vision user with system magnification cranked. The reason every control got clustered at the bottom.</figcaption>
+        </figure>
+
+        <h2><span class="h-num">03 / Iteration</span>Design &amp; Iteration</h2>
+        <p>After the close-up insight, the design pretty much wrote itself. Spread-out concepts (the Camera-app pattern) failed in testing; every action was a multi-swipe trip across the wall. A tight cluster of controls at the bottom of the screen looked unbalanced in Figma. Held three inches from a face, it was the only layout that worked.</p>
+        <figure class="fig-dark fig-col2">
+            <img src="assets/magnifier/v1.png" alt="Original Magnifier app showing Reset Zoom as the primary action, with settings and gallery icons at opposite ends of the bottom bar">
+            <figcaption><span class="fig-num">Fig. 02</span> — "Reset zoom" (a low-frequency action) got the largest, most prominent button. The controls users actually needed didn't.</figcaption>
+        </figure>
+
+        <div class="evo-grid">
+            <div class="evo-item">
+                <div class="evo-img"><img src="assets/magnifier/rejectedconcept0.png" alt="Wireframe of Concept A showing a spread-out camera-like UI"></div>
+                <div class="evo-cap rejected"><b>Concept A · Rejected</b></div>
+                <p style="padding: 0 var(--s3) var(--s3); margin: 0; font-size: 0.8125rem; color: var(--muted);">Clustered at the bottom, but icons and menu still too small. Failed in testing.</p>
+            </div>
+            <div class="evo-item">
+                <div class="evo-img"><img src="assets/magnifier/rejectedconcept1.png" alt="Wireframe of Concept B with improved icon sizes but still requiring horizontal screen travel"></div>
+                <div class="evo-cap rejected"><b>Concept B · Rejected</b></div>
+                <p style="padding: 0 var(--s3) var(--s3); margin: 0; font-size: 0.8125rem; color: var(--muted);">Bigger icons. Still too much horizontal travel with magnification cranked.</p>
+            </div>
+            <div class="evo-item">
+                <div class="evo-img"><img src="assets/magnifier/result.png" alt="Final design showing all controls tightly clustered at the bottom of the screen"></div>
+                <div class="evo-cap final"><b>Final Design</b></div>
+                <p style="padding: 0 var(--s3) var(--s3); margin: 0; font-size: 0.8125rem; color: var(--muted);">Tight cluster of controls at the bottom. Predictable, no horizontal travel. The layout that shipped.</p>
+            </div>
+        </div>
+
+        <h2><span class="h-num">04 / Conviction</span>Designing Against Assumptions</h2>
+        <p>The bottom-cluster layout was the right answer. It was not an easy sell internally.</p>
+        <p>Google's design system has opinions: top app bar for overflow, expressive typography, visual curves. Good defaults. But defaults shaped by users who don't hold the phone three inches from their face. At that distance, a button at the top of the screen isn't inconvenient. It's hidden.</p>
+        <p>What moved leadership wasn't a design rationale. It was video. Session recordings of users at maximum system magnification, every UI tap a multi-swipe expedition. After that, the abstract argument went away. The bottom-cluster layout wasn't a deviation from good design. It was what good design looked like for this user.</p>
+
+        <h2><span class="h-num">05 / Live Search</span>Live Search</h2>
+        <p>Solving the layout got low-vision users to the controls. It didn't solve what they were trying to do once they got there.</p>
+        <p>The actual task (scanning a menu, a label, a sign) still meant sweeping the phone line by line. I couldn't reformat the menu. I couldn't reorganize the grocery aisle. I could eliminate the scanning.</p>
+        <p>Live Search: type or say a word, scan with the camera, Magnifier highlights it the moment it lands in the frame. (Shown here as a still; animated in the shipped app.) The interaction pattern is YouTube's: familiar, fast on repeated lookups, easy to operate one-handed. Asking users to learn a new search paradigm on top of everything else was off the table.</p>
+        <p>The response was immediate:</p>
+        <blockquote class="pullquote">
+            <p>"Found it right away. And how easy could that be? That, I mean, that is awesome. That is convenient."</p>
+            <cite>User Research Participant</cite>
+        </blockquote>
+        <figure class="fig-dark fig-col2">
+            <img src="assets/magnifier/live-view.png" alt="Live Search highlighting a searched word on a menu in the camera view (animated in the product)">
+            <figcaption><span class="fig-num">Fig. 03</span> — Type or say a word. Scan the menu with the camera. Magnifier highlights it the moment it lands in the frame. (Shown here as a still; animated in the shipped app.)</figcaption>
+        </figure>
+
+        <h2><span class="h-num">06 / Impact</span>Solution &amp; Impact</h2>
+        <div class="cs-callout on-dark">
+            <span class="label">Result</span>
+            <p class="co-big">4.8 Star Rating</p>
+            <p class="co-note">The highest-rated Google-made app on the Google Play Store. 154,000 monthly active users.</p>
+        </div>
+        <blockquote class="pullquote">
+            <p>"This is (ahem) magnificent... I have it set up so two taps on the back of the phone open the magnifier, and I use it nearly every day."</p>
+            <cite>Ron Lusk, 5-star Play Store Review</cite>
+        </blockquote>
+
+        <h2><span class="h-num">07 / Forward</span>What I'd Take Forward</h2>
+        <p>Magnifier taught me that the most important accessibility research happens before you open Figma. The close-up perspective (watching how users hold the phone) changed the entire design direction. No pattern library review would have surfaced it.</p>
+        <p>This is the kind of design work I bring to consulting engagements. If you're building products for disabled users or older adults, let's talk.</p>
+
+        <p class="svc-link" style="margin-top: var(--s6);"><a href="index.html#contact">Start a conversation &rarr;</a></p>
+    </div>
+    </article>
+
+    <!-- ==================================================== MORE -->
+    <section class="cs-more">
+        <div class="wrap">
+            <p class="index"><span class="num">&rarr;</span><span>More projects</span><span class="rule" aria-hidden="true"></span></p>
+            <div class="more-grid">
+                <a class="more-item" href="simple-view.html">
+                    <span class="m-name">Simple View</span>
+                    <span class="m-metric">80% conversion</span>
+                    <span class="case-desc" style="color: var(--muted); font-size: 0.9375rem;">Older adults in Japan. Accessibility moved out of buried settings into onboarding.</span>
+                </a>
+                <a class="more-item" href="guided-step.html">
+                    <span class="m-name">Guided Step</span>
+                    <span class="m-metric">&minus;44% obstacle hits / CHI 2026</span>
+                    <span class="case-desc" style="color: var(--muted); font-size: 0.9375rem;">Pedestrian navigation with blind users, co-designed across three continents.</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div>
+            <div class="foot-mark">
+                <span class="mark" aria-hidden="true">CB</span>
+                <b>Charles Berg Consulting</b>
+            </div>
+            <p>Senior product design for accessibility and older adults. Solo, senior IC practice.</p>
+            <p class="foot-email-line"><a class="foot-email" href="mailto:charles@crb.is">charles@crb.is</a></p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+            <ul>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="footer-inner foot-legal-row">
+        <p class="foot-legal">No tracking, no cookies. Privacy-respecting analytics (Plausible) intended, none loaded here. &copy; 2026 Charles Berg.</p>
+        <a class="foot-legal-link" href="accessibility.html">Accessibility statement</a>
+    </div>
+</footer>
+
+<script src="js/nav.js"></script>
+</body>
+</html>

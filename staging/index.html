@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Charles Berg — Product design for accessibility and older adults</title>
+<meta name="description" content="Senior product design for accessibility and older adults. Twenty years of Staff and Principal craft at Google, Microsoft, and Motorola, focused on the users most products skip.">
+<meta property="og:title" content="Charles Berg — Product design for accessibility and older adults">
+<meta property="og:description" content="Senior product design for accessibility and older adults. Twenty years of Staff and Principal craft, focused on the users most products skip.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://crb.is/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='2' fill='%231A1D21'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='600' fill='%23fff' text-anchor='middle'%3ECB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="site-head">
+    <div class="head-inner">
+        <a class="wordmark" href="index.html">
+            <span class="mark" aria-hidden="true">CB</span>
+            <span class="wordmark-text">
+                <span class="wm-name">Charles Berg</span>
+                <span class="wm-sub">Accessibility UX &amp; Co-Design</span>
+            </span>
+        </a>
+        <nav class="nav-desktop" aria-label="Primary">
+            <a href="work.html">Work</a>
+            <a href="services.html">Services</a>
+            <a href="#about">About</a>
+            <a class="btn btn-accent nav-contact" href="index.html#contact">Contact <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </nav>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-mobile" aria-label="Open menu">
+            <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+    </div>
+    <nav class="nav-mobile" id="nav-mobile" data-nav-mobile aria-label="Primary">
+        <ul>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a class="mobile-contact" href="index.html#contact">Contact &rarr;</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="main" tabindex="-1">
+
+    <!-- ============================================================ HERO -->
+    <section class="hero">
+        <div class="wrap">
+            <div class="hero-meta">
+                <span><b>20 yrs</b> Staff / Principal IC</span>
+                <span>Google</span>
+                <span>Microsoft</span>
+                <span>Motorola</span>
+                <span>Focus <b>Accessibility + older adults</b></span>
+            </div>
+            <h1>Product design for the users most products skip.</h1>
+            <p class="lede">Twenty years of product design at scale. In the last few years, I have put that expertise where the industry rarely does: treating people with disabilities and older adults as design partners.</p>
+            <p class="product-line">Most accessibility help arrives from compliance and audit. <strong>I focus on the product.</strong> I apply that rigor to what ships and how people feel using it.</p>
+            <div class="hero-ctas">
+                <a class="btn btn-accent" href="#contact">Start a conversation <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                <a class="btn btn-outline" href="#work">See the work</a>
+            </div>
+            <!-- PARKED (PRD-v2.4 §9, 2026-07-08): hero "systems instrument panel." A dark
+                 right-column card rendering the Google Home light-pattern states, so the
+                 systems-designer pitch appears in the first screen. Parked at Charles's
+                 request to focus elsewhere; a good idea for future exploration.
+                 TO RESTORE: wrap the h1/lede/product-line/hero-ctas above in
+                 <div class="hero-grid"><div class="hero-main"> … </div>, then re-enable the
+                 <aside> below as the grid's second child. The .hero-grid / .hero-aside CSS
+                 is kept (dormant) in css/styles.css.
+            <aside class="hero-aside" aria-label="Featured system: the Google Home light-pattern language">
+                <p class="ha-label">Systems design / Google Home</p>
+                <p class="ha-lead">One light-behavior language across 25M+ devices.</p>
+                <div class="ha-diagram">
+                    <div class="ha-state">
+                        <span class="ha-dot" style="background:#2E5AAC;" aria-hidden="true"></span>
+                        <span class="ha-name">Listening</span>
+                        <span class="ha-desc">Steady, attentive.</span>
+                    </div>
+                    <div class="ha-state">
+                        <span class="ha-dot" style="background:#8FB4EE;" aria-hidden="true"></span>
+                        <span class="ha-name">Thinking</span>
+                        <span class="ha-desc">A measured pulse.</span>
+                    </div>
+                    <div class="ha-state">
+                        <span class="ha-dot" style="background:#1F7A4D;" aria-hidden="true"></span>
+                        <span class="ha-name">Confirmed</span>
+                        <span class="ha-desc">A brief settle.</span>
+                    </div>
+                    <div class="ha-state">
+                        <span class="ha-dot" style="background:#3a4149;" aria-hidden="true"></span>
+                        <span class="ha-name">Muted</span>
+                        <span class="ha-desc">Dimmed and still.</span>
+                    </div>
+                </div>
+                <p class="ha-note"><a href="services.html#ux-design">How the system works &rarr;</a></p>
+            </aside>
+            -->
+            <!-- PARKED 2026-07-09: personal intro / "I read every message" line reads out of place in the hero. Un-comment to restore.
+            <p class="hero-sign">I&apos;m <b>Charles Berg</b>. Solo, senior practice. I read every message myself.</p>
+            -->
+        </div>
+    </section>
+
+    <!-- ==================================================== PROOF / WORK -->
+    <section class="section" id="work">
+        <div class="wrap">
+            <div class="sec-head">
+                <p class="index"><span class="num">01</span><span>Selected work</span><span class="rule" aria-hidden="true"></span><span>Totally awesome products</span></p>
+                <h2 class="section-title">Products built around how people use them.</h2>
+                <p class="section-lead">I led these each end to end, from research to launch. The numbers speak to the result.</p>
+            </div>
+
+            <div class="proof-grid">
+                <a class="case-card" href="magnifier.html">
+                    <span class="case-thumb"><span class="case-tag">Case study</span><img src="assets/magnifier-hero.png" alt="Pixel Magnifier app shown on a phone, controls clustered at the bottom of the screen"></span>
+                    <span class="case-body">
+                        <span class="case-name">Pixel Magnifier</span>
+                        <span class="case-metric">4.8 stars / 154K MAU</span>
+                        <span class="case-desc">The highest-rated Google-made app on Google Play, built around how low-vision users hold the phone.</span>
+                        <span class="case-more">Read the case study &rarr;</span>
+                    </span>
+                </a>
+                <a class="case-card" href="simple-view.html">
+                    <span class="case-thumb"><span class="case-tag">Case study</span><img src="assets/simpleview-hero.png" alt="Simple View onboarding screens designed for older adults in Japan"></span>
+                    <span class="case-body">
+                        <span class="case-name">Simple View</span>
+                        <span class="case-metric">80% conversion</span>
+                        <span class="case-desc">Older adults in Japan. A design-system insight: pull accessibility out of buried settings into onboarding.</span>
+                        <span class="case-more">Read the case study &rarr;</span>
+                    </span>
+                </a>
+                <a class="case-card" href="guided-step.html">
+                    <span class="case-thumb"><span class="case-tag">Case study</span><img src="assets/guidedstep-hero.png" alt="Guided Step pedestrian navigation prototype designed with blind users"></span>
+                    <span class="case-body">
+                        <span class="case-name">Guided Step</span>
+                        <span class="case-metric">&minus;44% obstacle hits / CHI 2026</span>
+                        <span class="case-desc">Pedestrian navigation with blind users at the center. A 20-participant study across three continents.</span>
+                        <span class="case-more">Read the case study &rarr;</span>
+                    </span>
+                </a>
+            </div>
+
+            <p class="work-all"><a href="work.html">See all work &rarr;</a></p>
+        </div>
+    </section>
+
+    <!-- ======================================================= WHAT I DO -->
+    <section class="section" id="services">
+        <div class="wrap">
+            <div class="sec-head">
+                <p class="index"><span class="num">02</span><span>What I do</span><span class="rule" aria-hidden="true"></span><span>A lot of activities</span></p>
+                <h2 class="section-title">Product design with accessibility as the default.</h2>
+            </div>
+
+            <div class="do-grid">
+                <a class="do-item" href="services.html#ux-design">
+                    <span class="do-num">2.1</span>
+                    <h3>Product &amp; systems design</h3>
+                    <p>Senior IC design for accessibility-first features, and systems that make accessibility the default.</p>
+                    <span class="do-go">Services &rarr;</span>
+                </a>
+                <a class="do-item" href="services.html#co-design">
+                    <span class="do-num">2.2</span>
+                    <h3>Co-design facilitation</h3>
+                    <p>Disabled users and older adults shaping the product from the start, not testing it late.</p>
+                    <span class="do-go">Services &rarr;</span>
+                </a>
+                <a class="do-item" href="services.html#advisory">
+                    <span class="do-num">2.3</span>
+                    <h3>Strategic advisory</h3>
+                    <p>Lower time, higher leverage. Program assessment, team coaching, roadmap and prioritization.</p>
+                    <span class="do-go">Services &rarr;</span>
+                </a>
+                <a class="do-item" href="services.html#embedded">
+                    <span class="do-num">2.4</span>
+                    <h3>Accessibility office hours</h3>
+                    <p>Embedded, ongoing support that builds a team&apos;s capability over time, not just deliverables.</p>
+                    <span class="do-go">Services &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================ WHO I WORK WITH -->
+    <!-- REVIEW TOGGLE: Who I work with — delete this block to hide -->
+    <section class="section" id="who">
+        <div class="wrap">
+            <p class="index"><span class="num">03</span><span>Who I work with</span><span class="rule" aria-hidden="true"></span><span>Curious and smart people</span></p>
+            <div class="audience">
+                <div>
+                    <h2 class="section-title">Senior craft, wherever the accessibility work lives.</h2>
+                    <p style="margin-top: var(--s5);">I work with product teams carrying an accessibility or older-adult mandate, and with accessibility consultancies who need senior co-design and product-design capacity they can subcontract. If you are a founder building for disabled users or older adults, I want to hear from you too.</p>
+                </div>
+                <ul class="aud-list">
+                    <li><span class="a-key">Teams</span><span class="a-val"><b>Product, design, and eng leaders</b> with an accessibility mandate and a senior seat to fill.</span></li>
+                    <li><span class="a-key">Partners</span><span class="a-val"><b>Accessibility consultancies</b> subcontracting senior co-design and product capacity.</span></li>
+                    <li><span class="a-key">Founders</span><span class="a-val"><b>Builders</b> making products for older adults and disabled users from day one.</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- /REVIEW TOGGLE -->
+
+    <!-- ==================================================== ABOUT PREVIEW -->
+    <section class="section" id="about">
+        <div class="wrap">
+            <p class="index"><span class="num">04</span><span>About</span><span class="rule" aria-hidden="true"></span><span>A curious and smart person</span></p>
+            <div class="about-preview">
+                <div class="about-portrait">
+                    <img src="assets/Headshot.jpg" alt="Portrait of Charles Berg">
+                </div>
+                <div class="about-copy">
+                    <p>Two threads run through my work. One is twenty years of Staff and Principal product design: Google Home, Nest, mobile, and non-traditional interfaces. The other is a deliberate turn these last few years toward disabled users and older adults. I consider it the best work of my career.</p>
+                    <p>The commitment is on the record, strongest first.</p>
+                    <ul class="commit-list">
+                        <li><span class="c-num">01</span><span>Shipped receipts: Magnifier, Simple View, Guided Step, all measured.</span></li>
+                        <li><span class="c-num">02</span><span>A live Accessibility Office Hours retainer inside a Fortune 100 design org.</span></li>
+                        <li><span class="c-num">03</span><span>Pursuing CPACC certification, in progress now.</span></li>
+                    </ul>
+                    <p style="margin-top: var(--s5);"><a href="assets/crbresejune26.pdf" download>Download resume <span aria-hidden="true">&darr;</span></a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================= CONTACT -->
+    <section class="section contact on-dark" id="contact">
+        <div class="wrap">
+            <p class="index"><span class="num">05</span><span>Contact</span><span class="rule" aria-hidden="true"></span></p>
+            <div class="contact-grid">
+                <div>
+                    <h2 class="section-title">Tell me what you&apos;re building.</h2>
+                    <p class="expect">I read every message personally. I usually reply within two business days. If we look like a fit, the next step is a 30-minute conversation.</p>
+                    <ul class="expect-list">
+                        <li><span class="e-num">01</span><span>Read personally, every time.</span></li>
+                        <li><span class="e-num">02</span><span>A reply within two business days.</span></li>
+                        <li><span class="e-num">03</span><span>A 30-minute conversation if it fits.</span></li>
+                    </ul>
+                    <div class="contact-direct">
+                        <span><span class="cd-key">EMAIL</span> &nbsp; <a href="mailto:charles@crb.is">charles@crb.is</a></span>
+                        <span><span class="cd-key">BOOK</span> &nbsp; <a href="https://meetabl.com/book/crb" target="_blank" rel="noopener">30-min conversation<span class="vh"> (opens in new tab)</span> &rarr;</a></span>
+                    </div>
+                </div>
+
+                <div>
+                    <form action="https://formspree.io/f/REPLACE_ME" method="POST" novalidate>
+                        <p class="form-status" role="status" aria-live="polite"></p>
+
+                        <div class="form-field">
+                            <label for="name">Name <span class="req">(required)</span></label>
+                            <input type="text" id="name" name="name" autocomplete="name" required aria-required="true">
+                        </div>
+                        <div class="form-field">
+                            <label for="email">Email <span class="req">(required)</span></label>
+                            <input type="email" id="email" name="email" autocomplete="email" required aria-required="true">
+                        </div>
+                        <div class="form-field">
+                            <label for="message">What you&apos;re working on <span class="req">(required)</span></label>
+                            <textarea id="message" name="message" required aria-required="true"></textarea>
+                        </div>
+
+                        <div class="hp" aria-hidden="true">
+                            <label for="company-website">Leave this field empty</label>
+                            <input type="text" id="company-website" name="_gotcha" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-accent" type="submit">Send message <span class="arrow" aria-hidden="true">&rarr;</span></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div>
+            <div class="foot-mark">
+                <span class="mark" aria-hidden="true">CB</span>
+                <b>Charles Berg Consulting</b>
+            </div>
+            <p>Senior product design for accessibility and older adults. Solo, senior IC practice.</p>
+            <p class="foot-email-line"><a class="foot-email" href="mailto:charles@crb.is">charles@crb.is</a></p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+            <ul>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="footer-inner foot-legal-row">
+        <p class="foot-legal">No tracking, no cookies. Privacy-respecting analytics (Plausible) intended, none loaded here. &copy; 2026 Charles Berg.</p>
+        <a class="foot-legal-link" href="accessibility.html">Accessibility statement</a>
+    </div>
+</footer>
+
+<script src="js/nav.js"></script>
+</body>
+</html>
