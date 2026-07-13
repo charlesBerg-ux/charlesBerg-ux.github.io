@@ -1,291 +1,209 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Guided Step · Charles Berg Consulting</title>
-  <meta name="description" content="A 20-participant experimental study of AI-powered navigation for blind and low-vision users. -44% obstacle hits. Findings submitted to CHI 2026. Co-designed across Tokyo, the US, and Paris.">
-  <meta name="theme-color" content="#EDE3D4">
-
-  <meta property="og:title" content="Guided Step · Charles Berg Consulting">
-  <meta property="og:description" content="Pedestrian navigation with blind users at the center. A global co-design across three continents.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://crb.is/guided-step.html">
-
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2215%22 fill=%22%231F3A2A%22/><text y=%2258%25%22 x=%2250%25%22 font-size=%2248%22 fill=%22%23EDE3D4%22 text-anchor=%22middle%22 dominant-baseline=%22central%22 font-family=%22Georgia,serif%22 font-style=%22italic%22 font-weight=%22500%22>cb</text></svg>">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..600,30..100,0..1;1,9..144,400..600,30..100,0..1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guided Step — Charles Berg Consulting</title>
+<meta name="description" content="Using the Pixel camera to catch what a guide cane misses. Co-designed with blind users across three continents and validated in a 20-participant study: 44% fewer obstacle hits, submitted to CHI 2026.">
+<meta property="og:title" content="Guided Step — a case study by Charles Berg">
+<meta property="og:description" content="Camera-based navigation help for blind users, co-designed across three continents. 44% fewer obstacle hits, submitted to CHI 2026.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://crb.is/guided-step.html">
+<meta property="og:image" content="https://crb.is/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Charles Berg — product design for the users most products skip.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='2' fill='%231A1D21'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='600' fill='%23fff' text-anchor='middle'%3ECB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
+<a class="skip" href="#main">Skip to main content</a>
 
-  <header class="site-header" role="banner">
-    <div class="shell">
-      <div class="nav-row">
-        <a href="index.html" class="brand" aria-label="Charles Berg Consulting, home">
-          <span class="brand-mark">Charles Berg Consulting</span>
-          <span class="brand-sub">Accessibility UX &amp; Co-Design</span>
+<header class="site-head">
+    <div class="head-inner">
+        <a class="wordmark" href="index.html">
+            <span class="mark" aria-hidden="true">CB</span>
+            <span class="wordmark-text">
+                <span class="wm-name">Charles Berg</span>
+                <span class="wm-sub">Accessibility UX &amp; Co-Design</span>
+            </span>
         </a>
-
-        <nav aria-label="Primary">
-          <ul class="nav-list">
-            <li><a href="index.html#work">Work</a></li>
+        <nav class="nav-desktop" aria-label="Primary">
+            <a href="work.html">Work</a>
+            <a href="services.html">Services</a>
+            <a href="index.html#about">About</a>
+            <a class="btn btn-accent nav-contact" href="index.html#contact">Contact <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </nav>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-mobile" aria-label="Open menu">
+            <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+    </div>
+    <nav class="nav-mobile" id="nav-mobile" data-nav-mobile aria-label="Primary">
+        <ul>
+            <li><a href="work.html">Work</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="index.html#about">About</a></li>
-            <li><a class="nav-cta" href="index.html#contact">Contact <svg class="arr-svg arr" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-          </ul>
-          <button class="nav-toggle" data-nav-toggle aria-controls="nav-mobile" aria-expanded="false" aria-label="Open menu">
-            <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
-            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
-          </button>
-        </nav>
-      </div>
+            <li><a class="mobile-contact" href="index.html#contact">Contact &rarr;</a></li>
+        </ul>
+    </nav>
+</header>
 
-      <ul class="nav-list-mobile" id="nav-mobile" data-nav-mobile>
-        <li><a href="index.html#work">Work</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
+<main id="main" tabindex="-1">
+
+    <div class="cs-top wrap">
+        <p class="cs-back"><a href="index.html#work">&larr; Back to work</a></p>
     </div>
-  </header>
 
-  <main id="main" tabindex="-1">
-    <div class="shell">
-      <a href="index.html#work" class="back-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-        All projects
-      </a>
+    <!-- ==================================================== CS HEADER -->
+    <article>
+    <header class="cs-header wrap">
+        <p class="cs-eyebrow">Google Pixel</p>
+        <h1>Guided Step</h1>
 
-      <!-- Thin marquee: academic recognition. Sits above the case-grid. -->
-      <div class="chi-banner" role="region" aria-label="Research recognition">
-        <span class="chi-banner-label">Academic Recognition</span>
-        <span class="chi-banner-text"><strong>Submitted to CHI 2026</strong>, approved for public sharing by Google.</span>
-      </div>
-
-      <div class="case-grid">
-
-        <!-- Title block (cols 1-7 at desktop) -->
-        <div class="case-intro">
-          <header class="case-header">
-            <div class="case-company">Google Pixel</div>
-            <h1 class="case-title">Guided Step</h1>
-            <span class="case-badge">Private Research Beta</span>
-          </header>
+        <div class="cs-meta spec">
+            <div class="spec-row"><div class="spec-key">Role</div><div class="spec-val">Lead UX Designer</div></div>
+            <div class="spec-row"><div class="spec-key">Goal</div><div class="spec-val">Explore the Pixel camera as a guide-cane supplement for blind users in crowded spaces</div></div>
+            <div class="spec-row"><div class="spec-key">Team</div><div class="spec-val">UXR, PM, Sound Design, Engineering</div></div>
         </div>
 
-        <!-- Meta sidebar (cols 9-12 at desktop) -->
-        <div class="meta-grid" role="region" aria-label="Project details">
-          <div>
-            <div class="meta-item-label">Role</div>
-            <div class="meta-item-value">Lead UX Designer</div>
-          </div>
-          <div>
-            <div class="meta-item-label">Goal</div>
-            <div class="meta-item-value">Explore using the Pixel camera as a guide cane supplement for blind users in crowded spaces</div>
-          </div>
-          <div>
-            <div class="meta-item-label">Team</div>
-            <div class="meta-item-value">UXR, PM, Sound Design, Engineering</div>
-          </div>
+        <p class="cs-hook"><b>&minus;44% obstacle hits.</b> Navigation help for blind and low-vision users, validated in a 20-participant experimental study against cane-only navigation. Submitted to CHI 2026 and approved by Google for public sharing.</p>
+    </header>
+
+    <div class="wrap">
+        <div class="cs-hero-img">
+            <img src="assets/guidedstep-hero.png" alt="A blind pedestrian navigating a busy street, using Guided Step on a Pixel phone">
         </div>
-
-        <!-- Result + hero phone, paired at desktop -->
-        <div class="outcome-hook" role="region" aria-label="Project outcome">
-          <div class="outcome-hook-label">The result</div>
-          <div class="outcome-hook-metric">-44% obstacle hits</div>
-          <div class="outcome-hook-detail">AI-powered navigation for blind and low-vision users. Validated in a 20-participant experimental study against cane-only navigation.</div>
-        </div>
-
-        <div class="case-hero" aria-hidden="true">
-          <div class="phone-mockup">
-            <div class="screen">
-              <img src="assets2025/GuidedStep/!hero.png" alt="">
-            </div>
-          </div>
-        </div>
-
-        <!-- Section marker: prose narrative begins -->
-        <div class="case-build-marker">
-          <span class="eyebrow">The story</span>
-        </div>
-
-        <!-- The Challenge -->
-        <section class="case-section">
-          <h2 class="section-heading">The Challenge</h2>
-          <div class="section-body prose">
-            <p>Guide canes catch what's at the ground. They don't catch what's at trunk or head level. The question: could a phone with AI detection close that gap, without replacing the cane?</p>
-          </div>
-        </section>
-
-        <!-- The Process: A Global Co-Design -->
-        <section class="case-section">
-          <h2 class="section-heading">The Process: A Global Co-Design</h2>
-          <div class="section-body prose">
-            <p>Three rounds of co-design with 15 blind and low-vision participants across three continents. Each round happened in a more demanding environment than the last. Each one changed the design.</p>
-            <p>Round one: Tokyo. A busy shopping center and Shibuya station, deliberately chosen as a stress test (Shibuya is one of the most chaotic pedestrian environments in the world). A team member walked alongside each participant, ready to intervene if a collision was imminent. The lesson came fast. The early prototype generated too many notifications in dense spaces, participants were in cognitive overload, and the sound system wasn't yet memorizable enough to process while managing a cane.</p>
-            <p>Round two: outdoor corporate campuses in the US, with blind athletes from the US Association of Blind Athletes. The focus shifted to interaction model, interface structure, and sound design. The sonic language had to communicate obstacle type, direction, and proximity. Without overwhelming the user.</p>
-            <p>Round three: Paris. Sidewalks, pedestrian streets, plazas, parks. The core design was stable enough by this point to test the full end-to-end experience, including onboarding a first-time user from zero. The test wasn't just whether the app worked. It was whether a blind user could learn it independently and trust it enough to walk with confidence.</p>
-
-            <div class="figure">
-              <div class="figure-image-grid">
-                <img src="assets2025/GuidedStep/UXRPic.jpg" alt="Research participant testing Guided Step prototype while navigating a busy urban environment">
-                <img src="assets2025/GuidedStep/UXRPic2.jpg" alt="Second research participant using Guided Step in a crowded public space">
-              </div>
-              <p class="figure-caption">Co-design sessions in Tokyo, the US, and Paris. Lab conditions can't replicate the cognitive demands of a crowded train station.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Key Learnings: The Three Pillars -->
-        <section class="case-section">
-          <h2 class="section-heading">Key Learnings: The Three Pillars</h2>
-          <div class="section-body prose">
-            <p>Three rounds of co-design, three design principles. Each one came from something that broke in testing.</p>
-          </div>
-        </section>
-
-        <!-- Three pillars — full-width breakout -->
-        <div class="pillars-grid" role="region" aria-label="Three design pillars">
-          <div class="pillar-card">
-            <h3 class="pillar-title">Guided Setup</h3>
-            <div class="pillar-phone">
-              <div class="pillar-phone-inner">
-                <div class="pillar-phone-screen">
-                  <img src="assets2025/GuidedStep/01.png" alt="Onboarding screen for Guided Step">
-                </div>
-              </div>
-            </div>
-            <p class="pillar-desc">A user who misunderstands the feedback could be more dangerous than no app at all. Onboarding was a safety requirement. 100% of participants rated the app easy or very easy to learn.</p>
-          </div>
-          <div class="pillar-card">
-            <h3 class="pillar-title">Minimalist UI</h3>
-            <div class="pillar-phone">
-              <div class="pillar-phone-inner">
-                <div class="pillar-phone-screen">
-                  <img src="assets2025/GuidedStep/!hero.png" alt="Minimalist main interface for Guided Step">
-                </div>
-              </div>
-            </div>
-            <p class="pillar-desc">Blind users are already managing cane, environment, and audio at the same time. Any UI complexity was a dangerous distraction. We reduced the interface to three tabs.</p>
-          </div>
-          <div class="pillar-card">
-            <h3 class="pillar-title">Full Customization</h3>
-            <div class="pillar-phone">
-              <div class="pillar-phone-inner">
-                <div class="pillar-phone-screen">
-                  <img src="assets2025/GuidedStep/settingsMain.png" alt="Settings screen showing customization options for audio feedback">
-                </div>
-              </div>
-            </div>
-            <p class="pillar-desc">No two users wanted the same experience. Customization wasn't optional. It was the only way to serve the full range of how blind users actually navigate.</p>
-          </div>
-        </div>
-
-        <!-- Focus and Ambient: Designing for Context -->
-        <section class="case-section">
-          <h2 class="section-heading">Focus and Ambient: Designing for Context</h2>
-          <div class="section-body prose">
-            <p>One of the most important decisions came out of co-design: a two-mode system that let users shift the app's behavior based on where they were and what they needed.</p>
-            <p><strong>Focus mode</strong> is critical notifications only. Obstacles and people directly ahead. Sounds and haptics, no voice. The mode for moving fast: a crowded airport to catch a flight, a familiar neighborhood, A to B without distraction.</p>
-            <p><strong>Ambient mode</strong> opens the detection range and adds voice descriptions ("car, right, 3 meters," "bench, center"). The mode for learning: arriving somewhere new, understanding the layout of a plaza, building a mental map before committing to a route. One athlete described it as similar to walking with a guide dog: the ability to "cruise down the street" with awareness rather than anxiety.</p>
-            <p>The distinction sounds simple. It wasn't. Getting the boundary right (what information belonged in each mode, how quickly users could switch, how the sound design changed between them) took iteration across all three rounds. The result is an app that can be a precision tool or a spatial awareness system, depending on what the user needs in that moment.</p>
-          </div>
-        </section>
-
-        <!-- The Impact: Validated Results -->
-        <section class="case-section">
-          <h2 class="section-heading">The Impact: Validated Results</h2>
-          <div class="section-body prose">
-            <p>Guided Step was validated in a 20-participant experimental study on an outdoor corporate campus. Each participant navigated the same course twice (once with their cane alone, once with Guided Step) in randomized order to eliminate learning effects.</p>
-
-            <div class="stats-grid" role="region" aria-label="Study results">
-              <div class="stat-card" aria-label="-44% fewer unintentional obstacle hits">
-                <div class="stat-metric">-44%</div>
-                <div class="stat-detail">Fewer unintentional obstacle hits</div>
-              </div>
-              <div class="stat-card" aria-label="-36% reduction in total obstacles hit">
-                <div class="stat-metric">-36%</div>
-                <div class="stat-detail">Reduction in total obstacles hit</div>
-              </div>
-              <div class="stat-card" aria-label="-34% decrease in near-miss events">
-                <div class="stat-metric">-34%</div>
-                <div class="stat-detail">Decrease in near-miss events</div>
-              </div>
-            </div>
-
-            <blockquote class="quote">
-              <p>"I am more confident that I will not crash or fall... It can detect things that's further out than the cane. It's good to know what's around you and have awareness of people and cars. With the cane you're always hesitating, second guessing every step."</p>
-              <cite>Study Participant</cite>
-            </blockquote>
-
-            <p>100% of participants rated Guided Step easy or very easy to use. Half expressed enthusiasm for adopting it immediately. The findings were submitted to CHI 2026 (one of the most selective venues in human-computer interaction) and approved by Google for public sharing.</p>
-          </div>
-        </section>
-
-        <!-- What This Project Contributed -->
-        <section class="case-section">
-          <h2 class="section-heading">What This Project Contributed</h2>
-          <div class="section-body prose">
-            <p>Guided Step didn't ship to production. It did something more durable: a validated design framework for AI-powered assistive navigation, grounded in three rounds of co-design across three continents and rigorous enough to clear CHI peer review.</p>
-            <p>The three pillars (guided setup, minimalist UI, full customization) aren't specific to navigation apps. They apply to any product where the stakes of getting the interaction wrong are physical, not just inconvenient. That's the standard I bring to accessibility work.</p>
-            <p>This is the kind of design work I bring to consulting engagements. If you're building products for blind or low-vision users, let's talk.</p>
-          </div>
-        </section>
-
-        <!-- CTA aligns with body column -->
-        <div class="case-cta">
-          <a class="btn" href="mailto:charles@crb.is">Tell me what you're working on <svg class="arr-svg arr" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </div>
     </div>
-  </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="shell">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <p class="display-md">Charles Berg Consulting</p>
-          <p>Independent practice. Accessibility UX, co-design facilitation, strategic advisory. Engagements worldwide.</p>
+    <!-- ==================================================== CS BODY -->
+    <div class="cs-body wrap">
+
+        <h2><span class="h-num">01 / Challenge</span>The Challenge</h2>
+        <p>Guide canes catch what's at the ground. They don't catch what's at trunk or head level. The question: could a phone with AI detection close that gap, without replacing the cane?</p>
+
+        <h2><span class="h-num">02 / Co-design</span>The Process: A Global Co-Design</h2>
+        <p>Three rounds of co-design with 15 blind and low-vision participants across three continents. Each round happened in a more demanding environment than the last. Each one changed the design.</p>
+        <p>Round one: Tokyo. A busy shopping center and Shibuya station, deliberately chosen as a stress test (Shibuya is one of the most chaotic pedestrian environments in the world). A team member walked alongside each participant, ready to intervene if a collision was imminent. The lesson came fast. The early prototype generated too many notifications in dense spaces, participants were in cognitive overload, and the sound system wasn't yet memorizable enough to process while managing a cane.</p>
+        <p>Round two: outdoor corporate campuses in the US, with blind athletes from the US Association of Blind Athletes. The focus shifted to interaction model, interface structure, and sound design. The sonic language had to communicate obstacle type, direction, and proximity. Without overwhelming the user.</p>
+        <p>Round three: Paris. Sidewalks, pedestrian streets, plazas, parks. The core design was stable enough by this point to test the full end-to-end experience, including onboarding a first-time user from zero. The test wasn't just whether the app worked. It was whether a blind user could learn it independently and trust it enough to walk with confidence.</p>
+        <figure class="fig-2up-crop">
+          <div class="cd-pair">
+            <img src="assets/guidedstep/uxrpic.jpg" alt="Research participant testing Guided Step prototype while navigating a busy urban environment">
+            <img src="assets/guidedstep/uxrpic2.jpg" alt="Second research participant using Guided Step in a crowded public space">
+          </div>
+          <figcaption><span class="fig-num">Fig. 01</span> — Co-design sessions in Tokyo, the US, and Paris. Lab conditions can't replicate the cognitive demands of a crowded train station.</figcaption>
+        </figure>
+
+        <h2><span class="h-num">03 / Principles</span>Key Learnings: The Three Pillars</h2>
+        <p>Three rounds of co-design, three design principles. Each one came from something that broke in testing.</p>
+        <div class="evo-grid">
+            <div class="evo-item">
+                <div class="evo-img"><img src="assets/guidedstep/01.png" alt="Onboarding screen for Guided Step"></div>
+                <div class="evo-cap"><b>Guided Setup</b></div>
+                <p style="padding: 0 var(--s3) var(--s3); margin: 0; font-size: 0.8125rem; color: var(--muted);">A user who misunderstands the feedback could be more dangerous than no app at all. Onboarding was a safety requirement. 100% of participants rated the app easy or very easy to learn.</p>
+            </div>
+            <div class="evo-item">
+                <div class="evo-img"><img src="assets/guidedstep/hero.png" alt="Minimalist main interface for Guided Step"></div>
+                <div class="evo-cap"><b>Minimalist UI</b></div>
+                <p style="padding: 0 var(--s3) var(--s3); margin: 0; font-size: 0.8125rem; color: var(--muted);">Blind users are already managing cane, environment, and audio at the same time. Any UI complexity was a dangerous distraction. We reduced the interface to three tabs.</p>
+            </div>
+            <div class="evo-item">
+                <div class="evo-img"><img src="assets/guidedstep/settingsmain.png" alt="Settings screen showing customization options for audio feedback"></div>
+                <div class="evo-cap"><b>Full Customization</b></div>
+                <p style="padding: 0 var(--s3) var(--s3); margin: 0; font-size: 0.8125rem; color: var(--muted);">No two users wanted the same experience. Customization wasn't optional. It was the only way to serve the full range of how blind users actually navigate.</p>
+            </div>
         </div>
-        <nav class="footer-col" aria-label="Site">
-          <h3>Site</h3>
-          <ul>
-            <li><a href="index.html#work">Work</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-        </nav>
-        <nav class="footer-col" aria-label="Services">
-          <h3>Services</h3>
-          <ul>
-            <li><a href="services.html#ux-design">UX Design</a></li>
-            <li><a href="services.html#co-design">Co-Design Facilitation</a></li>
-            <li><a href="services.html#advisory">Strategic Advisory</a></li>
-          </ul>
-        </nav>
-        <nav class="footer-col" aria-label="Elsewhere">
-          <h3>Elsewhere</h3>
-          <ul>
-            <li><a href="mailto:charles@crb.is">charles@crb.is</a></li>
-            <li><a href="https://www.linkedin.com/in/charlesberg" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in new tab)</span></a></li>
-            <li><a href="https://meetabl.com/book/crb" target="_blank" rel="noopener noreferrer">Book a call<span class="sr-only"> (opens in new tab)</span></a></li>
-          </ul>
-        </nav>
-      </div>
 
-      <div class="footer-base">
-        <p>&copy; 2026 Charles Berg. WCAG 2.1 AA. Built static. Hosted on GitHub Pages.</p>
-        <p><a href="accessibility.html">Accessibility statement</a></p>
-      </div>
+        <h2><span class="h-num">04 / Interaction</span>Focus and Ambient: Designing for Context</h2>
+        <p>One of the most important decisions came out of co-design: a two-mode system that let users shift the app's behavior based on where they were and what they needed.</p>
+        <p><strong>Focus mode</strong> is critical notifications only. Obstacles and people directly ahead. Sounds and haptics, no voice. The mode for moving fast: a crowded airport to catch a flight, a familiar neighborhood, A to B without distraction.</p>
+        <p><strong>Ambient mode</strong> opens the detection range and adds voice descriptions ("car, right, 3 meters," "bench, center"). The mode for learning: arriving somewhere new, understanding the layout of a plaza, building a mental map before committing to a route. One athlete described it as similar to walking with a guide dog: the ability to "cruise down the street" with awareness rather than anxiety.</p>
+        <p>The distinction sounds simple. It wasn't. Getting the boundary right (what information belonged in each mode, how quickly users could switch, how the sound design changed between them) took iteration across all three rounds. The result is an app that can be a precision tool or a spatial awareness system, depending on what the user needs in that moment.</p>
+
+        <h2><span class="h-num">05 / Results</span>The Impact: Validated Results</h2>
+        <p>Guided Step was validated in a 20-participant experimental study on an outdoor corporate campus. Each participant navigated the same course twice (once with their cane alone, once with Guided Step) in randomized order to eliminate learning effects.</p>
+        <div class="cs-callout on-dark">
+            <span class="label">Study results</span>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:var(--s5); margin-top:var(--s4);">
+                <div>
+                    <div style="font-family:var(--mono); font-size:clamp(1.75rem,6vw,2.5rem); font-weight:600; color:#fff; letter-spacing:-0.01em;">&minus;44%</div>
+                    <div style="color:var(--on-dark-muted); font-size:0.8125rem; margin-top:var(--s2);">Fewer unintentional obstacle hits</div>
+                </div>
+                <div>
+                    <div style="font-family:var(--mono); font-size:clamp(1.75rem,6vw,2.5rem); font-weight:600; color:#fff; letter-spacing:-0.01em;">&minus;36%</div>
+                    <div style="color:var(--on-dark-muted); font-size:0.8125rem; margin-top:var(--s2);">Reduction in total obstacles hit</div>
+                </div>
+                <div>
+                    <div style="font-family:var(--mono); font-size:clamp(1.75rem,6vw,2.5rem); font-weight:600; color:#fff; letter-spacing:-0.01em;">&minus;34%</div>
+                    <div style="color:var(--on-dark-muted); font-size:0.8125rem; margin-top:var(--s2);">Decrease in near-miss events</div>
+                </div>
+            </div>
+        </div>
+        <blockquote class="pullquote">
+            <p>"I am more confident that I will not crash or fall... It can detect things that's further out than the cane. It's good to know what's around you and have awareness of people and cars. With the cane you're always hesitating, second guessing every step."</p>
+            <cite>Study Participant</cite>
+        </blockquote>
+        <p>100% of participants rated Guided Step easy or very easy to use. Half expressed enthusiasm for adopting it immediately. The findings were submitted to CHI 2026 (one of the most selective venues in human-computer interaction) and approved by Google for public sharing.</p>
+
+        <h2><span class="h-num">06 / Forward</span>What This Project Contributed</h2>
+        <p>Guided Step didn't ship to production. It did something more durable: a validated design framework for AI-powered assistive navigation, grounded in three rounds of co-design across three continents and rigorous enough to clear CHI peer review.</p>
+        <p>The three pillars (guided setup, minimalist UI, full customization) aren't specific to navigation apps. They apply to any product where the stakes of getting the interaction wrong are physical, not just inconvenient. That's the standard I bring to accessibility work.</p>
+        <p>This is the kind of design work I bring to consulting engagements. If you're building products for blind or low-vision users, let's talk.</p>
+
+        <p class="svc-link" style="margin-top: var(--s6);"><a href="index.html#contact">Start a conversation &rarr;</a></p>
     </div>
-  </footer>
+    </article>
 
-  <script src="js/nav.js" defer></script>
+    <!-- ==================================================== MORE -->
+    <section class="cs-more">
+        <div class="wrap">
+            <p class="index"><span class="num">&rarr;</span><span>More projects</span><span class="rule" aria-hidden="true"></span></p>
+            <div class="more-grid">
+                <a class="more-item" href="magnifier.html">
+                    <span class="m-name">Pixel Magnifier</span>
+                    <span class="m-metric">4.8 stars / 154K MAU</span>
+                    <span class="case-desc" style="color: var(--muted); font-size: 0.9375rem;">The highest-rated Google-made app on Google Play, designed around how low-vision users hold the phone.</span>
+                </a>
+                <a class="more-item" href="simple-view.html">
+                    <span class="m-name">Simple View</span>
+                    <span class="m-metric">80% conversion</span>
+                    <span class="case-desc" style="color: var(--muted); font-size: 0.9375rem;">Older adults in Japan. Accessibility moved out of buried settings into onboarding.</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div>
+            <div class="foot-mark">
+                <span class="mark" aria-hidden="true">CB</span>
+                <b>Charles Berg Consulting</b>
+            </div>
+            <p>Senior product design for accessibility and older adults. Solo, senior IC practice.</p>
+            <p class="foot-email-line"><a class="foot-email" href="mailto:charles@crb.is">charles@crb.is</a></p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+            <ul>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="footer-inner foot-legal-row">
+        <p class="foot-legal">No tracking, no cookies. Privacy-respecting analytics (Plausible) intended, none loaded here. &copy; 2026 Charles Berg.</p>
+        <a class="foot-legal-link" href="accessibility.html">Accessibility statement</a>
+    </div>
+</footer>
+
+<script src="js/nav.js"></script>
 </body>
 </html>

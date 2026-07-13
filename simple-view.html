@@ -1,283 +1,189 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Simple View — Charles Berg Consulting</title>
-  <meta name="description" content="80% conversion at Japanese carrier points of sale. How Simple View moved out of the Accessibility menu and into the main Pixel setup wizard — making accessibility feel like a mainstream choice for older adults in Japan.">
-  <meta name="theme-color" content="#EDE3D4">
-
-  <meta property="og:title" content="Simple View — Charles Berg Consulting">
-  <meta property="og:description" content="A design-system insight: pull accessibility out of buried settings and into the main onboarding flow.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://crb.is/simple-view.html">
-
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2215%22 fill=%22%231F3A2A%22/><text y=%2258%25%22 x=%2250%25%22 font-size=%2248%22 fill=%22%23EDE3D4%22 text-anchor=%22middle%22 dominant-baseline=%22central%22 font-family=%22Georgia,serif%22 font-style=%22italic%22 font-weight=%22500%22>cb</text></svg>">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..600,30..100,0..1;1,9..144,400..600,30..100,0..1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simple View — Charles Berg Consulting</title>
+<meta name="description" content="How moving Pixel's Simple View out of the Accessibility menu and into the setup wizard drove up to 80% conversion among older adults in Japan.">
+<meta property="og:title" content="Simple View — a case study by Charles Berg">
+<meta property="og:description" content="A feature's placement decides who feels permitted to use it. Moving Simple View into onboarding drove up to 80% conversion.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://crb.is/simple-view.html">
+<meta property="og:image" content="https://crb.is/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Charles Berg — product design for the users most products skip.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='2' fill='%231A1D21'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='600' fill='%23fff' text-anchor='middle'%3ECB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
+<a class="skip" href="#main">Skip to main content</a>
 
-  <header class="site-header" role="banner">
-    <div class="shell">
-      <div class="nav-row">
-        <a href="index.html" class="brand" aria-label="Charles Berg Consulting, home">
-          <span class="brand-mark">Charles Berg Consulting</span>
-          <span class="brand-sub">Accessibility UX &amp; Co-Design</span>
+<header class="site-head">
+    <div class="head-inner">
+        <a class="wordmark" href="index.html">
+            <span class="mark" aria-hidden="true">CB</span>
+            <span class="wordmark-text">
+                <span class="wm-name">Charles Berg</span>
+                <span class="wm-sub">Accessibility UX &amp; Co-Design</span>
+            </span>
         </a>
-
-        <nav aria-label="Primary">
-          <ul class="nav-list">
-            <li><a href="index.html#work">Work</a></li>
+        <nav class="nav-desktop" aria-label="Primary">
+            <a href="work.html">Work</a>
+            <a href="services.html">Services</a>
+            <a href="index.html#about">About</a>
+            <a class="btn btn-accent nav-contact" href="index.html#contact">Contact <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </nav>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-mobile" aria-label="Open menu">
+            <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+    </div>
+    <nav class="nav-mobile" id="nav-mobile" data-nav-mobile aria-label="Primary">
+        <ul>
+            <li><a href="work.html">Work</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="index.html#about">About</a></li>
-            <li><a class="nav-cta" href="index.html#contact">Contact <svg class="arr-svg arr" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
-          </ul>
-          <button class="nav-toggle" data-nav-toggle aria-controls="nav-mobile" aria-expanded="false" aria-label="Open menu">
-            <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
-            <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
-          </button>
-        </nav>
-      </div>
+            <li><a class="mobile-contact" href="index.html#contact">Contact &rarr;</a></li>
+        </ul>
+    </nav>
+</header>
 
-      <ul class="nav-list-mobile" id="nav-mobile" data-nav-mobile>
-        <li><a href="index.html#work">Work</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
+<main id="main" tabindex="-1">
+
+    <div class="cs-top wrap">
+        <p class="cs-back"><a href="index.html#work">&larr; Back to work</a></p>
     </div>
-  </header>
 
-  <main id="main" tabindex="-1">
-    <div class="shell">
-      <a href="index.html#work" class="back-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-        All projects
-      </a>
+    <!-- ==================================================== CS HEADER -->
+    <article>
+    <header class="cs-header wrap">
+        <p class="cs-eyebrow">Google Pixel</p>
+        <h1>Simple View</h1>
 
-      <div class="case-grid">
-
-        <!-- Title block (cols 1-7 at desktop) -->
-        <div class="case-intro">
-          <header class="case-header">
-            <div class="case-company">Google Pixel</div>
-            <h1 class="case-title">Simple View</h1>
-          </header>
+        <div class="cs-meta spec">
+            <div class="spec-row"><div class="spec-key">Role</div><div class="spec-val">Lead UX Designer</div></div>
+            <div class="spec-row"><div class="spec-key">Goal</div><div class="spec-val">Increase Pixel adoption among older adults in the Japanese market</div></div>
+            <div class="spec-row"><div class="spec-key">Team</div><div class="spec-val">PM, Engineering, UXR</div></div>
         </div>
 
-        <!-- Meta sidebar (cols 9-12 at desktop) -->
-        <div class="meta-grid" role="region" aria-label="Project details">
-          <div>
-            <div class="meta-item-label">Role</div>
-            <div class="meta-item-value">Lead UX Designer</div>
-          </div>
-          <div>
-            <div class="meta-item-label">Goal</div>
-            <div class="meta-item-value">Increase Pixel adoption among older adults in the Japanese market</div>
-          </div>
-          <div>
-            <div class="meta-item-label">Team</div>
-            <div class="meta-item-value">PM, Engineering, UXR</div>
-          </div>
+        <p class="cs-hook"><b>Up to 80% conversion</b> at selected Japanese carrier points of sale, after Simple View moved out of the Accessibility menu and into the setup wizard.</p>
+    </header>
+
+    <div class="wrap">
+        <div class="cs-hero-img">
+            <img src="assets/simpleview-hero.png" alt="Simple View home screen with large icons and text, shown beside the standard Pixel layout">
         </div>
-
-        <!-- Result + hero phone, paired at desktop -->
-        <div class="outcome-hook" role="region" aria-label="Project outcome">
-          <div class="outcome-hook-label">The result</div>
-          <div class="outcome-hook-metric">Up to 80% conversion rate</div>
-          <div class="outcome-hook-detail">At selected Japanese carrier points of sale, after Simple View moved from the Accessibility menu to the setup wizard.</div>
-        </div>
-
-        <div class="case-hero" aria-hidden="true">
-          <div class="phone-mockup">
-            <div class="screen">
-              <img src="assets2025/SimpleView/screen0nb.png" alt="">
-            </div>
-          </div>
-        </div>
-
-        <!-- Section marker: prose narrative begins -->
-        <div class="case-build-marker">
-          <span class="eyebrow">The story</span>
-        </div>
-
-        <!-- The Challenge -->
-        <section class="case-section">
-          <h2 class="section-heading">The Challenge</h2>
-          <div class="section-body prose">
-            <p>Pixel was selling well in Japan — except to older adults. The assumption: a simpler phone. The research said something else entirely.</p>
-          </div>
-        </section>
-
-        <!-- Discovery & Research -->
-        <section class="case-section">
-          <h2 class="section-heading">Discovery &amp; Research</h2>
-          <div class="section-body prose">
-            <p>Older adults in Japan weren't struggling with capability. They were struggling with confidence. Most attendees at the senior technology center were phone-literate. They used their phones regularly and well. What they wanted wasn't a simpler phone. They wanted reassurance. Sessions were full of "I did this — is that okay?" The answer was almost always yes. They just needed someone to confirm it.</p>
-            <p>One woman's story captured it. She loved the theater. She'd use her phone to browse what was playing, choose a show, map the route, make a restaurant reservation for after. But she wouldn't buy the tickets online. She'd walk to the local convenience store to do it in person. The phone wasn't the barrier. Trust in irreversible actions was. She didn't need a simpler phone. She needed a clearer one that didn't make her second-guess herself.</p>
-            <p>That reframed the brief. The goal wasn't to take the phone down. It was to make it legible, predictable, and safe at the moment of first use. And critically: older adults in Japan didn't think of themselves as disabled or in need of accommodation. They'd never seek out a setting labeled "Accessibility." Whatever I built had to feel like a mainstream choice, not a workaround.</p>
-
-            <div class="figure">
-              <div class="figure-image">
-                <img src="assets2025/SimpleView/UserResearch.jpg" alt="Photo of a focus group session with older adults in Japan, seated around a table discussing smartphone use">
-              </div>
-              <p class="figure-caption">Focus groups in Japan. Phone-literate users asking for confidence, not less phone.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Designing Against Stigma -->
-        <section class="case-section">
-          <h2 class="section-heading">Designing Against Stigma</h2>
-          <div class="section-body prose">
-            <p>The first version of Simple View lived inside the Accessibility menu. It was the obvious home, and it was wrong. The users who needed it most never found it. They didn't think of themselves as someone who needed accessibility features.</p>
-            <p>The naming created friction internally too. "Why Simple?" was a common reaction from dogfooders. The implication: calling something "simple" was condescending. That tension was real, and worth taking seriously. But it also confirmed what the research had shown. Any label that signaled "this is for people who struggle" was going to be avoided by the exact people we were designing for. The solution wasn't to rename Simple View. It was to reposition it: out of the workaround category, into the choice category.</p>
-            <p>The fix was to move Simple View into the main phone setup wizard. Present it as a standard option at the moment of first use, before any habits had formed and before the phone had established itself as something to navigate around. The setup wizard also let us pre-select a helpful set of home screen icons, reducing the blank-slate overwhelm of a new device from the very first screen.</p>
-
-            <div class="figure">
-              <div class="figure-image">
-                <img src="assets2025/SimpleView/simpleviewsettings.png" alt="Android Accessibility settings menu showing Simple View buried among many other options">
-              </div>
-              <p class="figure-caption">Simple View in its original home: buried in the Accessibility menu, behind labels older adults would never associate with themselves.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Setup flow grid — full-width breakout -->
-        <div class="figure">
-          <div class="flow-grid" role="region" aria-label="Setup flow steps">
-            <div class="flow-step">
-              <div class="flow-step-label">Step 1: Welcome</div>
-              <div class="flow-phone">
-                <img src="assets2025/SimpleView/100.png" alt="Setup wizard welcome screen">
-              </div>
-            </div>
-            <div class="flow-step">
-              <div class="flow-step-label">Step 2: Option</div>
-              <div class="flow-phone">
-                <img src="assets2025/SimpleView/101.png" alt="Setup wizard Simple View option screen">
-              </div>
-            </div>
-            <div class="flow-step">
-              <div class="flow-step-label">Step 3: Confirmation</div>
-              <div class="flow-phone">
-                <img src="assets2025/SimpleView/203.png" alt="Setup wizard confirmation screen">
-              </div>
-            </div>
-            <div class="flow-step">
-              <div class="flow-step-label">Step 4: Home Screen</div>
-              <div class="flow-phone">
-                <img src="assets2025/SimpleView/Screen -1 2x2 empty.png" alt="Final Simple View home screen with large icons">
-              </div>
-            </div>
-          </div>
-          <p class="figure-caption">Out of Accessibility settings, into the setup wizard. A standard choice, not a special accommodation.</p>
-        </div>
-
-        <!-- Solution & Impact -->
-        <section class="case-section">
-          <h2 class="section-heading">Solution &amp; Impact</h2>
-          <div class="section-body prose">
-            <p>Simple View itself isn't complicated: a clean home screen with large icons and text, 3-button navigation, an enhanced keyboard. What made it work wasn't the feature. It was where it lived: in the setup wizard, alongside the standard experience, with no stigma attached and no settings menu to excavate.</p>
-            <p>At selected carrier retail locations outside Tokyo, conversion reached 80%. Store staff could hand a customer a phone in setup mode and let them choose Simple View themselves.</p>
-
-            <div class="figure">
-              <div class="figure-image" style="padding: clamp(1.5rem, 3vw, 2.5rem);">
-                <div class="before-after-grid">
-                  <div>
-                    <div class="before-after-label">Standard Pixel Home Screen</div>
-                    <div class="flow-phone">
-                      <img src="assets2025/SimpleView/before.jpg" alt="Standard Pixel home screen with dense widgets, two rows of icons, and search bar">
-                    </div>
-                  </div>
-                  <div>
-                    <div class="before-after-label">Simple View</div>
-                    <div class="flow-phone">
-                      <img src="assets2025/SimpleView/after.png" alt="Simple View home screen with large icons, contact widgets, and minimal layout">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <p class="figure-caption">Same phone, two layouts. Simple View isn't a stripped-down phone — it's a legibility-first one.</p>
-            </div>
-
-            <div class="callout" role="region" aria-label="Key outcome">
-              <div class="callout-metric">Up to 80% Conversion Rate</div>
-              <div class="callout-detail">At selected Japanese carrier points of sale, after Simple View moved from the Accessibility menu to the setup wizard.</div>
-            </div>
-
-            <blockquote class="quote">
-              <p>"It made the phone look less cluttered and simpler to use."</p>
-              <cite>User Feedback</cite>
-            </blockquote>
-          </div>
-        </section>
-
-        <!-- What I'd Take Forward -->
-        <section class="case-section">
-          <h2 class="section-heading">What I'd Take Forward</h2>
-          <div class="section-body prose">
-            <p>The most important design decision on this project wasn't visual. It was placement. Where a feature lives shapes who feels permitted to use it. Putting Simple View in Accessibility signaled that only certain kinds of people should consider it. Putting it in setup made it a preference, not a concession.</p>
-            <p>The principle applies well beyond this project. When you design for a group that doesn't identify with the label you've given them, the solution is rarely the feature itself. It's removing the friction of self-identification between the user and the thing that would help them.</p>
-            <p>This is the kind of design work I bring to consulting engagements. If you're working on a product where that gap exists, let's talk.</p>
-          </div>
-        </section>
-
-        <!-- CTA aligns with body column -->
-        <div class="case-cta">
-          <a class="btn" href="mailto:charles@crb.is">Tell me what you're working on <svg class="arr-svg arr" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </div>
     </div>
-  </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="shell">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <p class="display-md">Charles Berg Consulting</p>
-          <p>Independent practice. Accessibility UX, co-design facilitation, strategic advisory. Engagements worldwide.</p>
+    <!-- ==================================================== CS BODY -->
+    <div class="cs-body wrap">
+
+        <h2><span class="h-num">01 / Challenge</span>The Challenge</h2>
+        <p>Pixel was selling well in Japan — except to older adults. The assumption: a simpler phone. The research said something else entirely.</p>
+
+        <h2><span class="h-num">02 / Research</span>Discovery &amp; Research</h2>
+        <p>Older adults in Japan weren't struggling with capability. They were struggling with confidence. Most attendees at the senior technology center were phone-literate. They used their phones regularly and well. What they wanted wasn't a simpler phone. They wanted reassurance. Sessions were full of "I did this — is that okay?" The answer was almost always yes. They just needed someone to confirm it.</p>
+        <p>One woman's story captured it. She loved the theater. She'd use her phone to browse what was playing, choose a show, map the route, make a restaurant reservation for after. But she wouldn't buy the tickets online. She'd walk to the local convenience store to do it in person. The phone wasn't the barrier. Trust in irreversible actions was. She didn't need a simpler phone. She needed a clearer one that didn't make her second-guess herself.</p>
+        <p>That reframed the brief. The goal wasn't to take the phone down. It was to make it legible, predictable, and safe at the moment of first use. And critically: older adults in Japan didn't think of themselves as disabled or in need of accommodation. They'd never seek out a setting labeled "Accessibility." Whatever I built had to feel like a mainstream choice, not a workaround.</p>
+        <figure><img src="assets/simpleview/userresearch.jpg" alt="Photo of a focus group session with older adults in Japan, seated around a table discussing smartphone use"><figcaption><span class="fig-num">Fig. 01</span> — Focus groups in Japan. Phone-literate users asking for confidence, not less phone.</figcaption></figure>
+
+        <h2><span class="h-num">03 / Positioning</span>Designing Against Stigma</h2>
+        <p>The first version of Simple View lived inside the Accessibility menu. It was the obvious home, and it was wrong. The users who needed it most never found it. They didn't think of themselves as someone who needed accessibility features.</p>
+        <p>The naming created friction internally too. "Why Simple?" was a common reaction from dogfooders. The implication: calling something "simple" was condescending. That tension was real, and worth taking seriously. But it also confirmed what the research had shown. Any label that signaled "this is for people who struggle" was going to be avoided by the exact people we were designing for. The solution wasn't to rename Simple View. It was to reposition it: out of the workaround category, into the choice category.</p>
+        <p>The fix was to move Simple View into the main phone setup wizard. Present it as a standard option at the moment of first use, before any habits had formed and before the phone had established itself as something to navigate around. The setup wizard also let us pre-select a helpful set of home screen icons, reducing the blank-slate overwhelm of a new device from the very first screen.</p>
+        <figure class="fig-dark fig-col2"><img src="assets/simpleview/simpleviewsettings.png" alt="Android Accessibility settings menu showing Simple View buried among many other options"><figcaption><span class="fig-num">Fig. 02</span> — Simple View in its original home: buried in the Accessibility menu, behind labels older adults would never associate with themselves.</figcaption></figure>
+
+        <div class="fig-2up">
+            <figure><img src="assets/simpleview/100.png" alt="Setup wizard welcome screen"><figcaption>Step 1: Welcome</figcaption></figure>
+            <figure><img src="assets/simpleview/101.png" alt="Setup wizard Simple View option screen"><figcaption>Step 2: Option</figcaption></figure>
+            <figure><img src="assets/simpleview/203.png" alt="Setup wizard confirmation screen"><figcaption>Step 3: Confirmation</figcaption></figure>
+            <figure><img src="assets/simpleview/screen-1-2x2-empty.png" alt="Final Simple View home screen with large icons"><figcaption>Step 4: Home Screen</figcaption></figure>
         </div>
-        <nav class="footer-col" aria-label="Site">
-          <h3>Site</h3>
-          <ul>
-            <li><a href="index.html#work">Work</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-        </nav>
-        <nav class="footer-col" aria-label="Services">
-          <h3>Services</h3>
-          <ul>
-            <li><a href="services.html#ux-design">UX Design</a></li>
-            <li><a href="services.html#co-design">Co-Design Facilitation</a></li>
-            <li><a href="services.html#advisory">Strategic Advisory</a></li>
-          </ul>
-        </nav>
-        <nav class="footer-col" aria-label="Elsewhere">
-          <h3>Elsewhere</h3>
-          <ul>
-            <li><a href="mailto:charles@crb.is">charles@crb.is</a></li>
-            <li><a href="https://www.linkedin.com/in/charlesberg" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in new tab)</span></a></li>
-            <li><a href="https://meetabl.com/book/crb" target="_blank" rel="noopener noreferrer">Book a call<span class="sr-only"> (opens in new tab)</span></a></li>
-          </ul>
-        </nav>
-      </div>
+        <p class="cs-fignote" style="font-family:var(--mono);font-size:0.75rem;color:var(--muted);margin-top:var(--s2);">Out of Accessibility settings, into the setup wizard. A standard choice, not a special accommodation.</p>
 
-      <div class="footer-base">
-        <p>&copy; 2026 Charles Berg. WCAG 2.1 AA. Built static. Hosted on GitHub Pages.</p>
-        <p><a href="accessibility.html">Accessibility statement</a></p>
-      </div>
+        <h2><span class="h-num">04 / Impact</span>Solution &amp; Impact</h2>
+        <p>Simple View itself isn't complicated: a clean home screen with large icons and text, 3-button navigation, an enhanced keyboard. What made it work wasn't the feature. It was where it lived: in the setup wizard, alongside the standard experience, with no stigma attached and no settings menu to excavate.</p>
+        <p>At selected carrier retail locations outside Tokyo, conversion reached 80%. Store staff could hand a customer a phone in setup mode and let them choose Simple View themselves.</p>
+        <div class="evo-grid two">
+            <div class="evo-item">
+                <div class="evo-img"><img src="assets/simpleview/before.jpg" alt="Standard Pixel home screen with dense widgets, two rows of icons, and search bar"></div>
+                <div class="evo-cap rejected"><b>Standard Pixel Home Screen</b></div>
+            </div>
+            <div class="evo-item">
+                <div class="evo-img"><img src="assets/simpleview/after.png" alt="Simple View home screen with large icons, contact widgets, and minimal layout"></div>
+                <div class="evo-cap final"><b>Simple View</b></div>
+            </div>
+        </div>
+        <p class="cs-fignote" style="font-family:var(--mono);font-size:0.75rem;color:var(--muted);margin-top:var(--s2);">Same phone, two layouts. Simple View isn't a stripped-down phone — it's a legibility-first one.</p>
+        <div class="cs-callout on-dark">
+            <span class="label">Result</span>
+            <p class="co-big">Up to 80% Conversion Rate</p>
+            <p class="co-note">At selected Japanese carrier points of sale, after Simple View moved from the Accessibility menu to the setup wizard.</p>
+        </div>
+        <blockquote class="pullquote">
+            <p>"It made the phone look less cluttered and simpler to use."</p>
+            <cite>User Feedback</cite>
+        </blockquote>
+
+        <h2><span class="h-num">05 / Forward</span>What I'd Take Forward</h2>
+        <p>The most important design decision on this project wasn't visual. It was placement. Where a feature lives shapes who feels permitted to use it. Putting Simple View in Accessibility signaled that only certain kinds of people should consider it. Putting it in setup made it a preference, not a concession.</p>
+        <p>The principle applies well beyond this project. When you design for a group that doesn't identify with the label you've given them, the solution is rarely the feature itself. It's removing the friction of self-identification between the user and the thing that would help them.</p>
+        <p>This is the kind of design work I bring to consulting engagements. If you're working on a product where that gap exists, let's talk.</p>
+
+        <p class="svc-link" style="margin-top: var(--s6);"><a href="index.html#contact">Start a conversation &rarr;</a></p>
     </div>
-  </footer>
+    </article>
 
-  <script src="js/nav.js" defer></script>
+    <!-- ==================================================== MORE -->
+    <section class="cs-more">
+        <div class="wrap">
+            <p class="index"><span class="num">&rarr;</span><span>More projects</span><span class="rule" aria-hidden="true"></span></p>
+            <div class="more-grid">
+                <a class="more-item" href="magnifier.html">
+                    <span class="m-name">Pixel Magnifier</span>
+                    <span class="m-metric">4.8 stars / 154K MAU</span>
+                    <span class="case-desc" style="color: var(--muted); font-size: 0.9375rem;">The highest-rated Google-made app on Google Play, designed around how low-vision users hold the phone.</span>
+                </a>
+                <a class="more-item" href="guided-step.html">
+                    <span class="m-name">Guided Step</span>
+                    <span class="m-metric">&minus;44% obstacle hits / CHI 2026</span>
+                    <span class="case-desc" style="color: var(--muted); font-size: 0.9375rem;">Pedestrian navigation with blind users, co-designed across three continents.</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div>
+            <div class="foot-mark">
+                <span class="mark" aria-hidden="true">CB</span>
+                <b>Charles Berg Consulting</b>
+            </div>
+            <p>Senior product design for accessibility and older adults. Solo, senior IC practice.</p>
+            <p class="foot-email-line"><a class="foot-email" href="mailto:charles@crb.is">charles@crb.is</a></p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+            <ul>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="footer-inner foot-legal-row">
+        <p class="foot-legal">No tracking, no cookies. Privacy-respecting analytics (Plausible) intended, none loaded here. &copy; 2026 Charles Berg.</p>
+        <a class="foot-legal-link" href="accessibility.html">Accessibility statement</a>
+    </div>
+</footer>
+
+<script src="js/nav.js"></script>
 </body>
 </html>
