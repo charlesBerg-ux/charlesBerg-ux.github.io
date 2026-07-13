@@ -371,8 +371,12 @@ main:focus { outline: none; }
 .case-thumb.ph { background: var(--dark); display: flex; align-items: center; justify-content: center; }
 .ph-label { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--on-dark-muted); border: 1px solid #3a4149; padding: 0.35rem 0.6rem; border-radius: var(--radius); }
 .range-divider { text-align: center; font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: var(--s8) 0 var(--s5); }
-@media (min-width: 620px) { .work-grid, .work-range { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 980px) { .work-grid { grid-template-columns: repeat(4, 1fr); } }
+/* LAUNCH (2026-07-13): only 3 case studies are live, so .work-grid is a 3-up (matching the
+   home selected-work grid) to avoid an empty 4th cell. Restore the 4-up + range 2-up below
+   when the Monarch card and the "range" block come back. */
+@media (min-width: 620px) { .work-grid { grid-template-columns: repeat(3, 1fr); } .work-range { grid-template-columns: repeat(2, 1fr); } }
+/* @media (min-width: 620px) { .work-grid, .work-range { grid-template-columns: repeat(2, 1fr); } }
+   @media (min-width: 980px) { .work-grid { grid-template-columns: repeat(4, 1fr); } } */
 /* Home "Selected work" -> full index link. */
 .work-all { margin-top: var(--s6); }
 .work-all a { font-family: var(--mono); font-size: 0.8125rem; color: var(--accent); text-decoration: none; }
@@ -505,6 +509,9 @@ main:focus { outline: none; }
 .systems .sys-dot { width: 26px; height: 26px; border-radius: 50%; border: 1px solid #3a4149; }
 .systems .sys-name { font-family: var(--mono); font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.04em; color: #fff; }
 .systems .sys-desc { font-size: 0.8125rem; color: var(--on-dark-muted); }
+.systems .sys-figure { margin: var(--s5) 0 0; }
+.systems .sys-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--dark-2); border-radius: var(--radius); }
+.systems .sys-figure figcaption { margin-top: var(--s2); font-family: var(--mono); font-size: 0.75rem; color: var(--on-dark-muted); }
 
 .engagements { margin-top: var(--s6); }
 .eng-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
