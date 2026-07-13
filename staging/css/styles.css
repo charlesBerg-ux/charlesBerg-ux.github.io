@@ -566,10 +566,12 @@ figure img { border: 1px solid var(--rule); border-radius: var(--radius); }
 .fig-dark img { background: var(--dark); border: 1px solid var(--rule); border-radius: var(--radius); padding: var(--s4); }
 
 /* ---------------------------------------------- Looping video embeds (ex-GIFs) --- */
-.video-embed { display: inline-block; max-width: 100%; line-height: 0; }
-.ve-media { display: block; width: 100%; height: auto; }
-/* hero video matches the hero image sizing */
-.cs-hero-img .ve-media { max-height: 520px; width: auto; border-radius: var(--radius); }
+.video-embed { display: inline-block; max-width: 100%; min-width: 0; line-height: 0; }
+.ve-media { display: block; width: 100%; height: auto; max-width: 100%; }
+/* hero video matches the hero image sizing. max-width:100% is essential: a *playing*
+   <video> with width:auto sizes to its intrinsic pixel width on iOS Safari (ignoring
+   max-height), which overflows the viewport on mobile without this cap. */
+.cs-hero-img .ve-media { max-height: 520px; width: auto; max-width: 100%; border-radius: var(--radius); }
 /* fig-dark video gets the dark padded frame (mirrors .fig-dark img) */
 .fig-dark .video-embed { display: block; background: var(--dark); border: 1px solid var(--rule); border-radius: var(--radius); padding: var(--s4); }
 .fig-col2 .video-embed { max-width: min(calc((var(--cs-w) - 2 * var(--s3)) / 3), 100%); }
