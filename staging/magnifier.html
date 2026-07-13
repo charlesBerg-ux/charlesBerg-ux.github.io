@@ -52,6 +52,10 @@
 
     <div class="cs-top wrap">
         <p class="cs-back"><a href="index.html#work">&larr; Back to work</a></p>
+        <button class="motion-toggle" type="button" data-video-toggle-all aria-pressed="false" aria-label="Play animations" hidden>
+            <span class="ve-icon" aria-hidden="true"></span>
+            <span class="mt-label">Play animations</span>
+        </button>
     </div>
 
     <!-- ==================================================== CS HEADER -->
@@ -71,7 +75,13 @@
 
     <div class="wrap">
         <div class="cs-hero-img">
-            <img src="assets/mag-happypath.gif" alt="">
+            <div class="video-embed" data-video>
+                <video class="ve-media" muted loop playsinline preload="auto"
+                       poster="assets/mag-happypath.poster.jpg"
+                       aria-label="Pixel Magnifier in use, a short looping demo">
+                    <source src="assets/mag-happypath.mp4" type="video/mp4">
+                </video>
+            </div>
         </div>
     </div>
 
@@ -128,7 +138,13 @@
             <cite>User Research Participant</cite>
         </blockquote>
         <figure class="fig-dark fig-col2">
-            <img src="assets/magnifier/live-view.png" alt="Animated GIF showing the Live Search feature highlighting a specific word on a restaurant menu in real time">
+            <div class="video-embed" data-video>
+                <video class="ve-media" muted loop playsinline preload="metadata"
+                       poster="assets/magnifier/maggifsmaller2.poster.jpg"
+                       aria-label="Live Search highlighting a specific word on a restaurant menu in real time">
+                    <source src="assets/magnifier/maggifsmaller2.mp4" type="video/mp4">
+                </video>
+            </div>
             <figcaption><span class="fig-num">Fig. 03</span> — Type or say a word. Scan the menu with the camera. Magnifier highlights it the moment it lands in the frame.</figcaption>
         </figure>
 
@@ -198,5 +214,6 @@
 </footer>
 
 <script src="js/nav.js"></script>
+<script src="js/video.js"></script>
 </body>
 </html>

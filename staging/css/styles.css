@@ -490,8 +490,8 @@ main:focus { outline: none; }
 .svc .svc-metric .m-note { color: var(--muted); font-size: 0.875rem; margin-top: var(--s1); }
 .svc .svc-link { margin-top: var(--s4); font-family: var(--mono); font-size: 0.8125rem; }
 .svc-figs { display: grid; grid-template-columns: 1fr; gap: var(--s3); margin-top: var(--s5); }
-.svc-figs figure { margin: 0; border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; }
-.svc-figs img { width: 100%; }
+.svc-figs figure { margin: 0; border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; aspect-ratio: 657 / 1100; }
+.svc-figs img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* systems callout — the Google Home light-pattern system, made legible */
 .systems {
@@ -509,7 +509,7 @@ main:focus { outline: none; }
 .systems .sys-dot { width: 26px; height: 26px; border-radius: 50%; border: 1px solid #3a4149; }
 .systems .sys-name { font-family: var(--mono); font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.04em; color: #fff; }
 .systems .sys-desc { font-size: 0.8125rem; color: var(--on-dark-muted); }
-.systems .sys-figure { margin: var(--s5) 0 0; }
+.systems .sys-figure { margin: var(--s5) 0 0; max-width: min(300px, 100%); }
 .systems .sys-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--dark-2); border-radius: var(--radius); }
 .systems .sys-figure figcaption { margin-top: var(--s2); font-family: var(--mono); font-size: 0.75rem; color: var(--on-dark-muted); }
 
@@ -522,7 +522,7 @@ main:focus { outline: none; }
 .eng-note { margin-top: var(--s5); font-size: 0.9375rem; color: var(--muted); max-width: 60ch; }
 
 /* ------------------------------------------------------- Case study shell - */
-.cs-top { padding-block: var(--s5) 0; }
+.cs-top { padding-block: var(--s5) 0; display: flex; align-items: center; justify-content: space-between; gap: var(--s3); flex-wrap: wrap; }
 .cs-back { font-family: var(--mono); font-size: 0.8125rem; }
 .cs-header { padding-block: var(--s6) var(--s6); }
 .cs-eyebrow { font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
@@ -537,11 +537,14 @@ main:focus { outline: none; }
 /* Case-study body fills the wrap (1180px) and LEFT-aligns to the site grid — not
    a narrow centered column. Reading text is capped to a measure; media a bit
    wider. Everything left-aligned so the body edge matches the header edge. */
-.cs-body { padding-block: var(--s7); --cs-w: 860px; }
+.cs-body { padding-block: var(--s7); --cs-w: 860px; --cs-text: 41rem; }
 .cs-body > figure, .cs-body > .fig-2up, .cs-body > .evo-grid, .cs-body > .cs-callout { max-width: var(--cs-w); }
 /* Text ends ON the grid: exactly 2 of the media's 3 columns, so the right edge
    lands on the 2nd image's edge instead of an arbitrary character measure. */
-.cs-body > p, .cs-body > h2, .cs-body > ul, .cs-body > blockquote { max-width: calc((var(--cs-w) - 2 * var(--s3)) / 3 * 2 + var(--s3)); }
+/* Body text sits at a readable ~78-character measure (--cs-text, ~660px), wider
+   than the old 2-of-3 grid line (569px) so it doesn't stop at the half-way point,
+   while the figures still run to the full --cs-w (860px). Shares the left edge. */
+.cs-body > p, .cs-body > h2, .cs-body > ul, .cs-body > blockquote { max-width: var(--cs-text); }
 .cs-body h2 { font-size: clamp(1.375rem, 4vw, 1.75rem); margin-top: var(--s7); margin-bottom: var(--s3); }
 .cs-body h2:first-child { margin-top: 0; }
 .cs-body h2 .h-num { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); display: block; letter-spacing: 0.04em; margin-bottom: var(--s2); }
@@ -561,6 +564,34 @@ figure img { border: 1px solid var(--rule); border-radius: var(--radius); }
 .fig-col2 img { max-width: min(calc((var(--cs-w) - 2 * var(--s3)) / 3), 100%); }
 .fig-dark { background: transparent; border: 0; border-radius: 0; padding: 0; }
 .fig-dark img { background: var(--dark); border: 1px solid var(--rule); border-radius: var(--radius); padding: var(--s4); }
+
+/* ---------------------------------------------- Looping video embeds (ex-GIFs) --- */
+.video-embed { display: inline-block; max-width: 100%; line-height: 0; }
+.ve-media { display: block; width: 100%; height: auto; }
+/* hero video matches the hero image sizing */
+.cs-hero-img .ve-media { max-height: 520px; width: auto; border-radius: var(--radius); }
+/* fig-dark video gets the dark padded frame (mirrors .fig-dark img) */
+.fig-dark .video-embed { display: block; background: var(--dark); border: 1px solid var(--rule); border-radius: var(--radius); padding: var(--s4); }
+.fig-col2 .video-embed { max-width: min(calc((var(--cs-w) - 2 * var(--s3)) / 3), 100%); }
+
+/* Page-level motion control — pauses/plays every looping video on the page.
+   Lives in the top row (off the images), revealed by JS. */
+.motion-toggle {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    min-height: 44px; padding: 0 0.9rem; line-height: 1;
+    font-family: var(--mono); font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--ink); background: transparent; border: 1px solid var(--rule);
+    border-radius: 999px; cursor: pointer;
+}
+.motion-toggle[hidden] { display: none; }
+.motion-toggle:hover { border-color: var(--muted); }
+.motion-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ve-icon { display: inline-block; }
+/* play triangle when paused */
+.motion-toggle[aria-pressed="false"] .ve-icon { width: 0; height: 0; border-style: solid; border-width: 5px 0 5px 9px; border-color: transparent transparent transparent var(--ink); }
+/* pause bars when playing */
+.motion-toggle[aria-pressed="true"] .ve-icon { width: 8px; height: 10px; border-left: 3px solid var(--ink); border-right: 3px solid var(--ink); box-sizing: border-box; }
+
 figcaption { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin-top: var(--s2); line-height: 1.5; }
 figcaption .fig-num { color: var(--accent); }
 
