@@ -427,6 +427,14 @@ main:focus { outline: none; }
 .contact-direct a { color: var(--accent-lite); }
 .contact-direct a:hover { color: #fff; }
 .contact-direct .cd-key { color: var(--on-dark-muted); }
+/* v1 contact action panel (email + booking, replaces the parked form) */
+.contact-cta { display: flex; flex-direction: column; align-items: stretch; justify-content: center; gap: var(--s3); }
+.contact-cta .cc-lead { color: #fff; font-size: 1.0625rem; margin: 0 0 var(--s2); }
+.contact-cta .btn { width: 100%; }
+.contact-cta .cc-note { margin-top: var(--s3); font-family: var(--mono); font-size: 0.8125rem; color: var(--on-dark-muted); }
+.contact-cta .cc-note a { color: var(--accent-lite); }
+.contact-cta .cc-note a:hover { color: #fff; }
+.contact-cta .cc-note .cd-key { color: var(--on-dark-muted); }
 
 /* Form — labelled fields, honest structure, no glow. */
 .form-field { margin-bottom: var(--s4); }

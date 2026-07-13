@@ -244,38 +244,15 @@
                         <li><span class="e-num">02</span><span>A reply within two business days.</span></li>
                         <li><span class="e-num">03</span><span>A 30-minute conversation if it fits.</span></li>
                     </ul>
-                    <div class="contact-direct">
-                        <span><span class="cd-key">EMAIL</span> &nbsp; <a href="mailto:charles@crb.is">charles@crb.is</a></span>
-                        <span><span class="cd-key">BOOK</span> &nbsp; <a href="https://meetabl.com/book/crb" target="_blank" rel="noopener">30-min conversation<span class="vh"> (opens in new tab)</span> &rarr;</a></span>
-                    </div>
                 </div>
 
-                <div>
-                    <form action="https://formspree.io/f/REPLACE_ME" method="POST" novalidate>
-                        <p class="form-status" role="status" aria-live="polite"></p>
-
-                        <div class="form-field">
-                            <label for="name">Name <span class="req">(required)</span></label>
-                            <input type="text" id="name" name="name" autocomplete="name" required aria-required="true">
-                        </div>
-                        <div class="form-field">
-                            <label for="email">Email <span class="req">(required)</span></label>
-                            <input type="email" id="email" name="email" autocomplete="email" required aria-required="true">
-                        </div>
-                        <div class="form-field">
-                            <label for="message">What you&apos;re working on <span class="req">(required)</span></label>
-                            <textarea id="message" name="message" required aria-required="true"></textarea>
-                        </div>
-
-                        <div class="hp" aria-hidden="true">
-                            <label for="company-website">Leave this field empty</label>
-                            <input type="text" id="company-website" name="_gotcha" tabindex="-1" autocomplete="off">
-                        </div>
-
-                        <div class="form-actions">
-                            <button class="btn btn-accent" type="submit">Send message <span class="arrow" aria-hidden="true">&rarr;</span></button>
-                        </div>
-                    </form>
+                <!-- v1 launch: direct email + booking (no form). A real form is parked;
+                     see PRD-v2.md §11 parking lot. The form markup + CSS live in git history. -->
+                <div class="contact-cta">
+                    <p class="cc-lead">Two easy ways in.</p>
+                    <a class="btn btn-accent" href="mailto:charles@crb.is?subject=Let%27s%20talk">Email me <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                    <a class="btn btn-outline" href="https://meetabl.com/book/crb" target="_blank" rel="noopener">Book a 30-min call<span class="vh"> (opens in new tab)</span> <span class="arrow" aria-hidden="true">&rarr;</span></a>
+                    <p class="cc-note"><span class="cd-key">EMAIL</span> &nbsp; <a href="mailto:charles@crb.is">charles@crb.is</a></p>
                 </div>
             </div>
         </div>
