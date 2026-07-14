@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feet first into OpenClaw — Charles Berg</title>
+<meta name="description" content="A designer self-hosts OpenClaw, the largest open-source AI-agent project, and writes down where the agent experience breaks, why, and what he would design instead. Product findings, ongoing since July 2026.">
+<meta property="og:title" content="Feet first into OpenClaw — a case study by Charles Berg">
+<meta property="og:description" content="What self-hosting OpenClaw taught me about agent UX: where the experience breaks, why, and what I would design instead.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://crb.is/openclaw.html">
+<meta property="og:image" content="https://crb.is/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Charles Berg — product design for the users most products skip.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='2' fill='%231A1D21'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='600' fill='%23fff' text-anchor='middle'%3ECB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="site-head">
+    <div class="head-inner">
+        <a class="wordmark" href="index.html">
+            <span class="mark" aria-hidden="true">CB</span>
+            <span class="wordmark-text">
+                <span class="wm-name">Charles Berg</span>
+                <span class="wm-sub">Accessibility UX &amp; Co-Design</span>
+            </span>
+        </a>
+        <nav class="nav-desktop" aria-label="Primary">
+            <a href="work.html">Work</a>
+            <a href="services.html">Services</a>
+            <a href="index.html#about">About</a>
+            <a class="btn btn-accent nav-contact" href="index.html#contact">Contact <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </nav>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-mobile" aria-label="Open menu">
+            <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+    </div>
+    <nav class="nav-mobile" id="nav-mobile" data-nav-mobile aria-label="Primary">
+        <ul>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a class="mobile-contact" href="index.html#contact">Contact &rarr;</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="main" tabindex="-1">
+
+    <div class="cs-top wrap">
+        <p class="cs-back"><a href="index.html#work">&larr; Back to work</a></p>
+    </div>
+
+    <!-- ==================================================== CS HEADER -->
+    <article>
+    <header class="cs-header wrap">
+        <p class="cs-eyebrow">Self-directed research &middot; OpenClaw</p>
+        <h1>Feet first into OpenClaw</h1>
+        <p class="cs-identity">Charles Berg &mdash; twenty years of product design at Google, Microsoft, and Motorola. Accessibility is the through-line.</p>
+        <p class="cs-note">A note on this page: it opens on a case study I built for OpenClaw, rather than my shipped work. That shipped, measured work &mdash; Magnifier, Simple View, and Guided Step &mdash; is linked at the bottom.</p>
+
+        <div class="cs-meta spec">
+            <div class="spec-row"><div class="spec-key">Role</div><div class="spec-val">Designer, operator, and test user, all at once</div></div>
+            <div class="spec-row"><div class="spec-key">Stack</div><div class="spec-val">Self-hosted OpenClaw on a Chromebook. Agents on Telegram and Slack.</div></div>
+            <div class="spec-row"><div class="spec-key">Duration</div><div class="spec-val">Since July 10, 2026 &middot; 30 hours as of July 13</div></div>
+        </div>
+
+        <p class="cs-hook"><b>Four product findings.</b> I did not read about agent UX. I lived in it. I stood up a real multi-agent stack, hardened it, and have used it every day since. Then I wrote down where the experience breaks, why, and what I would design instead.</p>
+    </header>
+
+    <!-- ==================================================== CS BODY -->
+    <div class="cs-body wrap">
+
+        <h2><span class="h-num">00 / Setup</span>The setup</h2>
+        <p>I loved what I had read about OpenClaw, in particular the user choice of AI. The promise is sovereignty: your own AI, on your own hardware. Run your own LLM if you have the technical know-how, or pick an AI subscription, premium to cheap, if you don&apos;t. Either way, your data stays on the machine.</p>
+        <p>OpenClaw, to me, offers the opportunity to avoid the mistakes society made in the mid-2000s by allowing tech companies to monopolize and stifle user choice. That loss of choice affects the people who need it most: people on a fixed income, people with disabilities, people who are actively climbing upward but are not there yet.</p>
+        <p>So the OpenClaw job application was a trigger for me, a designer, to jump in the deep end. I saw how it would change the way I see and use AI as a tool. I also realized this is early days for OpenClaw: the promise of <b>open</b> is there, but it takes a tech-savvy person to really grasp it.</p>
+        <p>Drawing on my experience at FAANG companies, I quickly realized that I needed a team to set this up cleanly and securely. So I created three chat &ldquo;agents&rdquo; in Claude: a founder, a product manager, and a security officer. They pooled their expertise into shared docs, and then I worked with the founder to weigh tradeoffs, prioritize steps, and optimize the system.</p>
+        <p>By day two, we had a running gateway, two agents on Telegram and Slack, and a security review with a fifteen-item risk register. Although I saw the revolution on the horizon, I also noticed that OpenClaw has just begun the path toward turn-key operation. Here are the four things I saw from a designer&apos;s perspective.</p>
+
+        <h2><span class="h-num">01 / Responsiveness</span>Perceived responsiveness is the whole game</h2>
+        <p>Building the first agent felt like magic. I set up its persona and files quickly. Then I sent three follow-ups via Telegram and got three minutes of silence, followed by five replies at once.</p>
+        <p>Under the hood the runtime was serializing my turns and cold-starting a process per turn. In Telegram I had no signal my turns were being queued, so I did the natural thing. I sent more messages. Which made the eventual burst more confusing.</p>
+        <p>The lack of clear turn-state indicators was the problem. The typing indicator was small and at the top of the screen, and there was no queue acknowledgment. No expectation had been set. A fast tool became disorienting the moment it started &ldquo;thinking,&rdquo; and the interface invited me to make it worse.</p>
+        <figure>
+            <img class="uc-shot" src="assets/openclaw/mock-turn-state.jpg" alt="Illustrated Telegram chat. The OpenClaw agent, drawn as a friendly cartoon lobster, shows a typing indicator after the user sends three quick messages: what is on my calendar today, and the weather, and remind me to leave at 5. A dark status pill reads: Queued 3, answering in order, first reply in about 15 seconds. This is the proposed honest turn-state.">
+            <figcaption><span class="fig-num">Fig. 01</span> &mdash; Proposed turn-state: after three quick messages, a queued-message acknowledgment and an honest latency contract, so the user always knows the agent heard them.</figcaption>
+        </figure>
+        <p><b>What I would design:</b> more prominent progress indicators, optimistic acknowledgments, warm-start, and an honest latency contract.</p>
+
+        <h2><span class="h-num">02 / Self-knowledge</span>An agent is the least reliable narrator of its own configuration</h2>
+        <p>I asked one of my agents, over Telegram, whether it could also post to its Slack channel. It answered with total confidence: it had no Slack connection but was happy to post summaries once the connection showed up. In reality, Slack was connected and healthy. The agent was already live in the channel.</p>
+        <p>The agent has zero knowledge of its own routing, bindings, and schedules, and was inclined to generate a plausible story instead of a true one. Since the agent capably edited its own soul.md, I naturally assumed it could tell me about its configuration. Trust erodes the first time a user acts on a confident answer that turns out to be fiction.</p>
+        <figure>
+            <img class="uc-shot" src="assets/openclaw/mock-connections.jpg" alt="Illustrated Telegram chat. The user sends the command slash conn. The OpenClaw agent, a cartoon lobster, replies with a grounded Connections readout: Telegram connected; Slack connected in the general channel; and Schedule set to a daily digest at 09:00. It notes the answer is read from platform config, not guessed.">
+            <figcaption><span class="fig-num">Fig. 02</span> &mdash; Proposed &ldquo;what am I connected to&rdquo; answer, grounded in real platform config, never improvised by the model.</figcaption>
+        </figure>
+        <p><b>What I would design:</b> it would be awesome if the agent could capably reply with its connection info, just like it can when it reports out its own AI model status. The connection information could be bundled with /status; failing that, one could create a new /conn command.</p>
+
+        <h2><span class="h-num">03 / Onboarding</span>Onboarding wanted me to become a sysadmin</h2>
+        <p>Setup provided me, a non-engineer, developer concepts at every step: container permissions, a background service, plaintext tokens I had to move between apps by hand, schema errors written for engineers, channel IDs that failed silently when I used names.</p>
+        <p>To get through it, I kept Claude open on my laptop and copied what it told me into the Chromebook, command by command. I felt like a meatsack: the manual relay between the AI that understood the system and the machine that ran it.</p>
+        <!-- Photo is a privacy-blurred version: the right laptop's personal Google Keep notes
+             (license plates, personal categories) are redacted. Source of truth for the blur
+             is Charles's IMG_0838Blur.png. -->
+        <figure class="fig-dark">
+            <img src="assets/openclaw/two-computers.jpg" alt="Two laptops side by side on a table: a MacBook on the left running Claude, and an Acer Chromebook on the right running the OpenClaw setup. Commands were copied from one machine to the other by hand.">
+            <figcaption><span class="fig-num">Fig. 03</span> &mdash; The setup, literally: Claude on the laptop, OpenClaw on the Chromebook, and me hand-carrying commands between them.</figcaption>
+        </figure>
+        <p>The identity, trust, and permissions layer is exactly where a normal person should be able to grant access safely, without ever handling a raw secret.</p>
+        <p><b>What I would design:</b> this is the opportunity: create an onboarding simple enough that you can explain it to whoever shows up for an OpenClaw workshop at the local public library.</p>
+
+        <h2><span class="h-num">04 / Accessibility</span>The default interface is a screen-reader problem</h2>
+        <p>The agent streams its thinking the way a lot of AI chat does now: fleeting status text before the real answer. On Telegram, the channel the product points you to, there is no facility for that pattern. The interim thoughts arrive as message bubbles that appear and then vanish.</p>
+        <p>For a sighted user it is a flicker. For a blind user it can be chaos: content announced and then pulled away, with no stable final target.</p>
+        <p>An interface a screen reader cannot follow leaves blind users behind by default, and that is a design gap worth closing.</p>
+        <figure>
+            <img class="uc-shot" src="assets/openclaw/mock-answer.jpg" alt="Illustrated Telegram chat. The user asks for a quick dinner. The OpenClaw agent, a cartoon lobster, shows a single collapsed line reading Thought for 4 seconds, then one stable answer: a 15-minute garlic pasta recipe with a small drawing of pasta and garlic. The interim thinking is folded away and the final answer is appended once.">
+            <figcaption><span class="fig-num">Fig. 04</span> &mdash; Proposed: a stable, appended final answer instead of a replaced one, with interim status in a form assistive tech can ignore or read once.</figcaption>
+        </figure>
+        <p><b>What I would design:</b> a stable, appended final answer instead of a replaced one, interim status in a form assistive tech can ignore or read once, and ARIA-live discipline ported to the messaging surface.</p>
+
+        <h2><span class="h-num">05 / Through-line</span>The through-line</h2>
+        <p>Put the four together and a pattern falls out. The software is free. The usable, secure, accessible experience still requires technical heft. We can close that design problem.</p>
+        <p>This is the same lesson I have reached from the other direction for twenty years. Design for the people a system serves last, the disabled users, the older adults, the ones without a terminal and a $100 Claude plan, and you do not just include them. You build a better on-ramp for everyone: the curb cut that helps the parent with a stroller, too.</p>
+        <p>That last mile is the job. It is why this role exists, and it is the work I have spent a career doing.</p>
+
+        <p class="svc-link" style="margin-top: var(--s6);"><a href="index.html#contact">Start a conversation &rarr;</a></p>
+    </div>
+    </article>
+
+    <!-- ==================================================== RELATED / SHIPPED PROOF -->
+    <section class="cs-more">
+        <div class="wrap">
+            <p class="index"><span class="num">&rarr;</span><span>The shipped work behind the thinking</span><span class="rule" aria-hidden="true"></span></p>
+            <div class="more-grid cols-3">
+                <a class="more-item" href="magnifier.html">
+                    <span class="m-name">Pixel Magnifier</span>
+                    <span class="m-metric">4.8 stars / 154K MAU</span>
+                    <span class="case-desc" style="color: var(--muted); font-size: 0.9375rem;">The highest-rated Google-made app on Google Play, designed around how low-vision users hold the phone.</span>
+                </a>
+                <a class="more-item" href="simple-view.html">
+                    <span class="m-name">Simple View</span>
+                    <span class="m-metric">Up to 80% conversion</span>
+                    <span class="case-desc" style="color: var(--muted); font-size: 0.9375rem;">Older adults in Japan. Accessibility pulled out of buried settings and into onboarding.</span>
+                </a>
+                <a class="more-item" href="guided-step.html">
+                    <span class="m-name">Guided Step</span>
+                    <span class="m-metric">&minus;44% obstacle hits / CHI 2026</span>
+                    <span class="case-desc" style="color: var(--muted); font-size: 0.9375rem;">AI-powered pedestrian navigation, co-designed with blind users. The agent-trust and multimodal-feedback questions here are the ones OpenClaw has to answer next.</span>
+                </a>
+            </div>
+            <p class="work-all" style="margin-top: var(--s5);"><a href="work.html">See all work &rarr;</a></p>
+        </div>
+    </section>
+
+    <!-- ==================================================== CTA -->
+    <section class="cta-block">
+        <div class="wrap">
+            <h2>Building an agent people want to live with? Let&apos;s talk.</h2>
+            <p>I design the last mile: the responsiveness, trust, onboarding, and accessibility that decide whether a powerful agent is usable by a normal person.</p>
+            <a class="btn btn-accent" href="index.html#contact">Start a conversation <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div>
+            <div class="foot-mark">
+                <span class="mark" aria-hidden="true">CB</span>
+                <b>Charles Berg Consulting</b>
+            </div>
+            <p>Senior product design for accessibility and older adults. Solo, senior IC practice.</p>
+            <p class="foot-email-line"><a class="foot-email" href="mailto:charles@crb.is">charles@crb.is</a></p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+            <ul>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="footer-inner foot-legal-row">
+        <p class="foot-legal">No tracking, no cookies. Privacy-respecting analytics (Plausible) intended, none loaded here. &copy; 2026 Charles Berg.</p>
+        <a class="foot-legal-link" href="accessibility.html">Accessibility statement</a>
+    </div>
+</footer>
+
+<script src="js/nav.js"></script>
+</body>
+</html>

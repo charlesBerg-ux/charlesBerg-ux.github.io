@@ -538,6 +538,8 @@ main:focus { outline: none; }
 .cs-meta { margin-top: var(--s6); }
 .cs-hook { margin-top: var(--s6); font-size: 1.125rem; color: var(--ink); max-width: 58ch; }
 .cs-hook b { color: var(--accent); font-weight: 600; }
+.cs-identity { margin-top: var(--s4); font-family: var(--mono); font-size: 0.8125rem; color: var(--muted); max-width: 58ch; }
+.cs-note { margin-top: var(--s5); font-size: 0.9375rem; color: var(--muted); max-width: 58ch; }
 
 .cs-hero-img { background: var(--dark); border: 1px solid var(--rule); border-radius: var(--radius); padding: var(--s5); display: flex; justify-content: center; }
 .cs-hero-img img { max-height: 520px; width: auto; border-radius: var(--radius); }
@@ -572,6 +574,16 @@ figure img { border: 1px solid var(--rule); border-radius: var(--radius); }
 .fig-col2 img { max-width: min(calc((var(--cs-w) - 2 * var(--s3)) / 3), 100%); }
 .fig-dark { background: transparent; border: 0; border-radius: 0; padding: 0; }
 .fig-dark img { background: var(--dark); border: 1px solid var(--rule); border-radius: var(--radius); padding: var(--s4); }
+
+/* Home "Latest" line pointing to the OpenClaw field-notes essay */
+.work-latest { margin-top: var(--s7); font-size: 0.9375rem; color: var(--muted); }
+@media (min-width: 620px) { .work-latest { margin-top: var(--s6); } }
+.work-latest .wl-key { font-family: var(--mono); font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-right: 0.5rem; }
+.work-latest a { color: var(--ink); font-weight: 600; }
+.work-latest a:hover { color: var(--accent); }
+
+/* ---------------------------------------------- Use-case illustration mockups (OpenClaw) --- */
+.uc-shot { display: block; max-width: min(560px, 100%); height: auto; background: var(--dark); border: 1px solid var(--rule); border-radius: var(--radius); padding: var(--s4); }
 
 /* ---------------------------------------------- Looping video embeds (ex-GIFs) --- */
 .video-embed { display: inline-block; max-width: 100%; min-width: 0; line-height: 0; }
@@ -679,6 +691,7 @@ figcaption .fig-num { color: var(--accent); }
     .evo-grid.two { grid-template-columns: repeat(2, 1fr); }
     .fig-2up { grid-template-columns: repeat(2, 1fr); align-items: start; }
     .more-grid { grid-template-columns: repeat(2, 1fr); }
+    .more-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
     .about-preview { grid-template-columns: 200px 1fr; }
     .about-portrait { max-width: none; }
     .svc-figs { grid-template-columns: repeat(2, 1fr); }
