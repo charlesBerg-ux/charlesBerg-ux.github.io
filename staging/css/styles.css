@@ -576,7 +576,8 @@ figure img { border: 1px solid var(--rule); border-radius: var(--radius); }
 .fig-dark img { background: var(--dark); border: 1px solid var(--rule); border-radius: var(--radius); padding: var(--s4); }
 
 /* Home "Latest" line pointing to the OpenClaw field-notes essay */
-.work-latest { margin-top: var(--s6); font-size: 0.9375rem; color: var(--muted); }
+.work-latest { margin-top: var(--s7); font-size: 0.9375rem; color: var(--muted); }
+@media (min-width: 620px) { .work-latest { margin-top: var(--s6); } }
 .work-latest .wl-key { font-family: var(--mono); font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); margin-right: 0.5rem; }
 .work-latest a { color: var(--ink); font-weight: 600; }
 .work-latest a:hover { color: var(--accent); }
