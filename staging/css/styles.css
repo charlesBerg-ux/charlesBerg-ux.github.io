@@ -371,10 +371,9 @@ main:focus { outline: none; }
 .case-thumb.ph { background: var(--dark); display: flex; align-items: center; justify-content: center; }
 .ph-label { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--on-dark-muted); border: 1px solid #3a4149; padding: 0.35rem 0.6rem; border-radius: var(--radius); }
 .range-divider { text-align: center; font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: var(--s8) 0 var(--s5); }
-/* LAUNCH (2026-07-13): only 3 case studies are live, so .work-grid is a 3-up (matching the
-   home selected-work grid) to avoid an empty 4th cell. Restore the 4-up + range 2-up below
-   when the Monarch card and the "range" block come back. */
-@media (min-width: 620px) { .work-grid { grid-template-columns: repeat(3, 1fr); } .work-range { grid-template-columns: repeat(2, 1fr); } }
+/* Four built studies, so .work-grid is a 2x2 four-square, matching the home selected-work grid.
+   Revisit the column count if a 5th/6th study (Monarch, Nest Wifi) is added. */
+@media (min-width: 620px) { .work-grid { grid-template-columns: repeat(2, 1fr); } .work-range { grid-template-columns: repeat(2, 1fr); } }
 /* @media (min-width: 620px) { .work-grid, .work-range { grid-template-columns: repeat(2, 1fr); } }
    @media (min-width: 980px) { .work-grid { grid-template-columns: repeat(4, 1fr); } } */
 /* Home "Selected work" -> full index link. */
@@ -681,7 +680,7 @@ figcaption .fig-num { color: var(--accent); }
 /* ----------------------------------------------------------- Responsive --- */
 @media (min-width: 620px) {
     :root { --gutter: 2rem; }
-    .proof-grid { grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+    .proof-grid { grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
     .proof-grid > .case-card { border: 0; }
     .do-grid { grid-template-columns: repeat(2, 1fr); }
     .eng-grid { grid-template-columns: repeat(2, 1fr); }
@@ -994,6 +993,78 @@ html { scroll-behavior: smooth; }
     .svc-main .svc { border-top: 1px solid var(--rule); }
     .svc-main .svc:first-child { border-top: 0; }
 }
+
+/* --------------------------------------------------- LED motion families -
+   Live re-creation of the Google Home 4-dot light system. Every family is
+   built from opacity on four fixed dots, per the original hardware spec:
+   opacity moves the "light" across the LEDs, opacity stays between 20% and
+   100%, motion crosses >=3 dots to read as direction, and no dot is ever
+   dropped (a missing dot reads as a broken device). The demo strips are
+   decorative (aria-hidden); each family's meaning is carried by its caption.
+   Motion only runs when the page motion-control sets [data-playing="true"];
+   the global reduced-motion rule below freezes every strip to a static frame. */
+.led-grid { display: grid; grid-template-columns: 1fr; gap: var(--s3); margin: var(--s5) 0 var(--s4); }
+@media (min-width: 520px) { .led-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .led-grid { grid-template-columns: repeat(5, 1fr); } }
+.led-fig {
+    margin: 0; display: flex; flex-direction: column; gap: var(--s3);
+    background: var(--dark); border: 1px solid var(--rule); border-radius: var(--radius);
+    padding: var(--s4) var(--s3); text-align: center;
+}
+.led-stage {
+    display: flex; align-items: center; justify-content: center;
+    gap: clamp(6px, 2.4vw, 10px); min-height: 46px;
+    background: #0B0D0F; border-radius: var(--radius); padding: var(--s3) var(--s2);
+}
+.led-dot { width: clamp(9px, 2.4vw, 13px); height: clamp(9px, 2.4vw, 13px); border-radius: 50%; background: #fff; opacity: 0.5; }
+.led-cap { display: flex; flex-direction: column; gap: 0.15rem; }
+.led-name { font-family: var(--mono); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; color: var(--accent-lite); }
+.led-msg { font-size: 0.8125rem; color: var(--rule); font-style: italic; }
+.fig-note { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); line-height: 1.5; margin: var(--s2) 0 0; }
+
+/* Hero: illustrated Google Home Mini (top-down) carrying the live LED system.
+   Pure CSS, no assets: a charcoal fabric puck domed with radial gradients, a
+   fine woven texture, rim light, and a soft contact shadow, on a spotlit dark
+   stage. The four LEDs reuse .led-dot + the motion families above, so the hero
+   device breathes in the Assistant's listening state under the same control. */
+.gh-hero { width: 100%; max-width: 660px; aspect-ratio: 16 / 10; display: flex; align-items: center; justify-content: center; border-radius: var(--radius); background: radial-gradient(72% 82% at 50% 42%, #2B3138 0%, #23272C 46%, #181B1F 100%); }
+.gh-mini { position: relative; width: clamp(150px, 42%, 260px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 44% 36%, #565C64 0%, #3D434A 38%, #2B3037 72%, #202429 100%); box-shadow: 0 18px 32px -12px rgba(0,0,0,0.6), 0 2px 1px rgba(255,255,255,0.10) inset, 0 -14px 24px rgba(0,0,0,0.40) inset; }
+.gh-mini::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background-image: radial-gradient(rgba(255,255,255,0.06) 0.5px, transparent 1.2px); background-size: 5px 5px; opacity: 0.6; mix-blend-mode: screen; }
+.gh-mini::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 40% 32%, rgba(255,255,255,0.10), transparent 42%); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04); pointer-events: none; }
+.gh-leds { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: clamp(7px, 3.4%, 14px); }
+.gh-leds .led-dot { width: clamp(8px, 2.2vw, 13px); height: clamp(8px, 2.2vw, 13px); box-shadow: 0 0 7px 1px rgba(255,255,255,0.55); }
+/* Static Google Home Mini illustration reused as the work-card thumbnail.
+   No [data-led-scope] ancestor here, so the LEDs stay at their resting state. */
+.case-thumb .gh-mini { display: block; width: auto; height: 74%; }
+.case-thumb .gh-leds { gap: clamp(5px, 2.6%, 10px); }
+.case-thumb .gh-leds .led-dot { width: clamp(6px, 1.6vw, 10px); height: clamp(6px, 1.6vw, 10px); box-shadow: 0 0 5px 1px rgba(255,255,255,0.5); }
+
+[data-led-scope][data-playing="true"] .fam-fixed .led-dot { animation: ledFixed 2.2s ease-in-out infinite; }
+[data-led-scope][data-playing="true"] .fam-continuous .led-dot { animation: ledContinuous 1.7s ease-in-out infinite; }
+[data-led-scope][data-playing="true"] .fam-travel .led-dot { animation: ledTravel 1.6s linear infinite; }
+[data-led-scope][data-playing="true"] .fam-travel .led-dot:nth-child(2) { animation-delay: 0.14s; }
+[data-led-scope][data-playing="true"] .fam-travel .led-dot:nth-child(3) { animation-delay: 0.28s; }
+[data-led-scope][data-playing="true"] .fam-travel .led-dot:nth-child(4) { animation-delay: 0.42s; }
+[data-led-scope][data-playing="true"] .fam-bounce .led-dot:nth-child(1) { animation: ledBounce1 2.4s linear infinite; }
+[data-led-scope][data-playing="true"] .fam-bounce .led-dot:nth-child(2) { animation: ledBounce2 2.4s linear infinite; }
+[data-led-scope][data-playing="true"] .fam-bounce .led-dot:nth-child(3) { animation: ledBounce3 2.4s linear infinite; }
+[data-led-scope][data-playing="true"] .fam-bounce .led-dot:nth-child(4) { animation: ledBounce4 2.4s linear infinite; }
+[data-led-scope][data-playing="true"] .fam-fill .led-dot:nth-child(1) { animation: ledFill1 2.6s linear infinite; }
+[data-led-scope][data-playing="true"] .fam-fill .led-dot:nth-child(2) { animation: ledFill2 2.6s linear infinite; }
+[data-led-scope][data-playing="true"] .fam-fill .led-dot:nth-child(3) { animation: ledFill3 2.6s linear infinite; }
+[data-led-scope][data-playing="true"] .fam-fill .led-dot:nth-child(4) { animation: ledFill4 2.6s linear infinite; }
+
+@keyframes ledContinuous { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+@keyframes ledFixed { 0% { opacity: 0.25; } 6% { opacity: 1; } 14% { opacity: 0.25; } 22% { opacity: 1; } 30% { opacity: 0.25; } 100% { opacity: 0.25; } }
+@keyframes ledTravel { 0% { opacity: 0.2; } 12% { opacity: 1; } 26% { opacity: 0.2; } 100% { opacity: 0.2; } }
+@keyframes ledBounce1 { 0% { opacity: 1; } 16% { opacity: 0.2; } 84% { opacity: 0.2; } 100% { opacity: 1; } }
+@keyframes ledBounce2 { 0%, 12% { opacity: 0.2; } 22% { opacity: 1; } 32%, 68% { opacity: 0.2; } 78% { opacity: 1; } 88%, 100% { opacity: 0.2; } }
+@keyframes ledBounce3 { 0%, 28% { opacity: 0.2; } 38% { opacity: 1; } 48%, 52% { opacity: 0.2; } 62% { opacity: 1; } 72%, 100% { opacity: 0.2; } }
+@keyframes ledBounce4 { 0%, 44% { opacity: 0.2; } 50% { opacity: 1; } 56%, 100% { opacity: 0.2; } }
+@keyframes ledFill1 { 0% { opacity: 0.2; } 8% { opacity: 1; } 88% { opacity: 1; } 100% { opacity: 0.2; } }
+@keyframes ledFill2 { 0%, 26% { opacity: 0.2; } 34% { opacity: 1; } 88% { opacity: 1; } 100% { opacity: 0.2; } }
+@keyframes ledFill3 { 0%, 50% { opacity: 0.2; } 56% { opacity: 1; } 88% { opacity: 1; } 100% { opacity: 0.2; } }
+@keyframes ledFill4 { 0%, 72% { opacity: 0.2; } 77% { opacity: 1; } 88% { opacity: 1; } 100% { opacity: 0.2; } }
 
 /* --------------------------------------------------- Reduced motion ------- */
 @media (prefers-reduced-motion: reduce) {
