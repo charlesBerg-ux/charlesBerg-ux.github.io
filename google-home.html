@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Google Home light-pattern system — Charles Berg Consulting</title>
-<meta name="description" content="A coherent light-behavior language that signals device state across the whole Google Home fleet. One behavioral system across 25M+ devices. Case study in progress.">
-<meta property="og:title" content="Google Home light-pattern system — a case study by Charles Berg">
+<title>Google Home light pattern system — Charles Berg Consulting</title>
+<meta name="description" content="How one motion language of four LEDs signals device state across 25M+ Google Home and Nest devices, on speakers with no screen. A systems-design case study by Charles Berg.">
+<meta property="og:title" content="Google Home light pattern system — a case study by Charles Berg">
 <meta property="og:description" content="One behavioral light language that tells you what a device is doing, across 25M+ Google Home devices.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://crb.is/google-home.html">
@@ -56,13 +56,17 @@
 
     <div class="cs-top wrap">
         <p class="cs-back"><a href="index.html#work">&larr; Back to work</a></p>
+        <button class="motion-toggle" type="button" data-video-toggle-all aria-pressed="false" aria-label="Play animations" hidden>
+            <span class="ve-icon" aria-hidden="true"></span>
+            <span class="mt-label">Play animations</span>
+        </button>
     </div>
 
     <!-- ==================================================== CS HEADER -->
     <article>
     <header class="cs-header wrap">
         <p class="cs-eyebrow">Google</p>
-        <h1>Google Home light-pattern system</h1>
+        <h1>Google Home light pattern system</h1>
 
         <div class="cs-meta spec">
             <div class="spec-row"><div class="spec-key">Role</div><div class="spec-val">Lead / Systems Designer</div></div>
@@ -70,36 +74,85 @@
             <div class="spec-row"><div class="spec-key">Team</div><div class="spec-val">Product, engineering, hardware</div></div>
         </div>
 
-        <p class="cs-hook">The coordinated light behaviors that tell you what a device is doing. One behavioral language across 25M+ devices. Red Dot award.</p>
+        <p class="cs-hook"><b>Lights are the face of the Assistant</b> on a speaker with no screen. I helped design one motion language that tells you what the device is doing, across 25M+ Google Home and Nest devices. Red Dot recognition.</p>
     </header>
 
     <div class="wrap">
         <div class="cs-hero-img">
-            <div class="fig-ph-box" style="aspect-ratio:16/9;background:var(--dark);display:flex;align-items:center;justify-content:center;border-radius:var(--radius);"><span class="ph-label">Photo coming</span></div>
+            <div class="gh-hero" data-led-scope data-playing="false" role="img" aria-label="Illustration of a Google Home Mini seen from above: a charcoal fabric puck with its four white LEDs lit in a row across the center.">
+                <div class="gh-mini">
+                    <div class="gh-leds fam-continuous" aria-hidden="true">
+                        <span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span>
+                    </div>
+                </div>
+            </div>
         </div>
+        <p class="fig-note">Illustrated top-down view.</p>
     </div>
 
     <!-- ==================================================== CS BODY -->
     <div class="cs-body wrap">
 
-        <div class="cs-callout on-dark">
-            <span class="label">Status</span>
-            <p class="co-note">Case study in progress. The full write-up lands after the site redesign.</p>
+        <h2><span class="h-num">01 / Challenge</span>Communicating state without a screen</h2>
+        <p>A Google Home speaker has no display. No text, no icons, no place to put a label. What it has is a row of four dots, and on a screenless device those lights are the face of the Assistant. Their form carries the Google brand; their behavior has to carry meaning.</p>
+        <p>That meaning breaks into four jobs. Attention: a timer is ringing, a reminder is waiting. Feedback: I heard you, something happened, something went wrong. Progress: something is happening, you are this far along. Orientation: welcome, this is where you are. Every one of those has to read across markets and languages with no manual, through four points of white light.</p>
+
+        <h2><span class="h-num">02 / Principles</span>Rules before patterns</h2>
+        <p>Before designing a single animation, we set the principles the system had to hold to. Respect the home: be expressive, but unintrusive. How much prominence a pattern earns depends on how receptive someone is to interruption in that moment. Draw from human metaphors: body language, gesture, a breathing rhythm people read without being taught.</p>
+        <p>And one hard line. Do not use the lights as a display. The moment you try to spell out specific information with four dots, the system stops scaling. That constraint did more to shape the work than any single pattern.</p>
+
+        <h2><span class="h-num">03 / System</span>A few motion families, not many patterns</h2>
+        <p>The assumption underneath everything: people will not memorize a large catalog of distinct light patterns. So rather than draw a bespoke animation for every state, we mapped every state onto a small set of core motion families, built from two primitives, pulsing and translation. A fixed pulse confirms. A continuous pulse is dialog, the device listening and responding. Motion traveling left to right is open-ended progress. A fill is measured progress. Back-and-forth is attention.</p>
+
+        <div data-led-scope data-playing="false">
+            <div class="led-grid">
+                <figure class="led-fig fam-fixed">
+                    <div class="led-stage" aria-hidden="true"><span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span></div>
+                    <figcaption class="led-cap"><span class="led-name">Fixed pulse</span><span class="led-msg">&ldquo;Something happened&rdquo;</span></figcaption>
+                </figure>
+                <figure class="led-fig fam-continuous">
+                    <div class="led-stage" aria-hidden="true"><span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span></div>
+                    <figcaption class="led-cap"><span class="led-name">Continuous pulse</span><span class="led-msg">&ldquo;I hear you and respond&rdquo;</span></figcaption>
+                </figure>
+                <figure class="led-fig fam-travel">
+                    <div class="led-stage" aria-hidden="true"><span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span></div>
+                    <figcaption class="led-cap"><span class="led-name">Left to right</span><span class="led-msg">&ldquo;Something is happening&rdquo;</span></figcaption>
+                </figure>
+                <figure class="led-fig fam-bounce">
+                    <div class="led-stage" aria-hidden="true"><span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span></div>
+                    <figcaption class="led-cap"><span class="led-name">Back &amp; forth</span><span class="led-msg">&ldquo;Hey, look here!&rdquo;</span></figcaption>
+                </figure>
+                <figure class="led-fig fam-fill">
+                    <div class="led-stage" aria-hidden="true"><span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span><span class="led-dot"></span></div>
+                    <figcaption class="led-cap"><span class="led-name">Fill</span><span class="led-msg">&ldquo;You are this far along&rdquo;</span></figcaption>
+                </figure>
+            </div>
+            <p class="fig-note">Five core motion families, each built from opacity on the same four dots. Use the motion control at the top of the page to play or pause.</p>
         </div>
 
-        <h2><span class="h-num">01 / Challenge</span>The problem</h2>
-        <p>State legibility across many devices: how a room full of different Google Home hardware can each say what it&apos;s doing, clearly and consistently.</p>
+        <p>A new state does not get a new gesture. It picks a family and tunes the parameters, speed, spread, duration. That is what let us cut complexity. The original Home used twelve dots; the Mini and Max moved to four. Four dots, one shared grammar, the same meaning across very different hardware.</p>
 
-        <h2><span class="h-num">02 / System</span>Designing a behavioral language</h2>
-        <p>A shared vocabulary of light behaviors: Listening, Thinking, Confirmed, Muted, readable at a glance and the same everywhere.</p>
+        <h2><span class="h-num">04 / Color</span>White first, color only when it must mean something</h2>
+        <p>White is the primary color. It stays legible on every product finish and keeps the hardware brand clean. Color is expensive here for real reasons: LED performance is limited, colored fabric fights the light, and color-blind users cannot be the ones who miss the message.</p>
+        <p>So color is reserved for the few states someone has to read over a long stretch, most of them about privacy. Amber when the mic is off, so a muted device never looks like it is listening. Teal for an open connection, like a call or intercom. Red for fatal errors only, never for the small ones, which fall to sound and voice instead. Everything else stays white.</p>
 
-        <h2><span class="h-num">03 / Scale</span>One system across the fleet</h2>
-        <p>Translating one behavioral language onto very different hardware, from LED rings to bars, without losing meaning.</p>
+        <h2><span class="h-num">05 / Craft</span>The rules that keep it from feeling broken</h2>
+        <p>A system like this lives or dies on detail. Motion has to travel across at least three of the four dots to register as direction at all. Dropping a dot from a pattern does not read as minimal; it reads as a malfunction, so every dot always participates. Opacity stays between 20 and 100 percent, so a light never fully dies. Cadence is choreographed to the device&rsquo;s sound, and no two consecutive patterns are identical, so states never blur into each other. None of this is polish. It is the difference between a legible signal and a light that looks like a bug.</p>
 
-        <h2><span class="h-num">04 / Impact</span>Impact</h2>
-        <p>Adoption across 25M+ devices and the Red Dot recognition that followed.</p>
+        <h2><span class="h-num">06 / Impact</span>One language across the fleet</h2>
+        <div class="cs-callout on-dark">
+            <span class="label">Result</span>
+            <p class="co-big">25M+ devices</p>
+            <p class="co-note">The four-dot motion language shipped as the non-verbal signal system across Google Home and Nest speakers, and earned multiple Red Dot Design Awards.</p>
+        </div>
+        <blockquote class="pullquote">
+            <p>&ldquo;The 4-dot system is a masterclass in functional minimalism, communicating state through light as effectively as a screen.&rdquo;</p>
+            <cite>Red Dot Design Award commentary</cite>
+        </blockquote>
 
-        <p style="margin-top: var(--s6);">The full write-up is on the way. If you&apos;re building a system that has to stay coherent across many surfaces, let&apos;s talk.</p>
+        <h2><span class="h-num">07 / Forward</span>What I&rsquo;d take forward</h2>
+        <p>The hardest calls on this system were subtractions: fewer patterns, less color, a shared grammar instead of one animation per state. Legibility for the people most interfaces skip, older adults and low-vision users among them, came from what we left out. That is the same instinct I bring to every surface I design.</p>
+        <p>If you are building something that has to stay coherent across many surfaces, let&rsquo;s talk.</p>
 
         <p class="svc-link" style="margin-top: var(--s6);"><a href="index.html#contact">Start a conversation &rarr;</a></p>
     </div>
@@ -152,5 +205,6 @@
 </footer>
 
 <script src="js/nav.js"></script>
+<script src="js/led.js"></script>
 </body>
 </html>
