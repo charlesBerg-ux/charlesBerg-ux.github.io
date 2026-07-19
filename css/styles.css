@@ -1066,6 +1066,35 @@ html { scroll-behavior: smooth; }
 @keyframes ledFill3 { 0%, 50% { opacity: 0.2; } 56% { opacity: 1; } 88% { opacity: 1; } 100% { opacity: 0.2; } }
 @keyframes ledFill4 { 0%, 72% { opacity: 0.2; } 77% { opacity: 1; } 88% { opacity: 1; } 100% { opacity: 0.2; } }
 
+/* --------------------------------------------------- Field notes ---------- */
+/* Magazine feature cards for pictorial essays: image on one side, title + dek
+   + meta on the other; stacks image-over-body on mobile. */
+.fn-list { display: grid; gap: var(--s5); margin-top: var(--s6); }
+.fn-list:first-child { margin-top: 0; } /* no sec-head above (e.g. the Field notes page) */
+.section.fn-section { padding-top: var(--s6); } /* tighter: the list starts right after the divider */
+.fn-card { display: grid; grid-template-columns: 1fr; background: #fff; border: 1px solid var(--rule); border-radius: var(--radius); overflow: hidden; color: inherit; text-decoration: none; transition: border-color 0.15s ease; }
+a.fn-card:hover { border-color: var(--muted); }
+@media (min-width: 720px) { .fn-card { grid-template-columns: minmax(0, 40%) 1fr; } }
+.fn-media { background: var(--dark); aspect-ratio: 4 / 3; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+@media (min-width: 720px) { .fn-media { aspect-ratio: auto; min-height: 240px; } }
+.fn-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.fn-body { padding: var(--s5); display: flex; flex-direction: column; gap: var(--s3); min-width: 0; }
+.fn-kicker { font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.fn-title { font-size: clamp(1.35rem, 2.5vw, 1.75rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; color: var(--ink); }
+a.fn-card:hover .fn-title { color: var(--accent); }
+.fn-dek { color: var(--muted); font-size: 1rem; line-height: 1.65; }
+.fn-meta { margin-top: auto; padding-top: var(--s2); font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.fn-meta .fn-go { color: var(--ink); }
+a.fn-card:hover .fn-meta .fn-go { color: var(--accent); }
+.fn-card.is-upcoming { background: transparent; border-style: dashed; }
+.fn-card.is-upcoming .fn-title, .fn-card.is-upcoming .fn-dek { color: var(--muted); }
+/* Alternate the image side on every other card for magazine rhythm. */
+@media (min-width: 720px) {
+    .fn-card:nth-child(even) { grid-template-columns: 1fr minmax(0, 40%); }
+    .fn-card:nth-child(even) .fn-media { grid-column: 2; grid-row: 1; }
+    .fn-card:nth-child(even) .fn-body { grid-column: 1; grid-row: 1; }
+}
+
 /* --------------------------------------------------- Reduced motion ------- */
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
