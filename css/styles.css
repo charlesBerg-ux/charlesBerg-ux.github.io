@@ -1088,6 +1088,12 @@ a.fn-card:hover .fn-title { color: var(--accent); }
 a.fn-card:hover .fn-meta .fn-go { color: var(--accent); }
 .fn-card.is-upcoming { background: transparent; border-style: dashed; }
 .fn-card.is-upcoming .fn-title, .fn-card.is-upcoming .fn-dek { color: var(--muted); }
+/* Typographic cover for text-only field notes (essays with no photo/illustration).
+   Sits inside .fn-media, so it inherits the dark panel background. */
+.fn-cover { align-self: stretch; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: var(--s5); padding: var(--s5); }
+.fn-cover .cov-tag { font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-lite); }
+.fn-cover .cov-line { font-size: clamp(1.05rem, 2.2vw, 1.4rem); font-weight: 600; line-height: 1.25; letter-spacing: -0.01em; color: #fff; }
+.fn-cover .cov-foot { font-family: var(--mono); font-size: 0.6875rem; line-height: 1.5; color: var(--on-dark-muted); }
 /* Alternate the image side on every other card for magazine rhythm. */
 @media (min-width: 720px) {
     .fn-card:nth-child(even) { grid-template-columns: 1fr minmax(0, 40%); }
