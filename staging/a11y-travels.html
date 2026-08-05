@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Accessibility patterns belong in the design tool — Charles Berg</title>
+<meta name="description" content="Functional accessibility keeps getting filed a context-switch away from the canvas. React Aria proves it can live in the component, so why does it stop at code? A Charles Berg field note on design systems.">
+<meta property="og:title" content="Accessibility patterns belong in the design tool — a field note by Charles Berg">
+<meta property="og:description" content="Good systems nail the visual layer, then leave interaction accessibility in a separate tab. The fix: put functional accessibility in the component, in the design tool, not just the docs.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://crb.is/a11y-travels.html">
+<meta property="og:image" content="https://crb.is/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Charles Berg — product design for the users most products skip.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='2' fill='%231A1D21'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='600' fill='%23fff' text-anchor='middle'%3ECB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="site-head">
+    <div class="head-inner">
+        <a class="wordmark" href="index.html">
+            <span class="mark" aria-hidden="true">CB</span>
+            <span class="wordmark-text">
+                <span class="wm-name">Charles Berg</span>
+                <span class="wm-sub">Accessibility UX &amp; Co-Design</span>
+            </span>
+        </a>
+        <nav class="nav-desktop" aria-label="Primary">
+            <a href="work.html">Work</a>
+            <a href="field-notes.html">Field notes</a>
+            <a href="services.html">Services</a>
+            <a href="index.html#about">About</a>
+            <a class="btn btn-accent nav-contact" href="index.html#contact">Contact <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </nav>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-mobile" aria-label="Open menu">
+            <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+    </div>
+    <nav class="nav-mobile" id="nav-mobile" data-nav-mobile aria-label="Primary">
+        <ul>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="field-notes.html">Field notes</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a class="mobile-contact" href="index.html#contact">Contact &rarr;</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="main" tabindex="-1">
+
+    <div class="cs-top wrap">
+        <p class="cs-back"><a href="field-notes.html">&larr; Back to field notes</a></p>
+    </div>
+
+    <!-- ==================================================== CS HEADER -->
+    <article>
+    <header class="cs-header wrap">
+        <p class="cs-eyebrow">Field notes &middot; Design systems</p>
+        <h1>Accessibility patterns belong in the design tool</h1>
+        <p class="cs-identity">Charles Berg &mdash; twenty years of product design at Google, Microsoft, and Motorola. Accessibility is the through-line.</p>
+
+        <div class="cs-meta spec">
+            <div class="spec-row"><div class="spec-key">Method</div><div class="spec-val">Structural accessibility audit of well-known public design systems</div></div>
+            <div class="spec-row"><div class="spec-key">Focus</div><div class="spec-val">Design tools, component libraries, and the design-to-code handoff</div></div>
+            <div class="spec-row"><div class="spec-key">Published</div><div class="spec-val">August 2026</div></div>
+        </div>
+
+        <p class="cs-hook"><b>Functional accessibility keeps landing one context-switch away from the canvas.</b> Good systems nail the visual layer, then leave the interaction patterns in a separate tab or a linked doc. React Aria proves accessibility can ride inside the component. So why does it stop at code?</p>
+    </header>
+
+    <!-- ==================================================== CS BODY -->
+    <div class="cs-body wrap">
+
+        <h2><span class="h-num">01 / Ship first</span>An issue that ignores the ship date is ignored</h2>
+        <p>Design systems help the team ship.</p>
+        <p>Obviously. If the product doesn&rsquo;t ship, there&rsquo;s no accessibility to argue about. I&rsquo;ve spent enough years as part of shipping teams to know: an accessibility issue that ignores the ship date is ignored.</p>
+        <p>A designer starts in Figma with a feature to build, a deadline, platform constraints, and a visual language to honor. Accessibility is a concern: sometimes an explicit one, other times just a general thing to remember. Good design systems handle the <b>visual</b> aspect of a component well, for example, the proper contrast ratio of text-to-background for WCAG conformance. Functional accessibility &mdash; the interaction patterns &mdash; is where most systems quietly fail the designer: not by leaving accessibility out, but by leaving it somewhere else. In a separate tab. A linked doc. A checklist that lives one context-switch away from the canvas.</p>
+
+        <h2><span class="h-num">02 / The loop</span>Re-earning what the system should have handed you</h2>
+        <p>What happens to a conscientious designer when functional accessibility lives somewhere else? They want to do right by disabled users, so they try to figure it out. They read internal and external requirements, or they ask peers for advice. They return to the canvas, having spent significant energy re-earning what the system should have handed them. This is a sequential dependent loop, and every designer who has focused on accessibility recognizes it on sight.</p>
+        <p>This loop demonstrates that in many companies, accessibility is one more thing to hold in your head.</p>
+        <p>The direction is to move functional accessibility onto the surface where they already work. If functional accessibility lives in the Figma library, in the component itself, the loop never starts. This is the argument of this essay: functional accessibility should be in the design tool, not just the docs.</p>
+
+        <h2><span class="h-num">03 / The audit</span>The separation is built into the systems</h2>
+        <p>This is not the result of careless teams that file functional accessibility in the wrong place. The separation is built into the systems themselves.</p>
+        <p>I spent the last few weeks auditing how a set of well-known public design systems handle accessibility at the structural level. I&rsquo;ll describe what I found without naming names, as the pattern is the point, not any one team. The pattern showed up in the systems&rsquo; own design. One major system files functional (and visual) accessibility in a separate tab on every component page, sitting alongside Usage, Style, and Code, as if it were a fourth concern rather than a property of the first three. Another states plainly on its site that it will not merge code that fails accessibility, while its public repository has no such check wired into its build at all. A major commercial platform runs a quality certification for the apps built on top of it, covering performance, design, and security, but leaves accessibility out.</p>
+        <p>These are some of the most rigorous design organizations in the industry. They say accessibility is first-class, and then they structure it as separate or optional. You can&rsquo;t be surprised if a designer misses functional accessibility in these situations.</p>
+
+        <h2><span class="h-num">04 / The proof</span>React Aria shows the alternative is buildable</h2>
+        <p>However, at least one of the systems I looked at does not work this way, and it proves the alternative is buildable.</p>
+        <p>In one of them, Adobe&rsquo;s React Aria, the open-source foundation under its Spectrum design system, accessibility is inherited by construction. Its components carry their behavior, not their looks: a developer can take the parts, assemble a brand-new custom component, restyle it dramatically, and the screen-reader semantics survive, because they were never tied to the visual treatment in the first place. The accessibility travels with the component automatically. There is no separate pass, no checklist to re-run, no loop.</p>
+        <p>React Aria is the proof, not the destination. It shows functional accessibility can reside in the component &mdash; but it does so in code, one handoff away from where the designer actually works. That is the question: why does it stop at code? In the design tool, the same component appears as a purely visual element, with the functional accessibility patterns hidden underneath the surface. Figma hands the designer the visual component. The accessibility that rides along with it in the codebase &mdash; the roles, the reading order, the announcement behavior &mdash; all of that gets left behind in a doc the designer has to hunt down, or it comes back later as QA change requests after the design ships. We solved transmission on one side of the handoff and not the other.</p>
+
+        <h2><span class="h-num">05 / Into the component</span>Make the accessibility ride along</h2>
+        <p>The component in the Figma library should carry its functional accessibility as part of its content, the same way it carries its color and its spacing. When a designer drags a component onto the canvas, the reading order, the announcement, the distinction between what is decorative and what is meaningful, should ride along with it. Accessibility annotation plugins for Figma aspire to this, letting designers mark accessibility intent directly on the design. That is the right instinct pointed at the right surface, but if the designer is not aware of the capabilities of the components they are labelling, they are still starting at zero component knowledge. Today they close that gap by leaving the system &mdash; reading the support docs, asking a colleague &mdash; and only then coming back to label the component. Put the functional accessibility in the component itself and that excursion disappears: the knowledge is already on the canvas, so the designer annotates from something rather than from zero.</p>
+        <p>So how would Figma actually carry and transmit this? That is the hard part, and it does not exist off the shelf yet. The component in the library would need to expand its concept of accessibility into the functional area &mdash; things such as structured data, the roles, the reading order, the announcement behavior &mdash; and keep that data in sync with the code the component ships as, so the two sides of the handoff stop drifting apart. The plumbing is starting to appear: Figma&rsquo;s Dev Mode already links a design component to its coded counterpart. What is missing is the accessibility payload riding through that link. Closing that gap is what a reference architecture for accessibility in design systems would have to solve.</p>
+        <p>This is not only about the conformance baseline. The same move reaches all the way into the design intent. On Android, the accessibility decisions a thoughtful designer wants to make are properties one sets intentionally. &ldquo;Read this first,&rdquo; &ldquo;announce this politely, not urgently,&rdquo; and &ldquo;confirm this with a haptic&rdquo; are properties the designer can reach for the way they reach for a color token. The web, for the most part, makes those same moves bespoke, or does not offer them at all. I wrote that finding up in <a href="a11y-mobile.html">a separate essay</a>. Here, the point is narrower: placing functional accessibility in the component is both a method to achieve conformance and a way to give the designer the opportunity to design intentionally instead of after the fact.</p>
+
+        <h2><span class="h-num">06 / If you own a system</span>Close the one hole</h2>
+        <p>If you own a design system, start by closing the one hole that separates the strong systems from the weak ones: the ability to ship an inaccessible component that still compiles. Make accessibility in your components required, not optional. Then build both ways to achieve conformance: the construction side that prevents problems and the verification side that catches them. Stop placing accessibility in a separate tab, and write it into each component as a design choice. Then focus on communicating these characteristics through the design tool.</p>
+        <p>When you&rsquo;re a designer in such a system, you can stop making basic accessibility specs. Instead, you can make accessibility choices grounded in your design: reading order, decorative elements, and how to notify the user. You can produce that quickly, because these represent decisions you already made as a designer. You are just writing them down. Express the intent and let the system carry the mechanism.</p>
+
+        <h2><span class="h-num">07 / Floor, lift, top</span>Let the designer&rsquo;s judgment reach the top</h2>
+        <p>A complete design system has three levels. The floor is conformance, the baseline a designer should not have to think about at the component level. The top level is inclusive design, the above-compliance craft that is genuinely worth a designer&rsquo;s attention. And in between is the lift, which the system provides so a designer can express that craft without dropping back into conformance-layer thinking. Today the floor, the lift, and the top level sometimes land on a single designer.</p>
+        <p>Move functional accessibility into the component in the design tool, and the levels start to separate. The system automatically provides the baseline, and the lift is there when the designer reaches for it. As a result, the designer&rsquo;s judgment goes straight to the top level. That is what it means for functional accessibility to be in the design tool, and not just the docs.</p>
+
+        <p class="svc-link" style="margin-top: var(--s6);"><a href="index.html#contact">Start a conversation &rarr;</a></p>
+    </div>
+    </article>
+
+    <!-- ==================================================== RELATED / SHIPPED PROOF -->
+    <section class="cs-more">
+        <div class="wrap">
+            <p class="index"><span class="num">&rarr;</span><span>The shipped work behind the thinking</span><span class="rule" aria-hidden="true"></span></p>
+            <div class="more-grid cols-3">
+                <a class="more-item" href="simple-view.html">
+                    <span class="m-name">Simple View</span>
+                    <span class="m-metric">Up to 80% conversion</span>
+                    <span class="case-desc" style="color: var(--muted); font-size: 0.9375rem;">Accessibility pulled out of buried settings and into onboarding, where every user meets it. A design-system move, in production.</span>
+                </a>
+                <a class="more-item" href="google-home.html">
+                    <span class="m-name">Google Home light pattern system</span>
+                    <span class="m-metric">25M+ devices / Red Dot</span>
+                    <span class="case-desc" style="color: var(--muted); font-size: 0.9375rem;">One behavioral light language that signals device state across a whole fleet. Systems design at scale.</span>
+                </a>
+                <a class="more-item" href="guided-step.html">
+                    <span class="m-name">Guided Step</span>
+                    <span class="m-metric">&minus;44% obstacle hits / CHI 2026</span>
+                    <span class="case-desc" style="color: var(--muted); font-size: 0.9375rem;">AI-powered pedestrian navigation, co-designed with blind users. Above-the-floor accessibility as the whole point.</span>
+                </a>
+            </div>
+            <p class="work-all" style="margin-top: var(--s5);"><a href="field-notes.html">See all field notes &rarr;</a></p>
+        </div>
+    </section>
+
+    <!-- ==================================================== CTA -->
+    <section class="cta-block">
+        <div class="wrap">
+            <h2>Building a design system that treats accessibility as first-class?</h2>
+            <p>I help teams move functional accessibility into the component, where designers actually work, through consulting, structural audits, and accessibility office hours.</p>
+            <a class="btn btn-accent" href="index.html#contact">Start a conversation <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div>
+            <div class="foot-mark">
+                <span class="mark" aria-hidden="true">CB</span>
+                <b>Charles Berg Consulting</b>
+            </div>
+            <p>Senior product design for accessibility and older adults. Solo, senior IC practice.</p>
+            <p class="foot-email-line"><a class="foot-email" href="mailto:charles@crb.is">charles@crb.is</a></p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+            <ul>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="field-notes.html">Field notes</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="footer-inner foot-legal-row">
+        <p class="foot-legal">No cookies, no cross-site tracking. Privacy-respecting analytics via Cloudflare (cookie-free, no personal data). &copy; 2026 Charles Berg.</p>
+        <a class="foot-legal-link" href="accessibility.html">Accessibility statement</a>
+    </div>
+</footer>
+
+<script src="js/nav.js"></script>
+</body>
+</html>

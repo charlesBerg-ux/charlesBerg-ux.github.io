@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Mobile already solved half of accessibility — Charles Berg</title>
+<meta name="description" content="An audit of five public design systems. The one built for mobile, Material 3, hands designers accessibility as first-class properties, while the web still treats the same moves as bespoke. A Charles Berg field note.">
+<meta property="og:title" content="Mobile already solved half of accessibility — a field note by Charles Berg">
+<meta property="og:description" content="Material 3 makes accessibility a property you set. The web still files it in a separate tab. What each platform solved, and the gap no design system has closed.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://crb.is/a11y-mobile.html">
+<meta property="og:image" content="https://crb.is/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Charles Berg — product design for the users most products skip.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='2' fill='%231A1D21'/%3E%3Ctext x='16' y='21' font-family='monospace' font-size='13' font-weight='600' fill='%23fff' text-anchor='middle'%3ECB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="site-head">
+    <div class="head-inner">
+        <a class="wordmark" href="index.html">
+            <span class="mark" aria-hidden="true">CB</span>
+            <span class="wordmark-text">
+                <span class="wm-name">Charles Berg</span>
+                <span class="wm-sub">Accessibility UX &amp; Co-Design</span>
+            </span>
+        </a>
+        <nav class="nav-desktop" aria-label="Primary">
+            <a href="work.html">Work</a>
+            <a href="field-notes.html">Field notes</a>
+            <a href="services.html">Services</a>
+            <a href="index.html#about">About</a>
+            <a class="btn btn-accent nav-contact" href="index.html#contact">Contact <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </nav>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-mobile" aria-label="Open menu">
+            <span class="nav-toggle-bars" aria-hidden="true"></span>
+        </button>
+    </div>
+    <nav class="nav-mobile" id="nav-mobile" data-nav-mobile aria-label="Primary">
+        <ul>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="field-notes.html">Field notes</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a class="mobile-contact" href="index.html#contact">Contact &rarr;</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="main" tabindex="-1">
+
+    <div class="cs-top wrap">
+        <p class="cs-back"><a href="field-notes.html">&larr; Back to field notes</a></p>
+    </div>
+
+    <!-- ==================================================== CS HEADER -->
+    <article>
+    <header class="cs-header wrap">
+        <p class="cs-eyebrow">Field notes &middot; Design systems</p>
+        <h1>Mobile already solved half of accessibility</h1>
+        <p class="cs-identity">Charles Berg &mdash; twenty years of product design at Google, Microsoft, and Motorola. Accessibility is the through-line.</p>
+
+        <div class="cs-meta spec">
+            <div class="spec-row"><div class="spec-key">Method</div><div class="spec-val">Audited five public design systems at the structural level</div></div>
+            <div class="spec-row"><div class="spec-key">Systems</div><div class="spec-val">Adobe Spectrum, IBM Carbon, U.S. Web Design System, Shopify Polaris, Google Material 3</div></div>
+            <div class="spec-row"><div class="spec-key">Published</div><div class="spec-val">July 2026</div></div>
+        </div>
+
+        <p class="cs-hook"><b>Mobile already solved half of accessibility.</b> I audited five public design systems. The one built for mobile, Material 3, hands designers accessibility as first-class properties. The web still treats the same moves as bespoke, and no system has assembled both halves in one place.</p>
+    </header>
+
+    <!-- ==================================================== CS BODY -->
+    <div class="cs-body wrap">
+
+        <h2><span class="h-num">01 / Office hours</span>A pattern I kept seeing</h2>
+        <p>As part of my consulting practice, I&rsquo;ve been holding office hours for a large software firm lately, in which I help the UX designers work through ambiguous accessibility questions in their specs. These designers are smart and talented and demonstrate a strong grasp of accessibility regardless of their formal training. In addition, the design system they work in has a strong accessibility foundation. Nonetheless, these designers sometimes miss a chunk of necessary accessibility markup on their web apps. Naturally, I wondered why. Then it occurred to me: web app design systems may need to take a lesson from one on a different platform. The mobile-only Material 3 for Android has provided a way to integrate a11y into its functionality, instead of treating it as bespoke.</p>
+
+        <h2><span class="h-num">02 / The audit</span>Five systems, one rubric</h2>
+        <p>The value of any design system is to provide the designer, and ultimately the end user, with a framework. A good design system will think through the visual and layout as well as define interaction patterns that will make any designed experience part of the system. A simple way of thinking about this is that a design system will make sure the font throughout the app is of the same family, the colors are clear and on brand, and key interactions such as form handling remain consistent. A great design system will do all that and also define the interaction rules for blind and low-vision people as well.</p>
+        <p>For the last few weeks, I audited how five awesome, publicly available design systems handle accessibility at the structural level:</p>
+        <ul>
+            <li>Adobe Spectrum,</li>
+            <li>IBM Carbon,</li>
+            <li>the U.S. Web Design System,</li>
+            <li>Shopify Polaris,</li>
+            <li>and, as a comparison, Google&rsquo;s Material 3.</li>
+        </ul>
+        <p>To keep track of how these systems handled accessibility issues, I created a rubric to apply to each: tokens, component contracts, testing, documentation, how well accessibility survives when a designer extends the system, and how much craft the system actually lets a designer express on purpose.</p>
+
+        <h2><span class="h-num">03 / The web&rsquo;s habit</span>Filed in a separate tab</h2>
+        <p>The one expressly designed for mobile, Material 3, strongly influenced this exercise. Let&rsquo;s first consider that all web design systems create an excellent conformance baseline: adequate color contrast, the proper roles, keyboard support, etc. Every system I looked at mostly clears it. Unfortunately, a designer focused on creating a unique app may feel compelled to extend the design system in which they work. On the web, especially, this puts conformance at risk and may cause a lot of one-off developer coding using a supplemental accessibility language, called ARIA.</p>
+        <p>For example, the Spectrum documentation shows this gap: it files accessibility in a separate tab on every component page, sitting next to Usage, Style, and Code, as if it were a fourth concern rather than a property of the first three. This forces the designer into the mindset of something tacked on (even if it&rsquo;s really not). Another system asserts on its site that it will not merge code that fails accessibility, while its public repository has no such check wired into its build at all, which forces the same mindset in the mind of the developer.</p>
+
+        <h2><span class="h-num">04 / Material&rsquo;s move</span>Accessibility as a property</h2>
+        <p>Material 3 handles this differently, by highlighting functionality from a disability-first perspective. &ldquo;Read this first&rdquo; is a property that can be called through traversalIndex. &ldquo;Confirm this with a haptic&rdquo; is a property: performHapticFeedback, with a typed set of feedback kinds to choose from. These are integrated into the design system instead of a separate reference.</p>
+        <p>As a result, any Android engineer can name these APIs, and many have shipped with them for years. What&rsquo;s surprising isn&rsquo;t that they exist. It&rsquo;s how rarely they enter this conversation: in the design-system accessibility writing I follow, the examples are almost always web. Another platform already solved a chunk of the same problem, on a separate track, and it barely comes up.</p>
+
+        <h2><span class="h-num">05 / Two halves</span>One gap no system has closed</h2>
+        <p>The web&rsquo;s version of those same two moves is uneven. There is a generic Vibration API, but it has no semantic types and doesn&rsquo;t run on iOS. aria-flowto is in the ARIA spec, but screen readers don&rsquo;t dependably support it, so the markup source order is the only reliable one. The audit also found that the web has things mobile does not: prefers-reduced-motion, prefers-contrast, prefers-color-scheme &mdash; clean, declarative ways to respond to what a user has already told their device they need. And therein lies a different problem, as web apps may need to ask the user in different contexts about things that are globally set on the device.</p>
+        <p>Due to this, full above-the-floor accessibility is split across two platforms, and no design system has assembled it in one place. Mobile shipped traversal order, announcement priority, and haptics. The web shipped user-preference reactivity. Each solved a different half. And this is where the designers I consult with hit the wall: what can one expect from the system in which I&rsquo;m delivering? To complicate matters, some of the designers I work with are designing for mobile (so Material 3 comes into play) and others are in web apps.</p>
+        <p>I tried to keep things simple, so my rubric has a number ranking. There are four categories of above-the-floor capability. Across the four web systems I audited, each ships at most one of them as a real, reach-for-it primitive. Material ships three. This is a measurable difference in what the system hands the designer for free.</p>
+
+        <h2><span class="h-num">06 / The loop</span>The sequential dependent loop</h2>
+        <p>Most app designers have a lot to consider: a PRD, an org&rsquo;s visual language, software opportunities or limitations, and a deadline. Accessibility ends up being one more thing on the pile. If a designer is interested in integrating accessibility from design inception, they usually have to take it upon themselves to read and implement the standard as a separate task. I have started calling that the sequential dependent loop, and every designer who has tried to be good about accessibility knows it on sight. Alternately, a lot of designers may be encouraged by the org to focus on accessibility in the QA phase. I used to get a lot of accessibility-based change requests after submitting my designs for build at more than one org I have worked at.</p>
+        <p>Material shows the loop is not inevitable. When &ldquo;read this first&rdquo; is a property you set, the designer never leaves the canvas to express it. The intent goes straight into the component. The floor takes care of itself, and the designer gets to spend their attention on creating a compelling, accessible app. Considering component variations is where a designer&rsquo;s individual accessibility judgment merges with their ability to create something cool and useful. It is exactly the part the current web tooling makes hardest to reach.</p>
+
+        <h2><span class="h-num">07 / The question</span>What I&rsquo;m chasing next</h2>
+        <p>The reconsidered issue, then, is how can we build all design systems to structurally incorporate component-level accessibility rules, regardless of the delivery platform, so the application-level designer can use accessibility features as smoothly as they choose a color token? Why does the web still treat as bespoke engineering what mobile treats as a property, and what would a design system look like if it just handed designers the whole kit, both halves, in the place where they already work?</p>
+        <p>That last question is the one I am chasing in a longer piece about where accessibility should live in a design system. This mobile finding is one part of a larger survey. If it is useful to you, the full argument is in the companion essay, <a href="a11y-travels.html"><b>Accessibility patterns belong in the design tool</b></a>.</p>
+
+        <p class="svc-link" style="margin-top: var(--s6);"><a href="index.html#contact">Start a conversation &rarr;</a></p>
+    </div>
+    </article>
+
+    <!-- ==================================================== RELATED / SHIPPED PROOF -->
+    <section class="cs-more">
+        <div class="wrap">
+            <p class="index"><span class="num">&rarr;</span><span>The shipped work behind the thinking</span><span class="rule" aria-hidden="true"></span></p>
+            <div class="more-grid cols-3">
+                <a class="more-item" href="simple-view.html">
+                    <span class="m-name">Simple View</span>
+                    <span class="m-metric">Up to 80% conversion</span>
+                    <span class="case-desc" style="color: var(--muted); font-size: 0.9375rem;">A design-system insight in practice: accessibility pulled out of buried settings and into onboarding, where every user meets it.</span>
+                </a>
+                <a class="more-item" href="google-home.html">
+                    <span class="m-name">Google Home light pattern system</span>
+                    <span class="m-metric">25M+ devices / Red Dot</span>
+                    <span class="case-desc" style="color: var(--muted); font-size: 0.9375rem;">One behavioral light language that signals device state across a whole fleet. Systems design at scale.</span>
+                </a>
+                <a class="more-item" href="guided-step.html">
+                    <span class="m-name">Guided Step</span>
+                    <span class="m-metric">&minus;44% obstacle hits / CHI 2026</span>
+                    <span class="case-desc" style="color: var(--muted); font-size: 0.9375rem;">AI-powered pedestrian navigation, co-designed with blind users. Above-the-floor accessibility as the whole point.</span>
+                </a>
+            </div>
+            <p class="work-all" style="margin-top: var(--s5);"><a href="field-notes.html">See all field notes &rarr;</a></p>
+        </div>
+    </section>
+
+    <!-- ==================================================== CTA -->
+    <section class="cta-block">
+        <div class="wrap">
+            <h2>Want accessibility built into the component, not bolted on after?</h2>
+            <p>I help teams move accessibility from a separate tab into the place designers actually work, through consulting, structural audits, and accessibility office hours.</p>
+            <a class="btn btn-accent" href="index.html#contact">Start a conversation <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div>
+            <div class="foot-mark">
+                <span class="mark" aria-hidden="true">CB</span>
+                <b>Charles Berg Consulting</b>
+            </div>
+            <p>Senior product design for accessibility and older adults. Solo, senior IC practice.</p>
+            <p class="foot-email-line"><a class="foot-email" href="mailto:charles@crb.is">charles@crb.is</a></p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+            <ul>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="field-notes.html">Field notes</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="footer-inner foot-legal-row">
+        <p class="foot-legal">No cookies, no cross-site tracking. Privacy-respecting analytics via Cloudflare (cookie-free, no personal data). &copy; 2026 Charles Berg.</p>
+        <a class="foot-legal-link" href="accessibility.html">Accessibility statement</a>
+    </div>
+</footer>
+
+<script src="js/nav.js"></script>
+</body>
+</html>
