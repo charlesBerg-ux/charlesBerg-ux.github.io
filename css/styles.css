@@ -1101,6 +1101,26 @@ a.fn-card:hover .fn-meta .fn-go { color: var(--accent); }
     .fn-card:nth-child(even) .fn-body { grid-column: 1; grid-row: 1; }
 }
 
+/* ------------------------------------ Inclusion Impact membership stamp --- */
+/* The footer's right-hand column holds the site links and, under a hairline,
+   the membership stamp: the Inclusion Impact icon in a white square that
+   matches the CB square at the top of the footer, with the words set in IBM
+   Plex rather than their typeface, so the two marks read as a pair.
+   The icon is theirs; the white square is there because its figures are black
+   and would disappear against the near-black footer. */
+.site-footer .foot-side { display: grid; gap: var(--s5); }
+.site-footer .foot-stamp { border-top: 1px solid #2b3037; padding-top: var(--s5); }
+.ii-lockup { display: inline-flex; align-items: center; gap: var(--s3); text-decoration: none; }
+.ii-chip {
+    background: #fff; border-radius: var(--radius); width: 40px; height: 40px; flex: none;
+    display: inline-flex; align-items: center; justify-content: center;
+}
+.ii-chip img { width: 28px; }
+.ii-lockup-text { display: grid; gap: 0.1rem; }
+.ii-of { font-family: var(--mono); font-size: 0.625rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-dark-muted); }
+.ii-name { color: #fff; font-size: 0.9375rem; font-weight: 600; line-height: 1.3; letter-spacing: -0.005em; }
+.ii-lockup:hover .ii-of { color: #fff; }
+
 /* --------------------------------------------------- Reduced motion ------- */
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
