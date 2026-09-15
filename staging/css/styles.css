@@ -232,6 +232,29 @@ main:focus { outline: none; }
 .nav-mobile a:hover { color: var(--accent); }
 .nav-mobile .mobile-contact { color: var(--accent); font-family: var(--mono); font-size: 0.95rem; }
 
+/* Which page you are on. The services switcher further down already marks its
+   current item with a 2px accent rule plus a weight step; this reuses that
+   language in the site nav so "you are here" looks the same everywhere. Weight
+   changes alongside the rule, so the state never rests on colour alone.
+   The transparent border on every desktop item stops the row shifting by a
+   pixel when one of them gains the rule: the 2px comes out of the padding, so
+   the items stay exactly the height they were. In the mobile drawer accent text
+   already means "Contact", so the marker there is the rule, not the colour. */
+.nav-desktop a:not(.nav-contact) {
+    padding-bottom: calc(0.5rem - 2px);
+    border-bottom: 2px solid transparent;
+}
+.nav-desktop a[aria-current="page"] {
+    color: var(--accent);
+    font-weight: 600;
+    border-bottom-color: var(--accent);
+}
+.nav-mobile a[aria-current="page"] {
+    font-weight: 600;
+    border-left: 2px solid var(--accent);
+    padding-left: var(--s3);
+}
+
 @media (min-width: 900px) {
     .nav-toggle { display: none; }
     .nav-mobile { display: none !important; }
@@ -666,6 +689,9 @@ figcaption .fig-num { color: var(--accent); }
 .footer-nav ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--s5); }
 .footer-nav a { color: var(--on-dark-muted); text-decoration: none; font-family: var(--mono); font-size: 0.8125rem; letter-spacing: 0.02em; }
 .footer-nav a:hover { color: #fff; }
+/* Same idea in the footer, where the palette is inverted: the current page is
+   the one at full white against the muted rest, plus the weight step. */
+.footer-nav a[aria-current="page"] { color: #fff; font-weight: 600; }
 .foot-legal { font-family: var(--mono); font-size: 0.6875rem; color: #868E98; }
 /* Copyright row: legal text left, Accessibility-statement link right, one top rule. */
 /* Copyright row: reuses the top row's 2fr/1fr grid so the legal text sits under
@@ -1039,20 +1065,29 @@ html { scroll-behavior: smooth; }
 .case-thumb .gh-leds { gap: clamp(5px, 2.6%, 10px); }
 .case-thumb .gh-leds .led-dot { width: clamp(6px, 1.6vw, 10px); height: clamp(6px, 1.6vw, 10px); box-shadow: 0 0 5px 1px rgba(255,255,255,0.5); }
 
-[data-led-scope][data-playing="true"] .fam-fixed .led-dot { animation: ledFixed 2.2s ease-in-out infinite; }
-[data-led-scope][data-playing="true"] .fam-continuous .led-dot { animation: ledContinuous 1.7s ease-in-out infinite; }
-[data-led-scope][data-playing="true"] .fam-travel .led-dot { animation: ledTravel 1.6s linear infinite; }
+/* Each family's cycle length lives in one place, as a custom property on the
+   family, so the reduced-motion rule at the end of this file can restore the
+   real duration without repeating any number. */
+.fam-fixed      { --led-dur: 2.2s; }
+.fam-continuous { --led-dur: 1.7s; }
+.fam-travel     { --led-dur: 1.6s; }
+.fam-bounce     { --led-dur: 2.4s; }
+.fam-fill       { --led-dur: 2.6s; }
+
+[data-led-scope][data-playing="true"] .fam-fixed .led-dot { animation: ledFixed var(--led-dur) ease-in-out infinite; }
+[data-led-scope][data-playing="true"] .fam-continuous .led-dot { animation: ledContinuous var(--led-dur) ease-in-out infinite; }
+[data-led-scope][data-playing="true"] .fam-travel .led-dot { animation: ledTravel var(--led-dur) linear infinite; }
 [data-led-scope][data-playing="true"] .fam-travel .led-dot:nth-child(2) { animation-delay: 0.14s; }
 [data-led-scope][data-playing="true"] .fam-travel .led-dot:nth-child(3) { animation-delay: 0.28s; }
 [data-led-scope][data-playing="true"] .fam-travel .led-dot:nth-child(4) { animation-delay: 0.42s; }
-[data-led-scope][data-playing="true"] .fam-bounce .led-dot:nth-child(1) { animation: ledBounce1 2.4s linear infinite; }
-[data-led-scope][data-playing="true"] .fam-bounce .led-dot:nth-child(2) { animation: ledBounce2 2.4s linear infinite; }
-[data-led-scope][data-playing="true"] .fam-bounce .led-dot:nth-child(3) { animation: ledBounce3 2.4s linear infinite; }
-[data-led-scope][data-playing="true"] .fam-bounce .led-dot:nth-child(4) { animation: ledBounce4 2.4s linear infinite; }
-[data-led-scope][data-playing="true"] .fam-fill .led-dot:nth-child(1) { animation: ledFill1 2.6s linear infinite; }
-[data-led-scope][data-playing="true"] .fam-fill .led-dot:nth-child(2) { animation: ledFill2 2.6s linear infinite; }
-[data-led-scope][data-playing="true"] .fam-fill .led-dot:nth-child(3) { animation: ledFill3 2.6s linear infinite; }
-[data-led-scope][data-playing="true"] .fam-fill .led-dot:nth-child(4) { animation: ledFill4 2.6s linear infinite; }
+[data-led-scope][data-playing="true"] .fam-bounce .led-dot:nth-child(1) { animation: ledBounce1 var(--led-dur) linear infinite; }
+[data-led-scope][data-playing="true"] .fam-bounce .led-dot:nth-child(2) { animation: ledBounce2 var(--led-dur) linear infinite; }
+[data-led-scope][data-playing="true"] .fam-bounce .led-dot:nth-child(3) { animation: ledBounce3 var(--led-dur) linear infinite; }
+[data-led-scope][data-playing="true"] .fam-bounce .led-dot:nth-child(4) { animation: ledBounce4 var(--led-dur) linear infinite; }
+[data-led-scope][data-playing="true"] .fam-fill .led-dot:nth-child(1) { animation: ledFill1 var(--led-dur) linear infinite; }
+[data-led-scope][data-playing="true"] .fam-fill .led-dot:nth-child(2) { animation: ledFill2 var(--led-dur) linear infinite; }
+[data-led-scope][data-playing="true"] .fam-fill .led-dot:nth-child(3) { animation: ledFill3 var(--led-dur) linear infinite; }
+[data-led-scope][data-playing="true"] .fam-fill .led-dot:nth-child(4) { animation: ledFill4 var(--led-dur) linear infinite; }
 
 @keyframes ledContinuous { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
 @keyframes ledFixed { 0% { opacity: 0.25; } 6% { opacity: 1; } 14% { opacity: 0.25; } 22% { opacity: 1; } 30% { opacity: 0.25; } 100% { opacity: 0.25; } }
@@ -1129,5 +1164,20 @@ a.fn-card:hover .fn-meta .fn-go { color: var(--accent); }
         animation-iteration-count: 1 !important;
         transition-duration: 0.001ms !important;
         scroll-behavior: auto !important;
+    }
+
+    /* The light strips are the subject of the Google Home case study, not
+       decoration. The rule above would otherwise stop them from ever moving,
+       even for a visitor who has pressed Play — the button would report that
+       motion is running while the dots sat still, and the thing the case study
+       is about would be unreachable.
+
+       Nothing here starts moving on its own. The strips only animate while
+       led.js has set data-playing="true" on the scope, and led.js starts
+       paused whenever reduced motion is on. So this restores the real cycle
+       length for one case: the visitor asked for it. */
+    [data-led-scope][data-playing="true"] .led-dot {
+        animation-duration: var(--led-dur) !important;
+        animation-iteration-count: infinite !important;
     }
 }

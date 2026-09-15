@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Accessibility — Charles Berg Consulting</title>
 <meta name="description" content="How this site is built and tested for accessibility: a first-person commitment to WCAG 2.1 AA, the manual and automated testing I run, and how to report a barrier.">
 <meta property="og:title" content="Accessibility — Charles Berg Consulting">
@@ -58,27 +58,27 @@
 <main id="main" tabindex="-1">
 
     <!-- ==================================================== A11Y HERO -->
-    <section class="a11y-hero">
+    <section class="a11y-hero" aria-labelledby="a11y-hero-title">
         <div class="wrap">
             <p class="index"><span class="num">AX</span><span>Accessibility statement</span><span class="rule" aria-hidden="true"></span><span>Last reviewed 2026</span></p>
-            <h1>The same bar I sell, held on my own site.</h1>
+            <h1 id="a11y-hero-title">The same bar I sell, held on my own site.</h1>
             <p class="lede">Accessibility is the work I do, so it would be strange to cut corners here. This page is a plain account of what I build to, how I check it, and what to do if something still gets in your way.</p>
         </div>
     </section>
 
     <!-- ==================================================== COMMITMENT -->
-    <section class="a11y-block">
+    <section class="a11y-block" aria-labelledby="a11y-block-title">
         <div class="wrap">
-            <h2>What I build to</h2>
+            <h2 id="a11y-block-title">What I build to</h2>
             <p>I strive to maintain conformance with <b>WCAG 2.1 Level AA</b>. In practice that means text keeps a contrast ratio of at least 4.5 to 1, every control is reachable and operable by keyboard, focus is always visible, structure is conveyed with real headings and landmarks, and nothing depends on color alone. The layout reflows without a horizontal scroll down to a 320-pixel viewport and at 200 percent zoom.</p>
             <p>Motion is kept minimal, and anything that moves respects your <b>reduced-motion</b> setting. There is no tracking and there are no cookies, so nothing here works against a screen reader or a slow connection.</p>
         </div>
     </section>
 
     <!-- ==================================================== TESTING -->
-    <section class="a11y-block">
+    <section class="a11y-block" aria-labelledby="a11y-block-2-title">
         <div class="wrap">
-            <h2>How I test it</h2>
+            <h2 id="a11y-block-2-title">How I test it</h2>
             <p>I do not trust a single tool to catch everything, so I use three passes that check different things.</p>
             <ul class="a11y-list">
                 <li><span class="al-key">Keyboard</span><span class="al-val">A manual pass with the mouse put away. I <b>tab through every page</b> to confirm the order is logical, focus stays visible, the mobile menu closes on Escape and returns focus, and nothing traps.</span></li>
@@ -90,9 +90,9 @@
     </section>
 
     <!-- ==================================================== REPORT -->
-    <section class="a11y-block">
+    <section class="a11y-block" aria-labelledby="a11y-block-3-title">
         <div class="wrap">
-            <h2>Found a barrier? Tell me.</h2>
+            <h2 id="a11y-block-3-title">Found a barrier? Tell me.</h2>
             <p>If any part of this site got in your way, I want to know, and I will treat it as a real bug. Email me at <a href="mailto:charles@crb.is">charles@crb.is</a> with the page, what you were trying to do, and the assistive technology or browser you were using if you know it. I read every message personally and usually reply within two business days.</p>
             <p class="svc-link" style="margin-top: var(--s5);"><a href="index.html#contact">Start a conversation &rarr;</a></p>
         </div>
@@ -122,7 +122,7 @@
             </nav>
             <div class="foot-stamp">
                 <a class="ii-lockup" href="https://inclusionimpact.co" target="_blank" rel="noopener">
-                    <span class="ii-chip"><img src="assets/inclusion-impact/inclusion-impact-mark.png" alt="" width="78" height="55"></span>
+                    <span class="ii-chip"><img src="assets/inclusion-impact/inclusion-impact-mark.png" alt="" width="78" height="55" loading="lazy"></span>
                     <span class="ii-lockup-text">
                         <span class="ii-of">Member of</span>
                         <span class="ii-name">Inclusion Impact Accessibility<span class="vh"> (opens in new tab)</span></span>

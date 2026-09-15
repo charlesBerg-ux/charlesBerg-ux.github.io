@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Feet first into OpenClaw — Charles Berg</title>
 <meta name="description" content="A designer self-hosts OpenClaw, the largest open-source AI-agent project, and writes down where the agent experience breaks, why, and what he would design instead. Product findings, ongoing since July 2026.">
 <meta property="og:title" content="Feet first into OpenClaw — a case study by Charles Berg">
@@ -93,7 +93,7 @@
         <p>Under the hood the runtime was serializing my turns and cold-starting a process per turn. In Telegram I had no signal my turns were being queued, so I did the natural thing. I sent more messages. Which made the eventual burst more confusing.</p>
         <p>The lack of clear turn-state indicators was the problem. The typing indicator was small and at the top of the screen, and there was no queue acknowledgment. No expectation had been set. A fast tool became disorienting the moment it started &ldquo;thinking,&rdquo; and the interface invited me to make it worse.</p>
         <figure>
-            <img class="uc-shot" src="assets/openclaw/mock-turn-state.jpg" alt="Illustrated Telegram chat. The OpenClaw agent, drawn as a friendly cartoon lobster, shows a typing indicator after the user sends three quick messages: what is on my calendar today, and the weather, and remind me to leave at 5. A dark status pill reads: Queued 3, answering in order, first reply in about 15 seconds. This is the proposed honest turn-state.">
+            <img class="uc-shot" src="assets/openclaw/mock-turn-state.webp" alt="Illustrated Telegram chat. The OpenClaw agent, drawn as a friendly cartoon lobster, shows a typing indicator after the user sends three quick messages: what is on my calendar today, and the weather, and remind me to leave at 5. A dark status pill reads: Queued 3, answering in order, first reply in about 15 seconds. This is the proposed honest turn-state." width="1120" height="1040" loading="lazy">
             <figcaption><span class="fig-num">Fig. 01</span> &mdash; Proposed turn-state: after three quick messages, a queued-message acknowledgment and an honest latency contract, so the user always knows the agent heard them.</figcaption>
         </figure>
         <p><b>What I would design:</b> more prominent progress indicators, optimistic acknowledgments, warm-start, and an honest latency contract.</p>
@@ -102,7 +102,7 @@
         <p>I asked one of my agents, over Telegram, whether it could also post to its Slack channel. It answered with total confidence: it had no Slack connection but was happy to post summaries once the connection showed up. In reality, Slack was connected and healthy. The agent was already live in the channel.</p>
         <p>The agent has zero knowledge of its own routing, bindings, and schedules, and was inclined to generate a plausible story instead of a true one. Since the agent capably edited its own soul.md, I naturally assumed it could tell me about its configuration. Trust erodes the first time a user acts on a confident answer that turns out to be fiction.</p>
         <figure>
-            <img class="uc-shot" src="assets/openclaw/mock-connections.jpg" alt="Illustrated Telegram chat. The user sends the command slash conn. The OpenClaw agent, a cartoon lobster, replies with a grounded Connections readout: Telegram connected; Slack connected in the general channel; and Schedule set to a daily digest at 09:00. It notes the answer is read from platform config, not guessed.">
+            <img class="uc-shot" src="assets/openclaw/mock-connections.webp" alt="Illustrated Telegram chat. The user sends the command slash conn. The OpenClaw agent, a cartoon lobster, replies with a grounded Connections readout: Telegram connected; Slack connected in the general channel; and Schedule set to a daily digest at 09:00. It notes the answer is read from platform config, not guessed." width="1120" height="1040" loading="lazy">
             <figcaption><span class="fig-num">Fig. 02</span> &mdash; Proposed &ldquo;what am I connected to&rdquo; answer, grounded in real platform config, never improvised by the model.</figcaption>
         </figure>
         <p><b>What I would design:</b> it would be awesome if the agent could capably reply with its connection info, just like it can when it reports out its own AI model status. The connection information could be bundled with /status; failing that, one could create a new /conn command.</p>
@@ -114,7 +114,7 @@
              (license plates, personal categories) are redacted. Source of truth for the blur
              is Charles's IMG_0838Blur.png. -->
         <figure class="fig-dark">
-            <img src="assets/openclaw/two-computers.jpg" alt="Two laptops side by side on a table: a MacBook on the left running Claude, and an Acer Chromebook on the right running the OpenClaw setup. Commands were copied from one machine to the other by hand.">
+            <img src="assets/openclaw/two-computers.webp" alt="Two laptops side by side on a table: a MacBook on the left running Claude, and an Acer Chromebook on the right running the OpenClaw setup. Commands were copied from one machine to the other by hand." width="1600" height="1200" loading="lazy">
             <figcaption><span class="fig-num">Fig. 03</span> &mdash; The setup, literally: Claude on the laptop, OpenClaw on the Chromebook, and me hand-carrying commands between them.</figcaption>
         </figure>
         <p>The identity, trust, and permissions layer is exactly where a normal person should be able to grant access safely, without ever handling a raw secret.</p>
@@ -125,7 +125,7 @@
         <p>For a sighted user it is a flicker. For a blind user it can be chaos: content announced and then pulled away, with no stable final target.</p>
         <p>An interface a screen reader cannot follow leaves blind users behind by default, and that is a design gap worth closing.</p>
         <figure>
-            <img class="uc-shot" src="assets/openclaw/mock-answer.jpg" alt="Illustrated Telegram chat. The user asks for a quick dinner. The OpenClaw agent, a cartoon lobster, shows a single collapsed line reading Thought for 4 seconds, then one stable answer: a 15-minute garlic pasta recipe with a small drawing of pasta and garlic. The interim thinking is folded away and the final answer is appended once.">
+            <img class="uc-shot" src="assets/openclaw/mock-answer.webp" alt="Illustrated Telegram chat. The user asks for a quick dinner. The OpenClaw agent, a cartoon lobster, shows a single collapsed line reading Thought for 4 seconds, then one stable answer: a 15-minute garlic pasta recipe with a small drawing of pasta and garlic. The interim thinking is folded away and the final answer is appended once." width="1120" height="1040" loading="lazy">
             <figcaption><span class="fig-num">Fig. 04</span> &mdash; Proposed: a stable, appended final answer instead of a replaced one, with interim status in a form assistive tech can ignore or read once.</figcaption>
         </figure>
         <p><b>What I would design:</b> a stable, appended final answer instead of a replaced one, interim status in a form assistive tech can ignore or read once, and ARIA-live discipline ported to the messaging surface.</p>
@@ -147,8 +147,9 @@
     </article>
 
     <!-- ==================================================== RELATED / SHIPPED PROOF -->
-    <section class="cs-more">
+    <section class="cs-more" aria-labelledby="cs-more-title">
         <div class="wrap">
+            <h2 class="vh" id="cs-more-title">The shipped work behind the thinking</h2>
             <p class="index"><span class="num">&rarr;</span><span>The shipped work behind the thinking</span><span class="rule" aria-hidden="true"></span></p>
             <div class="more-grid cols-3">
                 <a class="more-item" href="magnifier.html">
@@ -172,9 +173,9 @@
     </section>
 
     <!-- ==================================================== CTA -->
-    <section class="cta-block">
+    <section class="cta-block" aria-labelledby="cta-block-title">
         <div class="wrap">
-            <h2>Building an agent people want to live with? Let&apos;s talk.</h2>
+            <h2 id="cta-block-title">Building an agent people want to live with? Let&apos;s talk.</h2>
             <p>I design the last mile: the responsiveness, trust, onboarding, and accessibility that decide whether a powerful agent is usable by a normal person.</p>
             <a class="btn btn-accent" href="index.html#contact">Start a conversation <span class="arrow" aria-hidden="true">&rarr;</span></a>
         </div>
@@ -204,7 +205,7 @@
             </nav>
             <div class="foot-stamp">
                 <a class="ii-lockup" href="https://inclusionimpact.co" target="_blank" rel="noopener">
-                    <span class="ii-chip"><img src="assets/inclusion-impact/inclusion-impact-mark.png" alt="" width="78" height="55"></span>
+                    <span class="ii-chip"><img src="assets/inclusion-impact/inclusion-impact-mark.png" alt="" width="78" height="55" loading="lazy"></span>
                     <span class="ii-lockup-text">
                         <span class="ii-of">Member of</span>
                         <span class="ii-name">Inclusion Impact Accessibility<span class="vh"> (opens in new tab)</span></span>
