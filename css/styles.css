@@ -1018,3 +1018,16 @@ a.fn-card:hover .fn-meta .fn-go { color: var(--accent); }
         animation-iteration-count: infinite !important;
     }
 }
+
+/* ------------------------------------------------- Unlisted one-pagers --- */
+/* for-teams.html, for-founders.html and for-funders.html. Nothing on the site
+   links to them and they carry a noindex tag; they are sent to people directly.
+   They reuse the case study shell, plus these few additions. */
+.op-header h1 { max-width: 22ch; line-height: 1.1; }
+.cs-body > .eng-grid, .cs-body > .spec { max-width: var(--cs-w); margin-top: var(--s5); }
+.cs-body .eng-item p { margin-top: 0; }
+.cs-body > ul { padding-left: 1.25rem; margin-top: var(--s4); }
+.cs-body > ul li + li { margin-top: var(--s2); }
+.op-rate { margin-top: var(--s4); border-left: 3px solid var(--accent); padding-left: var(--s4); max-width: var(--cs-text); }
+.op-rate .r-val { font-family: var(--mono); font-size: 1.25rem; font-weight: 600; margin-top: 0; }
+.op-rate p + p { margin-top: var(--s2); color: var(--muted); }
